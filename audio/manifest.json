@@ -1,0 +1,800 @@
+[
+  {
+    "index": 0,
+    "text": "こんにちは。",
+    "file": "ja-000.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 1,
+    "text": "ありがとうございます。",
+    "file": "ja-001.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 2,
+    "text": "すみません。",
+    "file": "ja-002.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 3,
+    "text": "はい。",
+    "file": "ja-003.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 4,
+    "text": "いいえ。",
+    "file": "ja-004.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 5,
+    "text": "日本語が話せません。",
+    "file": "ja-005.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 6,
+    "text": "ゆっくり話してください。",
+    "file": "ja-006.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 7,
+    "text": "英語を話せますか？",
+    "file": "ja-007.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 8,
+    "text": "書いていただけますか？",
+    "file": "ja-008.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 9,
+    "text": "もう一度お願いします。",
+    "file": "ja-009.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 10,
+    "text": "ここへ行きたいです。",
+    "file": "ja-010.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 11,
+    "text": "駅はどこですか？",
+    "file": "ja-011.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 12,
+    "text": "この電車はここに行きますか？",
+    "file": "ja-012.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 13,
+    "text": "何番ホームですか？",
+    "file": "ja-013.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 14,
+    "text": "どこで乗り換えればいいですか？",
+    "file": "ja-014.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 15,
+    "text": "どの駅で降りればいいですか？",
+    "file": "ja-015.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 16,
+    "text": "どの出口から出ればいいですか？",
+    "file": "ja-016.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 17,
+    "text": "二人分の切符をください。",
+    "file": "ja-017.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 18,
+    "text": "電車を間違えました。",
+    "file": "ja-018.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 19,
+    "text": "エレベーターはどこですか？",
+    "file": "ja-019.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 20,
+    "text": "私の荷物がまだ出てきません。",
+    "file": "ja-020.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 21,
+    "text": "チェックインカウンターはどこですか？",
+    "file": "ja-021.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 22,
+    "text": "搭乗口はどこですか？",
+    "file": "ja-022.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 23,
+    "text": "SIMカードはどこで買えますか？",
+    "file": "ja-023.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 24,
+    "text": "チェックインをお願いします。",
+    "file": "ja-024.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 25,
+    "text": "予約しています。",
+    "file": "ja-025.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 26,
+    "text": "荷物を預かっていただけますか？",
+    "file": "ja-026.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 27,
+    "text": "チェックアウトは何時ですか？",
+    "file": "ja-027.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 28,
+    "text": "Wi-Fiのパスワードを教えてください。",
+    "file": "ja-028.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 29,
+    "text": "タオルをもう一枚ください。",
+    "file": "ja-029.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 30,
+    "text": "二人ですが、席はありますか？",
+    "file": "ja-030.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 31,
+    "text": "写真付きのメニューはありますか？",
+    "file": "ja-031.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 32,
+    "text": "これをください。",
+    "file": "ja-032.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 33,
+    "text": "お水をください。",
+    "file": "ja-033.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 34,
+    "text": "辛くしないでください。",
+    "file": "ja-034.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 35,
+    "text": "豚肉は入っていますか？",
+    "file": "ja-035.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 36,
+    "text": "お会計をお願いします。",
+    "file": "ja-036.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 37,
+    "text": "別々に払えますか？",
+    "file": "ja-037.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 38,
+    "text": "これはいくらですか？",
+    "file": "ja-038.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 39,
+    "text": "カードで払えますか？",
+    "file": "ja-039.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 40,
+    "text": "免税手続きはできますか？",
+    "file": "ja-040.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 41,
+    "text": "これは税込みですか？",
+    "file": "ja-041.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 42,
+    "text": "手数料はかかりますか？",
+    "file": "ja-042.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 43,
+    "text": "レシートをください。",
+    "file": "ja-043.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 44,
+    "text": "試着してもいいですか？",
+    "file": "ja-044.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 45,
+    "text": "袋はいりません。",
+    "file": "ja-045.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 46,
+    "text": "トイレはどこですか？",
+    "file": "ja-046.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 47,
+    "text": "道に迷いました。",
+    "file": "ja-047.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 48,
+    "text": "助けてください。",
+    "file": "ja-048.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 49,
+    "text": "パスポートをなくしました。",
+    "file": "ja-049.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 50,
+    "text": "気分が悪いです。",
+    "file": "ja-050.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 51,
+    "text": "救急車を呼んでください。",
+    "file": "ja-051.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 52,
+    "text": "これを一つください。",
+    "file": "ja-052.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 53,
+    "text": "これを二つください。",
+    "file": "ja-053.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 54,
+    "text": "もう一つお願いします。",
+    "file": "ja-054.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 55,
+    "text": "店内で食べます。",
+    "file": "ja-055.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 56,
+    "text": "持ち帰りでお願いします。",
+    "file": "ja-056.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 57,
+    "text": "おすすめは何ですか？",
+    "file": "ja-057.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 58,
+    "text": "英語のメニューはありますか？",
+    "file": "ja-058.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 59,
+    "text": "氷なしでお願いします。",
+    "file": "ja-059.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 60,
+    "text": "スプーンとフォークをください。",
+    "file": "ja-060.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 61,
+    "text": "取り皿をください。",
+    "file": "ja-061.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 62,
+    "text": "どのくらい待ちますか？",
+    "file": "ja-062.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 63,
+    "text": "席料やサービス料はかかりますか？",
+    "file": "ja-063.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 64,
+    "text": "おいしかったです。ごちそうさまでした。",
+    "file": "ja-064.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 65,
+    "text": "わかりません。",
+    "file": "ja-065.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 66,
+    "text": "少し待ってください。",
+    "file": "ja-066.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 67,
+    "text": "ここに入力していただけますか？",
+    "file": "ja-067.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 68,
+    "text": "翻訳アプリを使います。",
+    "file": "ja-068.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 69,
+    "text": "もう一度言っていただけますか？",
+    "file": "ja-069.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 70,
+    "text": "タイから来ました。",
+    "file": "ja-070.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 71,
+    "text": "見てもいいですか？",
+    "file": "ja-071.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 72,
+    "text": "もっと大きいサイズはありますか？",
+    "file": "ja-072.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 73,
+    "text": "もっと小さいサイズはありますか？",
+    "file": "ja-073.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 74,
+    "text": "ほかの色はありますか？",
+    "file": "ja-074.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 75,
+    "text": "袋を一枚ください。",
+    "file": "ja-075.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 76,
+    "text": "現金で払います。",
+    "file": "ja-076.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 77,
+    "text": "ICカードは使えますか？",
+    "file": "ja-077.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 78,
+    "text": "金額を確認していただけますか？",
+    "file": "ja-078.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 79,
+    "text": "終電は何時ですか？",
+    "file": "ja-079.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 80,
+    "text": "座席の予約は必要ですか？",
+    "file": "ja-080.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 81,
+    "text": "このカードはどこでチャージできますか？",
+    "file": "ja-081.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 82,
+    "text": "コインロッカーはどこですか？",
+    "file": "ja-082.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 83,
+    "text": "地図で教えてください。",
+    "file": "ja-083.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 84,
+    "text": "暖房がつきません。",
+    "file": "ja-084.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 85,
+    "text": "毛布をもう一枚ください。",
+    "file": "ja-085.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 86,
+    "text": "部屋のトイレが故障しています。",
+    "file": "ja-086.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 87,
+    "text": "タクシーを呼んでいただけますか？",
+    "file": "ja-087.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 88,
+    "text": "写真を撮ってもいいですか？",
+    "file": "ja-088.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 89,
+    "text": "靴を脱いだほうがいいですか？",
+    "file": "ja-089.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 90,
+    "text": "ここに並べばいいですか？",
+    "file": "ja-090.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 91,
+    "text": "ごみはどこに捨てればいいですか？",
+    "file": "ja-091.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 92,
+    "text": "携帯電話をなくしました。",
+    "file": "ja-092.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 93,
+    "text": "交番はどこですか？",
+    "file": "ja-093.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 94,
+    "text": "携帯電話を充電できる場所はありますか？",
+    "file": "ja-094.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 95,
+    "text": "観光で来ました。",
+    "file": "ja-095.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 96,
+    "text": "これがホテルの予約確認書です。",
+    "file": "ja-096.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 97,
+    "text": "これが帰りの航空券です。",
+    "file": "ja-097.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 98,
+    "text": "これが旅行の日程です。",
+    "file": "ja-098.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 99,
+    "text": "日本に来るのは初めてです。",
+    "file": "ja-099.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 100,
+    "text": "英語は少ししか話せません。",
+    "file": "ja-100.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 101,
+    "text": "タイ語の通訳の方はいますか？",
+    "file": "ja-101.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 102,
+    "text": "ゼロ",
+    "file": "ja-102.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 103,
+    "text": "一",
+    "file": "ja-103.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 104,
+    "text": "二",
+    "file": "ja-104.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 105,
+    "text": "三",
+    "file": "ja-105.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 106,
+    "text": "四",
+    "file": "ja-106.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 107,
+    "text": "五",
+    "file": "ja-107.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 108,
+    "text": "六",
+    "file": "ja-108.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 109,
+    "text": "七",
+    "file": "ja-109.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 110,
+    "text": "八",
+    "file": "ja-110.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 111,
+    "text": "九",
+    "file": "ja-111.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 112,
+    "text": "十",
+    "file": "ja-112.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 113,
+    "text": "二十",
+    "file": "ja-113.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 114,
+    "text": "三十",
+    "file": "ja-114.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 115,
+    "text": "百",
+    "file": "ja-115.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 116,
+    "text": "五百",
+    "file": "ja-116.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 117,
+    "text": "千",
+    "file": "ja-117.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 118,
+    "text": "一万",
+    "file": "ja-118.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 119,
+    "text": "一つ",
+    "file": "ja-119.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 120,
+    "text": "二つ",
+    "file": "ja-120.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 121,
+    "text": "三つ",
+    "file": "ja-121.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 122,
+    "text": "四つ",
+    "file": "ja-122.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 123,
+    "text": "五つ",
+    "file": "ja-123.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 124,
+    "text": "六つ",
+    "file": "ja-124.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 125,
+    "text": "七つ",
+    "file": "ja-125.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 126,
+    "text": "八つ",
+    "file": "ja-126.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 127,
+    "text": "九つ",
+    "file": "ja-127.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 128,
+    "text": "十個",
+    "file": "ja-128.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 129,
+    "text": "一人",
+    "file": "ja-129.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 130,
+    "text": "二人",
+    "file": "ja-130.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 131,
+    "text": "三人",
+    "file": "ja-131.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  },
+  {
+    "index": 132,
+    "text": "四人",
+    "file": "ja-132.mp3",
+    "voice": "ja-JP-NanamiNeural"
+  }
+]
