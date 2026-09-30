@@ -1,0 +1,800 @@
+[
+  {
+    "index": 0,
+    "text": "Hello.",
+    "file": "en-000.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 1,
+    "text": "Thank you very much.",
+    "file": "en-001.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 2,
+    "text": "Excuse me.",
+    "file": "en-002.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 3,
+    "text": "Yes.",
+    "file": "en-003.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 4,
+    "text": "No.",
+    "file": "en-004.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 5,
+    "text": "I do not speak Japanese.",
+    "file": "en-005.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 6,
+    "text": "Please speak slowly.",
+    "file": "en-006.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 7,
+    "text": "Do you speak English?",
+    "file": "en-007.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 8,
+    "text": "Could you write it down?",
+    "file": "en-008.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 9,
+    "text": "One more time, please.",
+    "file": "en-009.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 10,
+    "text": "I would like to go here.",
+    "file": "en-010.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 11,
+    "text": "Where is the station?",
+    "file": "en-011.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 12,
+    "text": "Does this train go here?",
+    "file": "en-012.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 13,
+    "text": "Which platform?",
+    "file": "en-013.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 14,
+    "text": "Where should I transfer?",
+    "file": "en-014.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 15,
+    "text": "Which station should I get off at?",
+    "file": "en-015.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 16,
+    "text": "Which exit should I take?",
+    "file": "en-016.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 17,
+    "text": "Two tickets, please.",
+    "file": "en-017.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 18,
+    "text": "I took the wrong train.",
+    "file": "en-018.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 19,
+    "text": "Where is the elevator?",
+    "file": "en-019.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 20,
+    "text": "My baggage has not arrived.",
+    "file": "en-020.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 21,
+    "text": "Where is the check-in counter?",
+    "file": "en-021.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 22,
+    "text": "Where is the boarding gate?",
+    "file": "en-022.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 23,
+    "text": "Where can I buy a SIM card?",
+    "file": "en-023.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 24,
+    "text": "I would like to check in.",
+    "file": "en-024.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 25,
+    "text": "I have a reservation.",
+    "file": "en-025.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 26,
+    "text": "Could you store my luggage?",
+    "file": "en-026.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 27,
+    "text": "What time is check-out?",
+    "file": "en-027.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 28,
+    "text": "What is the Wi-Fi password?",
+    "file": "en-028.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 29,
+    "text": "One more towel, please.",
+    "file": "en-029.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 30,
+    "text": "Do you have a table for two?",
+    "file": "en-030.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 31,
+    "text": "Do you have a picture menu?",
+    "file": "en-031.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 32,
+    "text": "This one, please.",
+    "file": "en-032.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 33,
+    "text": "Water, please.",
+    "file": "en-033.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 34,
+    "text": "Please make it not spicy.",
+    "file": "en-034.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 35,
+    "text": "Does this contain pork?",
+    "file": "en-035.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 36,
+    "text": "The bill, please.",
+    "file": "en-036.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 37,
+    "text": "Can we pay separately?",
+    "file": "en-037.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 38,
+    "text": "How much is this?",
+    "file": "en-038.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 39,
+    "text": "Can I pay by card?",
+    "file": "en-039.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 40,
+    "text": "Do you offer tax-free shopping?",
+    "file": "en-040.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 41,
+    "text": "Does this price include tax?",
+    "file": "en-041.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 42,
+    "text": "Is there a handling fee?",
+    "file": "en-042.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 43,
+    "text": "A receipt, please.",
+    "file": "en-043.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 44,
+    "text": "May I try this on?",
+    "file": "en-044.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 45,
+    "text": "I do not need a bag.",
+    "file": "en-045.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 46,
+    "text": "Where is the restroom?",
+    "file": "en-046.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 47,
+    "text": "I am lost.",
+    "file": "en-047.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 48,
+    "text": "Please help me.",
+    "file": "en-048.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 49,
+    "text": "I lost my passport.",
+    "file": "en-049.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 50,
+    "text": "I feel unwell.",
+    "file": "en-050.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 51,
+    "text": "Please call an ambulance.",
+    "file": "en-051.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 52,
+    "text": "One of these, please.",
+    "file": "en-052.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 53,
+    "text": "Two of these, please.",
+    "file": "en-053.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 54,
+    "text": "One more, please.",
+    "file": "en-054.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 55,
+    "text": "For here, please.",
+    "file": "en-055.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 56,
+    "text": "To go, please.",
+    "file": "en-056.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 57,
+    "text": "What do you recommend?",
+    "file": "en-057.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 58,
+    "text": "Do you have an English menu?",
+    "file": "en-058.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 59,
+    "text": "No ice, please.",
+    "file": "en-059.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 60,
+    "text": "A spoon and fork, please.",
+    "file": "en-060.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 61,
+    "text": "A small plate, please.",
+    "file": "en-061.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 62,
+    "text": "How long is the wait?",
+    "file": "en-062.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 63,
+    "text": "Is there a table or service charge?",
+    "file": "en-063.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 64,
+    "text": "It was delicious. Thank you.",
+    "file": "en-064.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 65,
+    "text": "I do not understand.",
+    "file": "en-065.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 66,
+    "text": "Please wait a moment.",
+    "file": "en-066.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 67,
+    "text": "Could you type it here?",
+    "file": "en-067.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 68,
+    "text": "I will use a translation app.",
+    "file": "en-068.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 69,
+    "text": "Could you say that again?",
+    "file": "en-069.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 70,
+    "text": "I am from Thailand.",
+    "file": "en-070.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 71,
+    "text": "May I take a look?",
+    "file": "en-071.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 72,
+    "text": "Do you have a larger size?",
+    "file": "en-072.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 73,
+    "text": "Do you have a smaller size?",
+    "file": "en-073.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 74,
+    "text": "Do you have another color?",
+    "file": "en-074.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 75,
+    "text": "One bag, please.",
+    "file": "en-075.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 76,
+    "text": "I will pay in cash.",
+    "file": "en-076.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 77,
+    "text": "Can I use an IC card?",
+    "file": "en-077.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 78,
+    "text": "Could you check the amount?",
+    "file": "en-078.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 79,
+    "text": "What time is the last train?",
+    "file": "en-079.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 80,
+    "text": "Do I need a seat reservation?",
+    "file": "en-080.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 81,
+    "text": "Where can I top up this card?",
+    "file": "en-081.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 82,
+    "text": "Where are the lockers?",
+    "file": "en-082.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 83,
+    "text": "Please show me on the map.",
+    "file": "en-083.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 84,
+    "text": "The heating is not working.",
+    "file": "en-084.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 85,
+    "text": "One more blanket, please.",
+    "file": "en-085.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 86,
+    "text": "The toilet in my room is not working.",
+    "file": "en-086.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 87,
+    "text": "Could you call a taxi?",
+    "file": "en-087.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 88,
+    "text": "May I take a photo?",
+    "file": "en-088.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 89,
+    "text": "Should I take off my shoes?",
+    "file": "en-089.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 90,
+    "text": "Is this where I should line up?",
+    "file": "en-090.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 91,
+    "text": "Where can I throw this away?",
+    "file": "en-091.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 92,
+    "text": "I lost my phone.",
+    "file": "en-092.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 93,
+    "text": "Where is the police box?",
+    "file": "en-093.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 94,
+    "text": "Is there a place to charge my phone?",
+    "file": "en-094.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 95,
+    "text": "I am here for sightseeing.",
+    "file": "en-095.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 96,
+    "text": "Here is my hotel reservation.",
+    "file": "en-096.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 97,
+    "text": "Here is my return ticket.",
+    "file": "en-097.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 98,
+    "text": "Here is my itinerary.",
+    "file": "en-098.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 99,
+    "text": "This is my first visit to Japan.",
+    "file": "en-099.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 100,
+    "text": "I speak only a little English.",
+    "file": "en-100.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 101,
+    "text": "Is a Thai interpreter available?",
+    "file": "en-101.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 102,
+    "text": "Zero",
+    "file": "en-102.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 103,
+    "text": "One",
+    "file": "en-103.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 104,
+    "text": "Two",
+    "file": "en-104.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 105,
+    "text": "Three",
+    "file": "en-105.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 106,
+    "text": "Four",
+    "file": "en-106.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 107,
+    "text": "Five",
+    "file": "en-107.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 108,
+    "text": "Six",
+    "file": "en-108.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 109,
+    "text": "Seven",
+    "file": "en-109.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 110,
+    "text": "Eight",
+    "file": "en-110.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 111,
+    "text": "Nine",
+    "file": "en-111.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 112,
+    "text": "Ten",
+    "file": "en-112.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 113,
+    "text": "Twenty",
+    "file": "en-113.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 114,
+    "text": "Thirty",
+    "file": "en-114.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 115,
+    "text": "One hundred",
+    "file": "en-115.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 116,
+    "text": "Five hundred",
+    "file": "en-116.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 117,
+    "text": "One thousand",
+    "file": "en-117.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 118,
+    "text": "Ten thousand",
+    "file": "en-118.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 119,
+    "text": "One item",
+    "file": "en-119.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 120,
+    "text": "Two items",
+    "file": "en-120.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 121,
+    "text": "Three items",
+    "file": "en-121.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 122,
+    "text": "Four items",
+    "file": "en-122.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 123,
+    "text": "Five items",
+    "file": "en-123.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 124,
+    "text": "Six items",
+    "file": "en-124.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 125,
+    "text": "Seven items",
+    "file": "en-125.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 126,
+    "text": "Eight items",
+    "file": "en-126.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 127,
+    "text": "Nine items",
+    "file": "en-127.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 128,
+    "text": "Ten items",
+    "file": "en-128.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 129,
+    "text": "One person",
+    "file": "en-129.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 130,
+    "text": "Two people",
+    "file": "en-130.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 131,
+    "text": "Three people",
+    "file": "en-131.mp3",
+    "voice": "en-US-JennyNeural"
+  },
+  {
+    "index": 132,
+    "text": "Four people",
+    "file": "en-132.mp3",
+    "voice": "en-US-JennyNeural"
+  }
+]
