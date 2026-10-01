@@ -1,61 +1,72 @@
-ICHI-JAPAN v1.5.4 — Smart Logic
-Released: 2026-10-01
+ICHI-JAPAN v1.5.5 — Data Quality
+Released: 1 Oct 2026
 
-ฐาน: v1.5.3 UX Stability & Visual Polish
-รอบนี้ไม่ redesign ใหญ่ แต่เพิ่ม logic ให้ Dashboard / Planner / Live Trip ฉลาดขึ้น และเก็บปัญหา mobile footer spacing
+ฐานเวอร์ชัน: v1.5.4 Smart Logic
+รอบนี้เน้นคุณภาพข้อมูล Discover/ร้านอาหาร โดยไม่รื้อ Dashboard หรือ Smart Logic เดิม
 
 สิ่งที่เปลี่ยน
-1) Smart Dashboard / What needs you
-- ตรวจ Booking ที่ยังต้องจอง
-- ตรวจรายการที่จองแล้วแต่ยังไม่มีตั๋ว/หลักฐานแนบ (สำหรับสถานที่ ไม่เตือนร้านอาหารแบบเหมารวม)
-- ตรวจคืนโรงแรมที่ยังขาด
-- ตรวจ Route ที่ยังไม่มีโน้ตออฟไลน์
-- ตรวจ Time Conflict + Travel-time risk
-- ตรวจ Data freshness, Backup และ Offline test
-- เรียงคำแนะนำตามความเร่งด่วนและวันใช้งาน
+1) Data Quality แสดงกับทั้ง “สถานที่” และ “ร้านอาหาร”
+- ตรวจล่าสุด + ระดับแหล่งข้อมูล (Official / Tabelog / Google Maps / ข้อมูลพื้นฐาน)
+- สถานะ Open / ต้องตรวจซ้ำ / Temporary closed / Permanent closed
+- เวลาเปิด / วันหยุด / Last order หรือ Last entry
+- Walk-in / ควรจอง / ต้องจอง / ปุ่มจองเมื่อมี URL
+- ราคา JPY + THB โดยประมาณ และวันที่ตรวจราคาเมื่อมีข้อมูล
+- ถ้าข้อมูลเกิน 21 วันจะเริ่มเตือน; เกิน 45 วันถือว่าเก่าและให้เช็กซ้ำ
+- ถ้าฐานข้อมูลไม่มีข้อมูลที่ยืนยัน จะขึ้น “ยังไม่ยืนยัน” แทนการเดา
 
-2) Time Conflict แม่นขึ้น
-- ใช้เวลาในแผน + เวลาเข้า (entry time) ถ้ามี
-- ใช้ durationMinutes จาก Discover เมื่อมีข้อมูล
-- ใช้เวลาที่พิมพ์ไว้ใน Route ก่อน
-- ถ้า Route ไม่มีเวลา แต่สองจุดมีข้อมูลย่าน ระบบอาจใช้เวลาเดินทางระดับย่านเป็น “ค่าประมาณเพื่อเตือน”
-- เพิ่ม buffer 10 นาทีเมื่อมีเวลาการเดินทาง
-- ค่าประมาณไม่ใช่ตารางรถไฟ/Google Maps สด
+2) แหล่งข้อมูลในหน้ารายละเอียดแยกชัด
+- Official
+- Google Maps
+- Tabelog (เมื่อมี exact URL ที่ตรวจไว้)
+- แหล่งประกอบอื่น (เมื่อมีและไม่ซ้ำ)
 
-3) Smart Day Planner
-- ยังเป็น recommendation only
-- ไม่มีการแก้ลำดับเอง
-- ต้องกด “ใช้ลำดับแนะนำ” ก่อนทุกครั้ง
-- รายการที่ล็อกเวลาจะไม่ถูกย้ายตาม logic เดิม
+3) Disney Resort รวมเข้า Tokyo
+- Tokyo Disneyland และ Tokyo DisneySea อยู่ใน Tokyo > Tokyo Disney Resort / Maihama
+- ร้านอาหาร Disney ใหม่ก็อยู่ใน Tokyo/Maihama เช่นกัน
+- ไม่มีแท็บเมือง Disney แยกแล้ว
 
-4) Live Trip
-- ใช้เวลาเข้า/เวลานัดช่วยหา Next Stop
-- บอกว่าควรเริ่มออกอีกประมาณกี่นาทีเมื่อมีข้อมูลพอ
-- ถ้าเวลาเริ่มตึง จะขึ้น “ใกล้เวลาออกแล้ว / ควรออกตอนนี้”
-- แสดง Route / Ticket / Hotel status ต่อจุด
+4) ตัดเมืองที่ยังไม่มีข้อมูลออกจากตัวเลือก
+ตอนนี้แสดงเฉพาะ:
+- Tokyo
+- Osaka
+- Fuji
+Kyoto / Nara / Yokohama ถูกซ่อนจนกว่าจะมีชุดข้อมูลจริง
 
-5) เวลาไทย + ญี่ปุ่น
-- Dashboard Hero แสดง TH และ JP แบบ minimal
-- Live Trip แสดงเวลาสองประเทศ
-- อัปเดตบนหน้าทุกประมาณ 30 วินาที
-- ไทยและญี่ปุ่นต่างกัน +2 ชั่วโมง
+5) ร้านอาหารเพิ่มจาก 31 -> 45 ร้าน
+- Tokyo 23 ร้าน
+- Osaka 13 ร้าน
+- Fuji/Kawaguchiko 9 ร้าน
+เพิ่มแท็บย่อย “🥩 บุฟเฟ่ต์” รวม 8 ตัวเลือก
+ตัวอย่างชุดใหม่: Disney buffet, Rokkasen, TsuruTonTan, Kura Sushi, Kushikatsu Daruma Dotonbori, LiLo Coffee Kissa, Table36, Folk Kitchen, CISCO Coffee, Choice Kitchen และ Fuji Lake Hotel buffet
 
-6) Mobile footer / ช่องว่างท้ายหน้า
-- ตัด padding-bottom ซ้ำจาก main
-- footer เป็นส่วนที่ reserve พื้นที่ให้ bottom nav เพียงจุดเดียว
-- ปรับ footer ให้เป็น 3 บรรทัด compact: version / local data / online status
-- แก้ช่องว่างใหญ่ก่อน footer ในหน้า Trip / Money และหน้าอื่นที่ใช้ layout เดียวกัน
+6) สถานที่รวม 60 จุด / Route 13 ชุดยังอยู่ครบ
+สถานที่สำคัญที่ตรวจ official เพิ่มในรอบนี้ เช่น Meiji Jingu, Shinjuku Gyoen, Tokyo Metropolitan Government Observatory, Senso-ji, Tokyo National Museum, Tokyo Solamachi, Sumida Aquarium, LaLaport Toyosu, DiverCity, Tokyo Character Street, GINZA SIX, Zojoji, Tsutenkaku, Sumiyoshi Taisha, Chureito Pagoda รวมถึงรายการหลักที่มีข้อมูล official อยู่แล้ว
 
-ความเข้ากันได้
-- ใช้ localStorage tabi-v1 เดิม
-- ไม่ reset ทริป
-- ไม่ลบตั๋ว / เอกสาร / ที่พัก / บัญชี
-- Service worker cache: ichi-1.5.4
+7) Data Quality พบสถานะสำคัญที่ควรรู้
+- Miraikan: official ระบุปิดปรับปรุงทั้งอาคาร 1 Oct 2026 – 22 Apr 2027 จึงถูกแสดงเป็น “ปิดชั่วคราว” ไม่ใช่เปิดตามเวลาปกติ
 
-อัปเดต
-1. Export Backup ก่อน
-2. อัปโหลดไฟล์เว็บใน ZIP ทับไฟล์เดิมบน GitHub Pages
-3. Commit
-4. เปิดเว็บขณะออนไลน์และ Refresh
-5. ถ้ายังเห็น UI รุ่นเก่า ให้ปิดแท็บแล้วเปิดใหม่
-6. เข้า Trip > Offline & Backup > เตรียมใช้ออฟไลน์ใหม่
+โครงสร้างข้อมูลหลังอัปเดต
+- เมืองที่แสดง: 3
+- สถานที่: 60
+- ร้านอาหาร: 45
+- Route: 13
+- ร้านบุฟเฟ่ต์: 8
+- สถานที่ที่มี official verification ในฐานข้อมูลรอบนี้: 28
+- ร้านอาหารที่มี official verification: 42
+
+ข้อควรเข้าใจ
+- เวลาเปิด ราคา วันหยุด Last order และระบบจองเปลี่ยนได้โดยผู้ให้บริการ
+- “ตรวจล่าสุด” หมายถึงวันที่ฐานข้อมูลชุดนี้ถูกตรวจ ไม่ใช่ระบบตรวจสดทุกวินาที
+- Google Maps เป็นปุ่มเพื่อเปิดตำแหน่ง/ตรวจข้อมูลเพิ่ม ไม่ได้หมายความว่าค่าทุกช่องในฐานข้อมูลมาจาก Google Maps
+- บางสถานที่สาธารณะไม่มีเวลาเปิดแบบร้านค้า หากยังไม่มีแหล่งยืนยัน ระบบจะไม่สร้างเวลาเอง
+- ค่า THB ใช้เรท JPY/THB ที่ตั้งอยู่ในทริป
+
+อัปเดต GitHub Pages
+1. สำรองทริปด้วย Export JSON ก่อน
+2. อัปโหลดไฟล์เว็บใน ZIP ทับไฟล์เดิม
+3. Commit / Push
+4. เปิดเว็บออนไลน์ใหม่และ Refresh
+5. เข้า ทริป > Offline & Backup > เตรียมใช้ออฟไลน์อีกครั้ง
+
+ข้อมูลทริปเดิมยังใช้ localStorage key `tabi-v1` เหมือนเดิม
+By ichitan
