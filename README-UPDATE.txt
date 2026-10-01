@@ -1,116 +1,35 @@
-ICHI-JAPAN v1.5.0 — Smart Trip Companion
-1 ตุลาคม 2026
+ICHI-JAPAN v1.5.1 — Mobile Layout Fix + Contextual Fuji
 
-ฐานที่ใช้พัฒนา
-- ทำต่อจาก v1.4.1 โดยตรง
-- ไม่ใช้แนวทาง/ไฟล์ของ v1.4.2
-- localStorage ยังใช้ key เดิม: tabi-v1
-- ข้อมูลทริปเดิมไม่ถูกล้าง
+ฐาน: v1.5.0 (ซึ่งพัฒนาจาก v1.4.1)
+วันที่: 1 ต.ค. 2026
 
-แนวคิดของ v1.5
-เปลี่ยน Dashboard จาก “Command Center ที่มีตัวเลข/กรอบเยอะ” ให้เป็น Smart Trip Companion ที่ตอบ 3 คำถามก่อน:
-1) ตอนนี้/วันแรก จุดถัดไปคืออะไร
-2) มีเรื่องไหนต้องจัดการก่อน
-3) ของสำคัญพร้อมหรือยัง: Booking / Ticket / Hotel / Route / Data
+แก้ไขรอบนี้
+1) แก้ Dashboard มือถือแตก/การ์ดซ้อนกันตามภาพ
+   - ต้นเหตุหลักคือ Dashboard 1.5 ใช้ <main> ซ้อนอยู่ภายใน <main id="app">
+   - CSS global ของเว็บจึงไปกระทบคอลัมน์ด้านใน ทำให้ Hotel/Budget/Quick tools ลอยทับ Hero บนมือถือบางเบราว์เซอร์
+   - เปลี่ยนโครงด้านในเป็น .companion-primary และบังคับ min-width/max-width/overflow ให้ทุกคอลัมน์อยู่ใน viewport
+   - Desktop 2-column ยังทำงานเหมือนเดิม และ <=900px จะเรียงเป็น 1 column
 
-สิ่งที่เปลี่ยนหลัก
+2) Fuji Visibility แสดงบน Dashboard เสมอ แต่ทำงานแบบ Contextual
+   - ถ้ามี Fuji/Kawaguchiko ใกล้วันโฟกัส ±2 วัน: แจ้งบริบทวันฟูจิแบบเด่น
+   - ถ้ามีวันฟูจิแต่ยังอีกหลายวัน: แสดงวันที่ฟูจิ และเตือนว่าพยากรณ์ด้านล่างเป็นเพียง 3 วันข้างหน้า ไม่ใช่วันทริป
+   - ถ้ายังไม่มี Fuji ในแผน: ยังแสดง Fuji Visibility พร้อมข้อความว่าปัจจุบันยังไม่มีวันฟูจิใน itinerary
+   - พยากรณ์ใช้ cache เดิม และโหลดใหม่ขณะออนไลน์ตาม logic เดิม
 
-1. Dashboard ใหม่แบบ Action-first
-- Hero Fuji ยังเป็นภาพหลัก แต่ลดข้อมูลที่กองบนภาพ
-- เหลือ Next Stop / First Day / Trip Summary + ปุ่มหลัก “เปิดแผนวันนี้”
-- Live Trip หรือ Smart Planner เป็น Action รอง ไม่แย่ง CTA หลัก
-- เปลี่ยนคำว่า ICHI TRAVEL COMMAND CENTER เป็น ICHI · SMART TRIP COMPANION
+3) ปรับหัว Contextual บนมือถือ
+   - แยกหัวข้อ + คำอธิบายเป็น 2 บรรทัดบนจอเล็ก
+   - ป้องกันข้อความดัน card ให้ล้นแนวนอน
 
-2. Trip Readiness แบบอ่านได้ใน 1 วินาที
-- คะแนน 0–100 ยังอยู่ แต่ไม่ใช่พระเอกของหน้า
-- แสดงเป็น “มี X เรื่องสำคัญ / เหลือ X เรื่องควรตรวจ / พร้อมใช้งาน”
-- มี progress เส้นเล็กแทน Health Card ขนาดใหญ่
+เวอร์ชัน/cache
+- APP_VERSION: 1.5.1
+- asset query: v=151
+- service worker cache: ichi-1.5.1
 
-3. Smart Action Queue
-- ดึงปัญหาจาก Trip Health แล้วเรียง Danger → Warning → Info
-- แสดงสูงสุด 3 เรื่องบน Dashboard
-- แต่ละเรื่องกดไปจัดการได้ทันที เช่น Booking, Hotel, Route, Data Freshness, Time Conflict
-- ถ้าไม่มีเรื่องสำคัญจะแสดงสถานะพร้อมแทน
+วิธีอัปเดต
+1. สำรอง JSON ของทริปก่อน
+2. อัปโหลดไฟล์ในชุดนี้ทับไฟล์เดิม
+3. Commit / Push GitHub Pages
+4. เปิดเว็บออนไลน์และ Reload
+5. ถ้ายังเห็นหน้ารุ่นเก่า ให้ปิดแท็บ/เปิดใหม่ หรือรอ Service Worker เปลี่ยนเป็น v1.5.1
 
-4. Journey Status Deck
-รวมสถานะ 5 อย่างไว้ในกรอบเดียว เพื่อลด Card Syndrome:
-- การจอง
-- Ticket Wallet
-- Hotel
-- Route วันนี้
-- Data Freshness
-บนมือถือเป็นแถวเลื่อนแนวนอน
-
-5. Today Flow ใหม่
-- Timeline เบากว่าเดิม ไม่ใช้กรอบย่อยทุกบรรทัด
-- เห็น เวลา → จุด → ย่าน → สถานะจอง/ตั๋ว
-- ยังเปิดแก้รายการเดิมได้
-- Smart Planner และดูแผนทั้งหมดอยู่ในหัว section
-
-6. Trip Health v1.5
-- เปลี่ยน Modal ให้เน้น “ต้องทำอะไร” มากกว่าวงคะแนน
-- แยกจำนวนเรื่องสำคัญ / ควรตรวจ / เพิ่มเติม
-- ใช้ Action Queue รูปแบบเดียวกับ Dashboard
-
-7. Smart Day Planner v1.5
-- ยังคงกฎสำคัญ: ไม่ย้ายรายการที่ล็อกเวลา
-- เพิ่มเปรียบเทียบ “แผนตอนนี้” กับ “ลำดับที่แนะนำ”
-- เพิ่มระยะข้ามย่านโดยประมาณ ก่อน/หลังจัด
-- บอกชัดว่าการจัดย่านไม่แก้ Time Conflict อัตโนมัติ
-- ระยะที่แสดงเป็นการประมาณจากศูนย์กลางย่าน ไม่ใช่ระยะรถไฟ/ถนนจริง
-
-8. Live Trip Mode v1.5
-ลดข้อมูลเหลือของที่ใช้ระหว่างเดินทางจริง:
-- เวลา JST
-- Next Stop
-- เหลือเวลาเท่าไร
-- ควรออกเมื่อไร (ถ้ามี Route ที่บันทึกเวลาไว้)
-- Google Maps
-- Ticket
-- กลับโรงแรม
-- สถานะ Route / Ticket / Hotel
-- แจ้ง Time Conflict ถ้ามี
-- ร้านใกล้แผน 2 ร้าน
-
-9. Fuji Visibility แบบ Contextual
-- Full Fuji Visibility จะโผล่บน Dashboard เมื่อมีรายการ Fuji/Kawaguchiko ในแผนภายในช่วง ±2 วันจากวันที่โฟกัส
-- ถ้าไม่มี Fuji ใกล้วันนั้น Dashboard จะไม่ยัด Fuji Forecast ให้รกหน้า
-- ระบบ Forecast เดิมจาก v1.4.1 ยังอยู่
-
-10. Restaurant / Hotel / Budget
-- ร้านอาหารยังจับย่านจากแผนวันนี้เหมือนเดิม แต่ UI เบาลง
-- Hotel Tonight ยังคง Google Maps กลับโรงแรม
-- Budget Pulse ยังคงเทียบใช้จริงกับงบ
-
-ไฟล์ที่ต้องอัปโหลดทับของเดิม (9 ไฟล์)
-- index.html
-- app.js
-- style.css
-- travel-data.js
-- sw.js
-- version.json
-- discover.js
-- discover.css
-- places-data.js
-
-วิธีทดสอบที่แนะนำ
-1) จาก v1.4.1 ให้ Export JSON สำรองก่อน
-2) อัปโหลด 9 ไฟล์นี้ทับใน GitHub repository
-3) Commit แล้วรอ GitHub Pages อัปเดต
-4) เปิดเว็บแบบออนไลน์
-5) ไป ทริปของฉัน > ตรวจอัปเดต
-6) ยืนยัน footer เป็น v1.5.0
-7) ทดสอบ Dashboard บนมือถือก่อน
-8) ลองเปิด Live Trip / Trip Health / Smart Planner / Ticket Wallet / Hotel Hub
-9) เตรียม Offline ใหม่หลังยืนยันว่า UI ผ่าน
-
-สิ่งที่ตั้งใจ “ไม่เปลี่ยน” ในรอบนี้
-- Bottom navigation ของ v1.4.1
-- โครงสร้างข้อมูล tabi-v1
-- Discover และฐานร้าน/สถานที่เดิม
-- Ticket file storage เดิม
-- Hotel data เดิม
-- ระบบ Expense / Travel guide / Phrasebook เดิม
-
-หมายเหตุ
-v1.5.0 รอบนี้ตั้งใจเป็นการทดลอง UX ใหม่จาก v1.4.1 แบบควบคุม scope ถ้าหน้า Dashboard ผ่าน ค่อยต่อยอดรายละเอียดภายใน section ในรอบถัดไป โดยไม่เปลี่ยนโครงทั้งเว็บพร้อมกันอีก
+ข้อมูลทริปยังใช้ localStorage key tabi-v1 เดิม จึงไม่ต้องสร้างทริปใหม่

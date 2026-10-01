@@ -202,7 +202,7 @@
  .dash-metrics button{flex-basis:130px}
 }
 
-/* === 1.5.0 SMART TRIP COMPANION ====================================== */
+/* === 1.5.1 SMART TRIP COMPANION ====================================== */
 .dash150{
  --c-ink:#183d37;
  --c-muted:#6f807a;
@@ -275,7 +275,8 @@
 .companion-status-deck small{display:block;font-size:9px;color:var(--c-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
 .companion-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.72fr);gap:16px;align-items:start}
-.companion-layout>main,.companion-layout>aside{display:grid;gap:16px;min-width:0}
+.companion-layout>.companion-primary,.companion-layout>aside{display:grid;gap:16px;min-width:0}
+.dash150{max-width:100%;min-width:0;overflow-x:clip}.companion-layout,.companion-primary,.companion-layout>aside{max-width:100%;min-width:0}.companion-primary>*{min-width:0;max-width:100%}@supports not (overflow:clip){.dash150{overflow-x:hidden}}
 .companion-section,.companion-side{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-soft);padding:20px}
 .companion-section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:13px}
 .companion-section-head>div:first-child{min-width:0}
@@ -319,10 +320,9 @@
 .companion-empty>span{font-size:20px}.companion-empty b,.companion-empty small{display:block}.companion-empty b{font-size:11px}.companion-empty small{font-size:9px;color:var(--c-muted);margin-top:2px;line-height:1.4}
 .companion-empty.compact{grid-template-columns:36px minmax(0,1fr) auto;background:#f7f9f7}
 
-.fuji-context150{display:grid;gap:7px}
-.fuji-context150>div:first-child{display:flex;justify-content:space-between;align-items:center;padding:0 3px;color:#536f65}
-.fuji-context150>div:first-child span{font-size:10px;font-weight:700}.fuji-context150>div:first-child small{font-size:8px;color:#87958f}
-.fuji-context150 .fuji-card{margin:0}
+.fuji-context150{display:grid;gap:7px;min-width:0;max-width:100%}
+.fuji-context-head150{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 12px;align-items:center;padding:0 3px;color:#536f65}
+.fuji-context-head150 span{font-size:10px;font-weight:700;white-space:nowrap}.fuji-context-head150 small{font-size:8px;color:#87958f;text-align:right;line-height:1.45;min-width:0}.fuji-context-head150 small b{font-size:7px;letter-spacing:1px;color:#5f7e73}.fuji-context150.ambient .fuji-context-head150{color:#6b7e77}.fuji-context150 .fuji-card{margin:0;min-width:0;max-width:100%}
 
 .companion-food-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .companion-food-grid button{border:0;background:#f3f7f4;border-radius:14px;padding:13px;text-align:left;min-width:0}
@@ -356,11 +356,11 @@
  .companion-hero{min-height:345px;padding:18px;border-radius:23px;background-position:center 42%}.companion-hero:after{right:16px;bottom:16px;font-size:7px}.companion-hero-top{font-size:9px}.hero-live{padding:6px 8px}.companion-hero-copy{padding-top:105px}.companion-hero-copy>span{font-size:8px}.companion-hero-copy h2{font-size:31px;line-height:1.08}.companion-hero-copy p{font-size:10px}.companion-hero-actions{padding-right:85px;margin-top:14px}.companion-hero-actions .btn{min-height:45px;font-size:11px;padding:9px 12px}
  .companion-readiness{grid-template-columns:38px minmax(0,1fr) auto;padding:12px 13px;gap:9px 10px;margin:10px 0 8px}.readiness-mark{width:32px;height:32px}.readiness-copy>b{font-size:12px}.readiness-copy>small{font-size:8px}.readiness-score strong{font-size:15px}.readiness-score .btn{font-size:0;padding:6px 8px}.readiness-score .btn:after{content:'ดู';font-size:8px}.readiness-track{grid-column:2/-1}
  .companion-status-deck{display:flex;overflow-x:auto;scroll-snap-type:x proximity;border-radius:16px;margin:0 -1px 13px;padding:0;box-shadow:var(--shadow-soft);scrollbar-width:none}.companion-status-deck::-webkit-scrollbar{display:none}.companion-status-deck button{flex:0 0 124px;min-height:75px;padding:11px 12px;scroll-snap-align:start}.companion-status-deck b{font-size:19px}.companion-status-deck small{font-size:8px}
- .companion-layout,.companion-layout>main,.companion-layout>aside{gap:11px}.companion-layout>aside{grid-template-columns:1fr}.companion-quick,.tiny-summary150{grid-column:auto}.companion-section,.companion-side{padding:15px;border-radius:19px;box-shadow:0 6px 18px rgba(31,72,63,.055)}.companion-section-head{margin-bottom:10px}.companion-section-head h2{font-size:17px}.companion-section-head .btn{font-size:8px;min-height:30px;padding:5px 8px}
+ .companion-layout,.companion-layout>.companion-primary,.companion-layout>aside{gap:11px}.companion-layout>aside{grid-template-columns:1fr}.companion-quick,.tiny-summary150{grid-column:auto}.companion-section,.companion-side{padding:15px;border-radius:19px;box-shadow:0 6px 18px rgba(31,72,63,.055)}.companion-section-head{margin-bottom:10px}.companion-section-head h2{font-size:17px}.companion-section-head .btn{font-size:8px;min-height:30px;padding:5px 8px}
  .companion-task{grid-template-columns:31px minmax(0,1fr) auto;padding:10px 0;gap:8px}.companion-task-icon{width:28px;height:28px;font-size:14px}.companion-task-copy b{font-size:10px}.companion-task-copy small{font-size:8px}.companion-task-cta{font-size:8px}
  .companion-flow>button{grid-template-columns:44px 14px minmax(0,1fr) 14px;min-height:53px}.companion-flow time{font-size:9px}.flow-copy b{font-size:10px}.flow-copy small{font-size:8px}
  .companion-food-grid{grid-template-columns:1fr}.companion-food-grid button{padding:12px}.companion-quick button{min-height:58px}.tiny-summary150{display:none}
- .fuji-context150 .fuji-card{border-radius:19px}
+ .fuji-context150 .fuji-card{border-radius:19px}.fuji-context-head150{grid-template-columns:1fr;gap:2px;padding:0 2px}.fuji-context-head150 small{text-align:left}.companion-layout,.companion-primary,.companion-layout>aside{width:100%;max-width:100%;min-width:0}
  .health150-head h2{font-size:19px}.health150-head>strong{font-size:24px}.health150-summary span{padding:8px 4px;font-size:8px}.health150-summary b{font-size:15px}
  .smart150-compare{grid-template-columns:1fr}.smart150-stats{display:grid;grid-template-columns:1fr 1fr}.live150-status{grid-template-columns:1fr}.live150-next h2{font-size:25px}
 }
