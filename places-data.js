@@ -8,6 +8,12 @@ export const discoverCities = [
     "emoji": "🇯🇵"
   },
   {
+    "id": "disney",
+    "name": "Disney Resort",
+    "nameTH": "ดิสนีย์รีสอร์ต",
+    "emoji": "🎠"
+  },
+  {
     "id": "osaka",
     "name": "Osaka",
     "nameTH": "โอซาก้า",
@@ -109,57 +115,162 @@ export const discoverAreas = {
   "shibuya": {
     "name": "Shibuya / Harajuku",
     "nameTH": "ชิบูย่า ฮาราจูกุ",
-    "art": "city"
+    "art": "city",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/1%20shibuya%20crossing%202012.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:1%20shibuya%20crossing%202012.jpg",
+    "imageCredit": "Wikimedia Commons · chensiyuan"
   },
   "shinjuku": {
     "name": "Shinjuku",
     "nameTH": "ชินจูกุ",
-    "art": "city"
+    "art": "city",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Sunset%20in%20Shinjuku%202.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Sunset%20in%20Shinjuku%202.jpg",
+    "imageCredit": "Wikimedia Commons · Ville Miettinen"
   },
   "asakusa": {
     "name": "Asakusa",
     "nameTH": "อาซากุสะ",
-    "art": "temple"
+    "art": "temple",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Asakusa%20Senso-ji%202021-12%20ac%20(2).jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Asakusa%20Senso-ji%202021-12%20ac%20(2).jpg",
+    "imageCredit": "Wikimedia Commons"
   },
   "ueno": {
     "name": "Ueno",
     "nameTH": "อุเอโนะ",
-    "art": "park"
+    "art": "park",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tree%20in%20front%20of%20Ueno%20Park%202.JPG?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Tree%20in%20front%20of%20Ueno%20Park%202.JPG",
+    "imageCredit": "Wikimedia Commons"
   },
   "skytree": {
     "name": "Tokyo Skytree",
     "nameTH": "สกายทรี",
-    "art": "tower"
+    "art": "tower",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo%20Sky%20Tree%202012.JPG?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Tokyo%20Sky%20Tree%202012.JPG",
+    "imageCredit": "Wikimedia Commons"
   },
   "odaiba": {
     "name": "Odaiba",
     "nameTH": "โอไดบะ",
-    "art": "bay"
+    "art": "bay",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rainbow%20Bridge%20%40%20Odaiba%20(11641580103).jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Rainbow%20Bridge%20%40%20Odaiba%20(11641580103).jpg",
+    "imageCredit": "Wikimedia Commons"
   },
   "toyosu": {
     "name": "Toyosu",
     "nameTH": "โทโยสุ",
-    "art": "bay"
+    "art": "bay",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Rainbow%20Bridge%20%40%20Odaiba%20(11641580103).jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Rainbow%20Bridge%20%40%20Odaiba%20(11641580103).jpg",
+    "imageCredit": "Wikimedia Commons"
   },
   "central": {
     "name": "Tokyo Station / Ginza",
     "nameTH": "สถานีโตเกียว กินซ่า",
-    "art": "city"
+    "art": "city",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo%20Station%20Marunouchi%20Building%20P5228787.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Tokyo%20Station%20Marunouchi%20Building%20P5228787.jpg",
+    "imageCredit": "Wikimedia Commons"
   },
   "akihabara": {
     "name": "Akihabara",
     "nameTH": "อากิฮาบาระ",
-    "art": "city"
+    "art": "city",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Akihabara%202006-02-23%20a.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Akihabara%202006-02-23%20a.jpg",
+    "imageCredit": "Wikimedia Commons"
   },
   "maihama": {
     "name": "Maihama · Chiba",
     "nameTH": "ไมฮามะ ชิบะ",
-    "art": "park"
+    "art": "park",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Cinderella%20Castle%202015.JPG?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Cinderella%20Castle%202015.JPG",
+    "imageCredit": "Wikimedia Commons · Matt Chang"
   },
   "tower": {
     "name": "Tokyo Tower",
     "nameTH": "โตเกียวทาวเวอร์",
-    "art": "tower"
+    "art": "tower",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo%20Tower%20during%20daytime.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Tokyo%20Tower%20during%20daytime.jpg",
+    "imageCredit": "Wikimedia Commons"
+  },
+  "fuji-kawaguchiko": {
+    "name": "Kawaguchiko",
+    "nameTH": "ทะเลสาบคาวากุจิโกะ",
+    "art": "park",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Mt.%20Fuji%20view%20from%20Lake%20Kawaguchi.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Mt.%20Fuji%20view%20from%20Lake%20Kawaguchi.jpg",
+    "imageCredit": "Wikimedia Commons · Volfgang"
+  },
+  "fuji-arakurayama": {
+    "name": "Arakurayama / Fujiyoshida",
+    "nameTH": "อาราคุระยามะ ฟูจิโยชิดะ",
+    "art": "temple",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Chureito%20Pagoda%20and%20Mount%20Fuji.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Chureito%20Pagoda%20and%20Mount%20Fuji.jpg",
+    "imageCredit": "Wikimedia Commons · Manishprabhune"
+  },
+  "fuji-oshino": {
+    "name": "Oshino",
+    "nameTH": "โอชิโนะ",
+    "art": "park",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Oshino-Hakkai-Nakaike.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Oshino-Hakkai-Nakaike.jpg",
+    "imageCredit": "Wikimedia Commons"
+  },
+  "fujiq": {
+    "name": "Fuji-Q / Highland",
+    "nameTH": "ฟูจิคิว ไฮแลนด์",
+    "art": "city",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/FujiQ%20Highland%20MainGate.JPG?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:FujiQ%20Highland%20MainGate.JPG",
+    "imageCredit": "Wikimedia Commons"
+  },
+  "osaka-minami": {
+    "name": "Namba / Dotonbori",
+    "nameTH": "นัมบะ โดทงโบริ",
+    "art": "city",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Dotonbori%2C%20Osaka%2C%20at%20night%2C%20November%202016.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Dotonbori%2C%20Osaka%2C%20at%20night%2C%20November%202016.jpg",
+    "imageCredit": "Wikimedia Commons"
+  },
+  "osaka-castle": {
+    "name": "Osaka Castle",
+    "nameTH": "ปราสาทโอซาก้า",
+    "art": "temple",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Osaka%20jo%20Castle.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Osaka%20jo%20Castle.jpg",
+    "imageCredit": "Wikimedia Commons · Martinp1"
+  },
+  "osaka-umeda": {
+    "name": "Umeda",
+    "nameTH": "อุเมดะ",
+    "art": "tower",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/2018%20Umeda%20Sky%20Building.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:2018%20Umeda%20Sky%20Building.jpg",
+    "imageCredit": "Wikimedia Commons"
+  },
+  "osaka-bay": {
+    "name": "Osaka Bay / USJ",
+    "nameTH": "อ่าวโอซาก้า ยูนิเวอร์แซล",
+    "art": "bay",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/USJ%205years.JPG?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:USJ%205years.JPG",
+    "imageCredit": "Wikimedia Commons"
+  },
+  "osaka-tennoji": {
+    "name": "Tennoji / Shinsekai",
+    "nameTH": "เท็นโนจิ ชินเซไก",
+    "art": "tower",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Dotonbori%2C%20Osaka%2C%20at%20night%2C%20November%202016.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Dotonbori%2C%20Osaka%2C%20at%20night%2C%20November%202016.jpg",
+    "imageCredit": "Wikimedia Commons"
   }
 };
 export const discoverPlaces = [
@@ -1991,7 +2102,7 @@ export const discoverPlaces = [
   },
   {
     "id": "disneyland",
-    "city": "tokyo",
+    "city": "disney",
     "area": "maihama",
     "name": "Tokyo Disneyland",
     "nameTH": "โตเกียวดิสนีย์แลนด์",
@@ -2035,7 +2146,7 @@ export const discoverPlaces = [
   },
   {
     "id": "disneysea",
-    "city": "tokyo",
+    "city": "disney",
     "area": "maihama",
     "name": "Tokyo DisneySea",
     "nameTH": "โตเกียวดิสนีย์ซี",
@@ -2072,7 +2183,10 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.tokyodisneyresort.jp/en/tdr/access/railway",
     "checkedAt": "2026-09-30",
-    "art": "park"
+    "art": "park",
+    "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo%20DisneySea%20Mysterious%20Island%20View%20201306.jpg?width=1200",
+    "imageSource": "https://commons.wikimedia.org/wiki/File:Tokyo%20DisneySea%20Mysterious%20Island%20View%20201306.jpg",
+    "imageCredit": "Wikimedia Commons · Wing1990hk"
   },
   {
     "id": "tokyo-tower",
@@ -2156,6 +2270,739 @@ export const discoverPlaces = [
     "sourceURL": "https://www.gotokyo.org/en/destinations/southern-tokyo/tokyo-tower-and-around/index.html",
     "checkedAt": "2026-09-30",
     "art": "tower"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "oishi-park",
+        "mode": "bus",
+        "minutes": 25,
+        "label": "รถบัส + เดินประมาณ 25 นาที"
+      },
+      {
+        "id": "mt-fuji-ropeway",
+        "mode": "walk",
+        "minutes": 20,
+        "label": "เดิน/รถบัสสั้น ๆ ประมาณ 20 นาที"
+      }
+    ],
+    "keywords": [
+      "คาวากุจิโกะ",
+      "ทะเลสาบ",
+      "ฟูจิ",
+      "วิว",
+      "ถ่ายรูป",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "lake-kawaguchiko",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Lake Kawaguchiko",
+    "nameTH": "ทะเลสาบคาวากุจิโกะ",
+    "categories": [
+      "first-trip",
+      "photo",
+      "nature",
+      "couple",
+      "walk",
+      "budget"
+    ],
+    "station": "Kawaguchiko · Fujikyu Railway / local bus",
+    "durationMinutes": 120,
+    "duration": "2 ชั่วโมง",
+    "description": "เดินเล่นริมทะเลสาบ ชมวิวฟูจิ และเลือกจุดถ่ายภาพตามสภาพอากาศ",
+    "tip": "วิวฟูจิขึ้นกับเมฆและทัศนวิสัย เผื่อแผนสำรองในวันที่ฟ้าปิด",
+    "mapQuery": "Lake Kawaguchiko Yamanashi Japan",
+    "sourceURL": "https://www.japan.travel/en/spot/1308/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "lake-kawaguchiko",
+        "mode": "bus",
+        "minutes": 25,
+        "label": "รถบัส + เดินประมาณ 25 นาที"
+      }
+    ],
+    "keywords": [
+      "โออิชิพาร์ค",
+      "ฟูจิ",
+      "ดอกไม้",
+      "วิว",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "oishi-park",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Oishi Park",
+    "nameTH": "สวนโออิชิ",
+    "categories": [
+      "photo",
+      "nature",
+      "couple",
+      "walk",
+      "budget"
+    ],
+    "station": "Oishi Park · local sightseeing bus",
+    "durationMinutes": 75,
+    "duration": "1–1.5 ชั่วโมง",
+    "description": "สวนริมทะเลสาบฝั่งเหนือที่มองฟูจิข้ามน้ำ เหมาะกับเดินเล่นและถ่ายรูป",
+    "tip": "ดอกไม้เปลี่ยนตามฤดู และวิวฟูจิอาจถูกเมฆบัง",
+    "mapQuery": "Oishi Park Fujikawaguchiko Japan",
+    "sourceURL": "https://www.japan.travel/en/spot/1329/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "เช้า",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "lake-kawaguchiko",
+        "mode": "train",
+        "minutes": 35,
+        "label": "รถไฟ + เดินประมาณ 35 นาที"
+      }
+    ],
+    "keywords": [
+      "ชูเรโตะ",
+      "เจดีย์",
+      "อาราคุระยามะ",
+      "ฟูจิ",
+      "วิว",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "chureito-pagoda",
+    "city": "fuji",
+    "area": "fuji-arakurayama",
+    "name": "Chureito Pagoda · Arakurayama Sengen Park",
+    "nameTH": "เจดีย์ชูเรโตะ · สวนอาราคุระยามะเซ็นเก็น",
+    "categories": [
+      "first-trip",
+      "photo",
+      "nature",
+      "culture",
+      "walk",
+      "budget"
+    ],
+    "station": "Shimoyoshida · Fujikyu Railway",
+    "durationMinutes": 150,
+    "duration": "2–2.5 ชั่วโมง",
+    "description": "จุดชมวิวเจดีย์ห้าชั้นกับภูเขาไฟฟูจิ ต้องเดินขึ้นบันไดและทางลาด",
+    "tip": "มีการเดินขึ้นเนินค่อนข้างมาก เตรียมน้ำและรองเท้าที่เดินสบาย",
+    "mapQuery": "Chureito Pagoda Arakurayama Sengen Park Japan",
+    "sourceURL": "https://www.japan.travel/en/spot/1298/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "fujiq-highland",
+        "mode": "bus",
+        "minutes": 30,
+        "label": "รถบัสประมาณ 30 นาที"
+      }
+    ],
+    "keywords": [
+      "โอชิโนะฮักไก",
+      "บ่อน้ำ",
+      "ฟูจิ",
+      "หมู่บ้าน",
+      "ถ่ายรูป"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "oshino-hakkai",
+    "city": "fuji",
+    "area": "fuji-oshino",
+    "name": "Oshino Hakkai",
+    "nameTH": "โอชิโนะฮักไก",
+    "categories": [
+      "first-trip",
+      "photo",
+      "nature",
+      "culture",
+      "family",
+      "walk"
+    ],
+    "station": "Oshino Hakkai · local bus from Mt. Fuji / Kawaguchiko area",
+    "durationMinutes": 120,
+    "duration": "2 ชั่วโมง",
+    "description": "หมู่บ่อน้ำใสและบ้านแบบญี่ปุ่นดั้งเดิม พร้อมฉากภูเขาไฟฟูจิในวันที่ฟ้าเปิด",
+    "tip": "พื้นที่หลักเดินชมได้ แต่พิพิธภัณฑ์หรือพื้นที่เอกชนบางส่วนอาจมีค่าเข้า",
+    "mapQuery": "Oshino Hakkai Yamanashi Japan",
+    "sourceURL": "https://www.japan.travel/en/spot/1297/"
+  },
+  {
+    "admissionJPY": null,
+    "budget": "paid",
+    "costNote": "มีค่าโดยสาร · ตรวจราคาตามวัน",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "lake-kawaguchiko",
+        "mode": "walk",
+        "minutes": 20,
+        "label": "เดินประมาณ 20 นาที"
+      }
+    ],
+    "keywords": [
+      "กระเช้า",
+      "ropeway",
+      "ฟูจิ",
+      "วิว"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "mt-fuji-ropeway",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Mt. Fuji Panoramic Ropeway",
+    "nameTH": "กระเช้าชมวิวฟูจิพาโนรามิก",
+    "categories": [
+      "first-trip",
+      "photo",
+      "nature",
+      "couple",
+      "family"
+    ],
+    "station": "Kawaguchiko · walk / local bus",
+    "durationMinutes": 90,
+    "duration": "1–1.5 ชั่วโมง",
+    "description": "ขึ้นกระเช้าจากริมคาวากุจิโกะไปจุดชมวิวเหนือทะเลสาบ",
+    "tip": "อาจหยุดเดินรถจากลมหรือสภาพอากาศ ควรตรวจประกาศก่อนเดินทาง",
+    "mapQuery": "Mt Fuji Panoramic Ropeway Japan",
+    "sourceURL": "https://www.mtfujiropeway.jp/en/"
+  },
+  {
+    "admissionJPY": null,
+    "budget": "paid",
+    "costNote": "ค่าเครื่องเล่น/พาสเปลี่ยนตามวัน · ตรวจก่อนจอง",
+    "recommendedTime": "เต็มวัน",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "lake-kawaguchiko",
+        "mode": "train",
+        "minutes": 20,
+        "label": "รถไฟ + เดินประมาณ 20 นาที"
+      },
+      {
+        "id": "oshino-hakkai",
+        "mode": "bus",
+        "minutes": 30,
+        "label": "รถบัสประมาณ 30 นาที"
+      }
+    ],
+    "keywords": [
+      "ฟูจิคิว",
+      "สวนสนุก",
+      "รถไฟเหาะ",
+      "theme park"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "fujiq-highland",
+    "city": "fuji",
+    "area": "fujiq",
+    "name": "Fuji-Q Highland",
+    "nameTH": "ฟูจิคิวไฮแลนด์",
+    "categories": [
+      "theme-park",
+      "family",
+      "couple",
+      "photo"
+    ],
+    "station": "Fujikyu-Highland · Fujikyu Railway",
+    "durationMinutes": 480,
+    "duration": "6–8 ชั่วโมง",
+    "description": "สวนสนุกใกล้ภูเขาไฟฟูจิ มีรถไฟเหาะและเครื่องเล่นหลายระดับ",
+    "tip": "เครื่องเล่นยอดนิยมมีเงื่อนไขส่วนสูงและอาจปิดจากสภาพอากาศ",
+    "mapQuery": "Fuji-Q Highland Japan",
+    "sourceURL": "https://www.fujiq.jp/en/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "เย็น–กลางคืน",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "shinsaibashi",
+        "mode": "walk",
+        "minutes": 10,
+        "label": "เดินประมาณ 10 นาที"
+      },
+      {
+        "id": "kuromon-market",
+        "mode": "walk",
+        "minutes": 15,
+        "label": "เดินประมาณ 15 นาที"
+      }
+    ],
+    "keywords": [
+      "โดทงโบริ",
+      "กูลิโกะ",
+      "นัมบะ",
+      "ของกิน",
+      "กลางคืน",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "dotonbori",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Dotonbori",
+    "nameTH": "โดทงโบริ",
+    "categories": [
+      "first-trip",
+      "photo",
+      "food",
+      "night",
+      "shopping",
+      "walk",
+      "budget"
+    ],
+    "station": "Namba / Osaka-Namba / Nippombashi",
+    "durationMinutes": 150,
+    "duration": "2–3 ชั่วโมง",
+    "description": "ย่านป้ายไฟริมคลอง จุดถ่ายรูปยอดนิยมและศูนย์รวมของกินโอซาก้า",
+    "tip": "ช่วงค่ำคนหนาแน่นมาก ระวังของมีค่าและเผื่อเวลารอร้านดัง",
+    "mapQuery": "Dotonbori Osaka Japan",
+    "sourceURL": "https://osaka-info.jp/en/spot/dotonbori/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "บ่าย–ค่ำ",
+    "indoor": true,
+    "nearby": [
+      {
+        "id": "dotonbori",
+        "mode": "walk",
+        "minutes": 10,
+        "label": "เดินประมาณ 10 นาที"
+      }
+    ],
+    "keywords": [
+      "ชินไซบาชิ",
+      "ช้อปปิ้ง",
+      "นัมบะ",
+      "ฝนตก",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "shinsaibashi",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Shinsaibashi-suji",
+    "nameTH": "ชินไซบาชิซูจิ",
+    "categories": [
+      "shopping",
+      "food",
+      "walk",
+      "budget",
+      "rain"
+    ],
+    "station": "Shinsaibashi · Osaka Metro",
+    "durationMinutes": 120,
+    "duration": "2 ชั่วโมง",
+    "description": "ถนนช้อปปิ้งมีหลังคายาวต่อเนื่อง เดินเชื่อมกับย่านนัมบะและโดทงโบริได้ง่าย",
+    "tip": "ถ้าฝนตกยังเดินได้สะดวกหลายช่วง แต่ร้านแต่ละแห่งมีเวลาเปิดต่างกัน",
+    "mapQuery": "Shinsaibashi-suji Osaka Japan",
+    "sourceURL": "https://osaka-info.jp/en/spot/shinsaibashi/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "สาย–บ่าย",
+    "indoor": true,
+    "nearby": [
+      {
+        "id": "dotonbori",
+        "mode": "walk",
+        "minutes": 15,
+        "label": "เดินประมาณ 15 นาที"
+      }
+    ],
+    "keywords": [
+      "คุโรมง",
+      "ตลาด",
+      "อาหาร",
+      "ซีฟู้ด"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "kuromon-market",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Kuromon Ichiba Market",
+    "nameTH": "ตลาดคุโรมงอิจิบะ",
+    "categories": [
+      "food",
+      "shopping",
+      "walk",
+      "rain"
+    ],
+    "station": "Nippombashi · Osaka Metro / Kintetsu",
+    "durationMinutes": 90,
+    "duration": "1–1.5 ชั่วโมง",
+    "description": "ตลาดอาหารและวัตถุดิบ มีร้านซีฟู้ด ผลไม้ และของกินพร้อมทาน",
+    "tip": "ราคาแตกต่างกันมาก ควรดูป้ายราคาก่อนสั่งและหลีกเลี่ยงยืนขวางทาง",
+    "mapQuery": "Kuromon Ichiba Market Osaka Japan",
+    "sourceURL": "https://kuromon.com/en/"
+  },
+  {
+    "admissionJPY": null,
+    "budget": "paid",
+    "costNote": "สวนรอบนอกฟรี · พิพิธภัณฑ์ในหอคอยมีค่าเข้า",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "umeda-sky",
+        "mode": "train",
+        "minutes": 35,
+        "label": "รถไฟ + เดินประมาณ 35 นาที"
+      }
+    ],
+    "keywords": [
+      "ปราสาทโอซาก้า",
+      "osaka castle",
+      "ซากุระ",
+      "ประวัติศาสตร์"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "osaka-castle",
+    "city": "osaka",
+    "area": "osaka-castle",
+    "name": "Osaka Castle",
+    "nameTH": "ปราสาทโอซาก้า",
+    "categories": [
+      "first-trip",
+      "photo",
+      "culture",
+      "family",
+      "walk"
+    ],
+    "station": "Morinomiya / Osakajokoen / Tanimachi 4-chome",
+    "durationMinutes": 180,
+    "duration": "2–3 ชั่วโมง",
+    "description": "แลนด์มาร์กประวัติศาสตร์ของโอซาก้า มีสวนขนาดใหญ่และพิพิธภัณฑ์ภายในหอคอย",
+    "tip": "ระยะเดินในสวนค่อนข้างมาก เลือกสถานีเข้าให้ตรงด้านที่ต้องการ",
+    "mapQuery": "Osaka Castle Japan",
+    "sourceURL": "https://www.osakacastle.net/english/"
+  },
+  {
+    "admissionJPY": null,
+    "budget": "paid",
+    "costNote": "จุดชมวิวมีค่าเข้า · ตรวจราคาตามวัน",
+    "recommendedTime": "เย็น–กลางคืน",
+    "indoor": true,
+    "nearby": [
+      {
+        "id": "osaka-castle",
+        "mode": "train",
+        "minutes": 35,
+        "label": "รถไฟ + เดินประมาณ 35 นาที"
+      }
+    ],
+    "keywords": [
+      "อุเมดะ",
+      "จุดชมวิว",
+      "กลางคืน",
+      "ตึก"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "umeda-sky",
+    "city": "osaka",
+    "area": "osaka-umeda",
+    "name": "Umeda Sky Building",
+    "nameTH": "อุเมดะสกายบิลดิ้ง",
+    "categories": [
+      "first-trip",
+      "photo",
+      "night",
+      "couple"
+    ],
+    "station": "Osaka / Umeda",
+    "durationMinutes": 120,
+    "duration": "1.5–2 ชั่วโมง",
+    "description": "อาคารคู่เชื่อมกันด้านบน มีจุดชมวิวเมืองจากโซน Floating Garden Observatory",
+    "tip": "ช่วงพระอาทิตย์ตกคนเยอะ ควรเผื่อเวลาจาก Osaka Station",
+    "mapQuery": "Umeda Sky Building Osaka Japan",
+    "sourceURL": "https://www.skybldg.co.jp/en/"
+  },
+  {
+    "admissionJPY": null,
+    "budget": "paid",
+    "costNote": "ตั๋วและ Express Pass เปลี่ยนตามวัน · ต้องตรวจวันเข้าชม",
+    "recommendedTime": "เต็มวันตามเวลาเปิด",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "dotonbori",
+        "mode": "train",
+        "minutes": 40,
+        "label": "รถไฟ + เดินประมาณ 40 นาที"
+      }
+    ],
+    "keywords": [
+      "USJ",
+      "ยูนิเวอร์แซล",
+      "สวนสนุก",
+      "มาริโอ",
+      "theme park"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "usj",
+    "city": "osaka",
+    "area": "osaka-bay",
+    "name": "Universal Studios Japan",
+    "nameTH": "ยูนิเวอร์แซล สตูดิโอ เจแปน",
+    "categories": [
+      "first-trip",
+      "theme-park",
+      "family",
+      "couple",
+      "photo"
+    ],
+    "station": "Universal City · JR Yumesaki Line",
+    "durationMinutes": 600,
+    "duration": "เต็มวัน 8–10 ชั่วโมง",
+    "description": "สวนสนุกใหญ่ของโอซาก้า รวมโซนภาพยนตร์และเครื่องเล่นยอดนิยมหลายธีม",
+    "tip": "ตั๋วเข้าชมและสิทธิ์เข้าโซนยอดนิยมอาจมีเงื่อนไขตามวัน ตรวจแอปทางการก่อน",
+    "mapQuery": "Universal Studios Japan Osaka",
+    "sourceURL": "https://www.usj.co.jp/web/en/us"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "บ่าย–ค่ำ",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "tsutenkaku",
+        "mode": "walk",
+        "minutes": 5,
+        "label": "เดินประมาณ 5 นาที"
+      }
+    ],
+    "keywords": [
+      "ชินเซไก",
+      "คุชิคัตสึ",
+      "เรโทร",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "shinsekai",
+    "city": "osaka",
+    "area": "osaka-tennoji",
+    "name": "Shinsekai",
+    "nameTH": "ชินเซไก",
+    "categories": [
+      "first-trip",
+      "photo",
+      "food",
+      "night",
+      "walk",
+      "budget"
+    ],
+    "station": "Dobutsuen-mae / Ebisucho / Shin-Imamiya",
+    "durationMinutes": 120,
+    "duration": "2 ชั่วโมง",
+    "description": "ย่านบรรยากาศเรโทรรอบหอคอย Tsutenkaku มีร้านคุชิคัตสึและป้ายไฟสีสันจัด",
+    "tip": "แยกเวลาเดินย่านออกจากเวลาขึ้น Tsutenkaku เพราะจุดชมวิวมีค่าเข้าและคิว",
+    "mapQuery": "Shinsekai Osaka Japan",
+    "sourceURL": "https://osaka-info.jp/en/spot/shinsekai/"
+  },
+  {
+    "admissionJPY": null,
+    "budget": "paid",
+    "costNote": "จุดชมวิวมีค่าเข้า · ตรวจราคาตามวัน",
+    "recommendedTime": "บ่าย–ค่ำ",
+    "indoor": true,
+    "nearby": [
+      {
+        "id": "shinsekai",
+        "mode": "walk",
+        "minutes": 5,
+        "label": "เดินประมาณ 5 นาที"
+      }
+    ],
+    "keywords": [
+      "สึเทนคาคุ",
+      "หอคอย",
+      "ชินเซไก",
+      "วิว"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "tsutenkaku",
+    "city": "osaka",
+    "area": "osaka-tennoji",
+    "name": "Tsutenkaku Tower",
+    "nameTH": "หอคอยสึเทนคาคุ",
+    "categories": [
+      "photo",
+      "night",
+      "family"
+    ],
+    "station": "Ebisucho / Dobutsuen-mae",
+    "durationMinutes": 90,
+    "duration": "1–1.5 ชั่วโมง",
+    "description": "หอคอยสัญลักษณ์ของย่านชินเซไก มองเห็นเมืองจากจุดชมวิว",
+    "tip": "บางกิจกรรมมีค่าบริการแยกจากตั๋วจุดชมวิว",
+    "mapQuery": "Tsutenkaku Osaka Japan",
+    "sourceURL": "https://www.tsutenkaku.co.jp/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": false,
+    "nearby": [
+      {
+        "id": "dotonbori",
+        "mode": "walk",
+        "minutes": 20,
+        "label": "เดินประมาณ 20 นาที"
+      }
+    ],
+    "keywords": [
+      "นัมบะยาซากะ",
+      "ศาลเจ้า",
+      "หัวสิงโต",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "namba-yasaka",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Namba Yasaka Shrine",
+    "nameTH": "ศาลเจ้านัมบะยาซากะ",
+    "categories": [
+      "photo",
+      "culture",
+      "walk",
+      "budget"
+    ],
+    "station": "Namba / Daikokucho",
+    "durationMinutes": 45,
+    "duration": "45 นาที",
+    "description": "ศาลเจ้าที่โดดเด่นด้วยเวทีรูปหัวสิงโตขนาดใหญ่ อยู่ไม่ไกลจากนัมบะ",
+    "tip": "เป็นสถานที่ประกอบศาสนกิจ ควรรักษาความสงบและหลีกเลี่ยงรบกวนผู้มาสักการะ",
+    "mapQuery": "Namba Yasaka Shrine Osaka Japan",
+    "sourceURL": "https://nambayasaka.jp/"
+  },
+  {
+    "admissionJPY": 0,
+    "budget": "free",
+    "costNote": "ไม่มีค่าเข้าพื้นที่หลัก",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": false,
+    "nearby": [],
+    "keywords": [
+      "สุมิโยชิ",
+      "ศาลเจ้า",
+      "สะพานแดง",
+      "ฟรี"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "sumiyoshi-taisha",
+    "city": "osaka",
+    "area": "osaka-tennoji",
+    "name": "Sumiyoshi Taisha",
+    "nameTH": "ศาลเจ้าสุมิโยชิไทฉะ",
+    "categories": [
+      "culture",
+      "photo",
+      "walk",
+      "budget"
+    ],
+    "station": "Sumiyoshi Taisha · Nankai",
+    "durationMinutes": 90,
+    "duration": "1–1.5 ชั่วโมง",
+    "description": "ศาลเจ้าชินโตสำคัญของโอซาก้า บรรยากาศสงบและมีสะพานโค้งเด่น",
+    "tip": "ตรวจมารยาทศาลเจ้าก่อนเข้า และช่วงเทศกาลอาจมีคนหนาแน่น",
+    "mapQuery": "Sumiyoshi Taisha Osaka Japan",
+    "sourceURL": "https://www.sumiyoshitaisha.net/"
+  },
+  {
+    "admissionJPY": null,
+    "budget": "paid",
+    "costNote": "จุดชมวิวมีค่าเข้า · ตรวจราคาตามวัน",
+    "recommendedTime": "เย็น–กลางคืน",
+    "indoor": true,
+    "nearby": [
+      {
+        "id": "shinsekai",
+        "mode": "walk",
+        "minutes": 20,
+        "label": "เดิน/รถไฟสั้น ๆ ประมาณ 20 นาที"
+      }
+    ],
+    "keywords": [
+      "อาเบโนะฮารุกัส",
+      "เท็นโนจิ",
+      "จุดชมวิว",
+      "ฝนตก"
+    ],
+    "checkedAt": "2026-10-01",
+    "art": "park",
+    "id": "abeno-harukas",
+    "city": "osaka",
+    "area": "osaka-tennoji",
+    "name": "Abeno Harukas 300",
+    "nameTH": "อาเบโนะฮารุกัส 300",
+    "categories": [
+      "photo",
+      "night",
+      "couple",
+      "rain"
+    ],
+    "station": "Tennoji / Osaka-Abenobashi",
+    "durationMinutes": 120,
+    "duration": "1.5–2 ชั่วโมง",
+    "description": "จุดชมวิวบนอาคารสูงติดสถานี Tennoji มองเมืองโอซาก้าได้รอบด้าน",
+    "tip": "ถ้าต้องการชมพระอาทิตย์ตกควรเผื่อเวลาขึ้นอาคารและคิวลิฟต์",
+    "mapQuery": "Abeno Harukas 300 Osaka Japan",
+    "sourceURL": "https://www.abenoharukas-300.jp/en/"
   }
 ];
 export const discoverRoutes = [
@@ -2271,5 +3118,73 @@ export const discoverRoutes = [
     "durationMinutes": 300,
     "travelMinutes": 40,
     "art": "city"
+  },
+  {
+    "id": "fuji-classic-day",
+    "city": "fuji",
+    "name": "Fuji Classic 1 วัน",
+    "description": "เริ่มเช้าจาก Chureito ต่อคาวากุจิโกะและจบที่ Oishi Park ถ้าฟ้าเปิด",
+    "stops": [
+      "chureito-pagoda",
+      "lake-kawaguchiko",
+      "oishi-park"
+    ],
+    "durationMinutes": 540,
+    "travelMinutes": 95,
+    "art": "park"
+  },
+  {
+    "id": "fuji-family-day",
+    "city": "fuji",
+    "name": "Fuji ครอบครัว / สวนสนุก",
+    "description": "เต็มวันที่ Fuji-Q แล้วเก็บวิวทะเลสาบแบบสั้น ๆ หากยังมีเวลา",
+    "stops": [
+      "fujiq-highland",
+      "lake-kawaguchiko"
+    ],
+    "durationMinutes": 600,
+    "travelMinutes": 30,
+    "art": "city"
+  },
+  {
+    "id": "osaka-minami-evening",
+    "city": "osaka",
+    "name": "Namba + Dotonbori ช่วงเย็น",
+    "description": "เริ่มช้อปชินไซบาชิ เดินต่อโดทงโบริ และปิดท้ายของกินยามค่ำ",
+    "stops": [
+      "shinsaibashi",
+      "dotonbori"
+    ],
+    "durationMinutes": 300,
+    "travelMinutes": 20,
+    "art": "city"
+  },
+  {
+    "id": "osaka-classic-day",
+    "city": "osaka",
+    "name": "Osaka Classic 1 วัน",
+    "description": "เช้าปราสาทโอซาก้า บ่ายนัมบะ และเย็นโดทงโบริ",
+    "stops": [
+      "osaka-castle",
+      "namba-yasaka",
+      "dotonbori"
+    ],
+    "durationMinutes": 600,
+    "travelMinutes": 90,
+    "art": "temple"
+  },
+  {
+    "id": "osaka-tennoji-evening",
+    "city": "osaka",
+    "name": "Tennoji + Shinsekai",
+    "description": "ชมวิวจาก Abeno Harukas แล้วเดินย่าน Shinsekai และ Tsutenkaku",
+    "stops": [
+      "abeno-harukas",
+      "shinsekai",
+      "tsutenkaku"
+    ],
+    "durationMinutes": 330,
+    "travelMinutes": 35,
+    "art": "tower"
   }
 ];
