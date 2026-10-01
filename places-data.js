@@ -1,5 +1,5 @@
 // Discover Japan local catalog. No network requests or personal trip data.
-// durationMinutes/nearby/routes are editorial estimates; admission excludes food, shopping and transport.
+// durationMinutes/nearby/routes are editorial estimates; prices are approximate and must be rechecked.
 export const discoverCities = [
   {
     "id": "tokyo",
@@ -144,6 +144,16 @@ export const discoverCategories = [
     "id": "seafood",
     "emoji": "🦐",
     "label": "ซีฟู้ด"
+  },
+  {
+    "id": "famous",
+    "emoji": "🔥",
+    "label": "ร้านดัง"
+  },
+  {
+    "id": "local",
+    "emoji": "🏮",
+    "label": "Local hidden gem"
   }
 ];
 export const discoverAreas = {
@@ -306,6 +316,21 @@ export const discoverAreas = {
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Dotonbori%2C%20Osaka%2C%20at%20night%2C%20November%202016.jpg?width=1200",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Dotonbori%2C%20Osaka%2C%20at%20night%2C%20November%202016.jpg",
     "imageCredit": "Wikimedia Commons"
+  },
+  "kiyosumi": {
+    "name": "Kiyosumi Shirakawa",
+    "nameTH": "คิโยสุมิ ชิราคาวะ",
+    "art": "city"
+  },
+  "nakameguro": {
+    "name": "Nakameguro",
+    "nameTH": "นากาเมกุโระ",
+    "art": "city"
+  },
+  "tsukishima": {
+    "name": "Tsukishima",
+    "nameTH": "สึกิชิมะ",
+    "art": "bay"
   }
 };
 export const discoverPlaces = [
@@ -362,7 +387,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Shibuya Crossing Tokyo Japan Japan"
   },
   {
     "id": "hachiko",
@@ -404,7 +430,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Hachiko Statue Tokyo Japan Japan"
   },
   {
     "id": "shibuya-sky",
@@ -453,7 +480,8 @@ export const discoverPlaces = [
     "checkedAt": "2026-09-30",
     "art": "city",
     "priceApproxMinJPY": 2200,
-    "priceApproxMaxJPY": 2500
+    "priceApproxMaxJPY": 2500,
+    "photoQuery": "Shibuya Sky Tokyo Japan Japan"
   },
   {
     "id": "center-gai",
@@ -502,7 +530,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Shibuya Center-gai Tokyo Japan Japan"
   },
   {
     "id": "miyashita-park",
@@ -560,7 +589,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shibuya/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Miyashita Park Tokyo Japan Japan"
   },
   {
     "id": "meiji-jingu",
@@ -607,7 +637,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/harajuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Meiji Jingu Tokyo Japan Japan"
   },
   {
     "id": "takeshita-street",
@@ -664,7 +695,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/harajuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Takeshita Street Tokyo Japan Japan"
   },
   {
     "id": "omotesando",
@@ -709,7 +741,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/harajuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Omotesando Tokyo Japan Japan"
   },
   {
     "id": "yoyogi-park",
@@ -752,7 +785,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/harajuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Yoyogi Park Tokyo Japan Japan"
   },
   {
     "id": "tokyo-metropolitan",
@@ -794,7 +828,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.yokoso.metro.tokyo.lg.jp/en/tenbou/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Tokyo Metropolitan Government Building Tokyo Japan Japan"
   },
   {
     "id": "shinjuku-gyoen",
@@ -837,7 +872,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://policies.env.go.jp/national-garden/shinjukugyoen/guide/information/",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Shinjuku Gyoen Tokyo Japan Japan"
   },
   {
     "id": "kabukicho",
@@ -885,7 +921,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shinjuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Kabukicho Tokyo Japan Japan"
   },
   {
     "id": "godzilla-head",
@@ -933,7 +970,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shinjuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Godzilla Head Tokyo Japan Japan"
   },
   {
     "id": "omoide-yokocho",
@@ -981,7 +1019,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shinjuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Omoide Yokocho Tokyo Japan Japan"
   },
   {
     "id": "golden-gai",
@@ -1025,7 +1064,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/western-tokyo/shinjuku/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Golden Gai Tokyo Japan Japan"
   },
   {
     "id": "sensoji",
@@ -1074,7 +1114,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.senso-ji.jp/english/",
     "checkedAt": "2026-09-30",
-    "art": "temple"
+    "art": "temple",
+    "photoQuery": "Senso-ji Tokyo Japan Japan"
   },
   {
     "id": "kaminarimon",
@@ -1122,7 +1163,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/eastern-tokyo/asakusa/index.html",
     "checkedAt": "2026-09-30",
-    "art": "temple"
+    "art": "temple",
+    "photoQuery": "Kaminarimon Tokyo Japan Japan"
   },
   {
     "id": "nakamise",
@@ -1171,7 +1213,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/eastern-tokyo/asakusa/index.html",
     "checkedAt": "2026-09-30",
-    "art": "temple"
+    "art": "temple",
+    "photoQuery": "Nakamise Shopping Street Tokyo Japan Japan"
   },
   {
     "id": "sumida-park",
@@ -1226,7 +1269,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/eastern-tokyo/asakusa/index.html",
     "checkedAt": "2026-09-30",
-    "art": "temple"
+    "art": "temple",
+    "photoQuery": "Sumida Park Tokyo Japan Japan"
   },
   {
     "id": "ueno-park",
@@ -1273,7 +1317,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/northern-tokyo/ueno/index.html",
     "checkedAt": "2026-09-30",
-    "art": "park"
+    "art": "park",
+    "photoQuery": "Ueno Park Tokyo Japan Japan"
   },
   {
     "id": "ameyoko",
@@ -1321,7 +1366,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/northern-tokyo/ueno/index.html",
     "checkedAt": "2026-09-30",
-    "art": "park"
+    "art": "park",
+    "photoQuery": "Ameyoko Tokyo Japan Japan"
   },
   {
     "id": "tokyo-national-museum",
@@ -1359,7 +1405,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.tnm.jp/?lang=en",
     "checkedAt": "2026-09-30",
-    "art": "park"
+    "art": "park",
+    "photoQuery": "Tokyo National Museum Tokyo Japan Japan"
   },
   {
     "id": "tokyo-skytree",
@@ -1409,7 +1456,8 @@ export const discoverPlaces = [
     "checkedAt": "2026-09-30",
     "art": "tower",
     "priceApproxMinJPY": 2100,
-    "priceApproxMaxJPY": 3100
+    "priceApproxMaxJPY": 3100,
+    "photoQuery": "Tokyo Skytree Tokyo Japan Japan"
   },
   {
     "id": "tokyo-solamachi",
@@ -1458,7 +1506,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/eastern-tokyo/skytree-and-around/index.html",
     "checkedAt": "2026-09-30",
-    "art": "tower"
+    "art": "tower",
+    "photoQuery": "Tokyo Solamachi Tokyo Japan Japan"
   },
   {
     "id": "sumida-aquarium",
@@ -1501,7 +1550,8 @@ export const discoverPlaces = [
     "checkedAt": "2026-09-30",
     "art": "tower",
     "priceApproxMinJPY": 2300,
-    "priceApproxMaxJPY": 2500
+    "priceApproxMaxJPY": 2500,
+    "photoQuery": "Sumida Aquarium Tokyo Japan Japan"
   },
   {
     "id": "teamlab-planets",
@@ -1550,7 +1600,8 @@ export const discoverPlaces = [
     "checkedAt": "2026-09-30",
     "art": "bay",
     "priceApproxMinJPY": 3800,
-    "priceApproxMaxJPY": 4200
+    "priceApproxMaxJPY": 4200,
+    "photoQuery": "teamLab Planets Tokyo Japan Japan"
   },
   {
     "id": "toyosu-market",
@@ -1589,7 +1640,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/eastern-tokyo/toyosu/index.html",
     "checkedAt": "2026-09-30",
-    "art": "bay"
+    "art": "bay",
+    "photoQuery": "Toyosu Market Tokyo Japan Japan"
   },
   {
     "id": "lalaport-toyosu",
@@ -1632,7 +1684,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/eastern-tokyo/toyosu/index.html",
     "checkedAt": "2026-09-30",
-    "art": "bay"
+    "art": "bay",
+    "photoQuery": "LaLaport Toyosu Tokyo Japan Japan"
   },
   {
     "id": "odaiba-seaside",
@@ -1682,7 +1735,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/southern-tokyo/odaiba/index.html",
     "checkedAt": "2026-09-30",
-    "art": "bay"
+    "art": "bay",
+    "photoQuery": "Odaiba Seaside Park Tokyo Japan Japan"
   },
   {
     "id": "divercity",
@@ -1731,7 +1785,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/southern-tokyo/odaiba/index.html",
     "checkedAt": "2026-09-30",
-    "art": "bay"
+    "art": "bay",
+    "photoQuery": "DiverCity Tokyo Plaza Tokyo Japan Japan"
   },
   {
     "id": "rainbow-view",
@@ -1774,7 +1829,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/southern-tokyo/odaiba/index.html",
     "checkedAt": "2026-09-30",
-    "art": "bay"
+    "art": "bay",
+    "photoQuery": "Rainbow Bridge Viewpoint Tokyo Japan Japan"
   },
   {
     "id": "miraikan",
@@ -1812,7 +1868,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/southern-tokyo/odaiba/index.html",
     "checkedAt": "2026-09-30",
-    "art": "bay"
+    "art": "bay",
+    "photoQuery": "Miraikan Tokyo Japan Japan"
   },
   {
     "id": "tokyo-station",
@@ -1861,7 +1918,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/central-tokyo/tokyo-station-and-marunouchi/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Tokyo Station Marunouchi Tokyo Japan Japan"
   },
   {
     "id": "marunouchi",
@@ -1918,7 +1976,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/central-tokyo/tokyo-station-and-marunouchi/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Marunouchi Naka-dori Tokyo Japan Japan"
   },
   {
     "id": "imperial-palace",
@@ -1961,7 +2020,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/central-tokyo/tokyo-station-and-marunouchi/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Imperial Palace Outer Gardens Tokyo Japan Japan"
   },
   {
     "id": "ginza",
@@ -2012,7 +2072,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/central-tokyo/ginza/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Ginza Chuo-dori Tokyo Japan Japan"
   },
   {
     "id": "tokyo-character-street",
@@ -2054,7 +2115,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.tokyoeki-1bangai.co.jp/en/",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Tokyo Character Street Tokyo Japan Japan"
   },
   {
     "id": "ginza-six",
@@ -2096,7 +2158,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://ginza6.tokyo/",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "GINZA SIX Tokyo Japan Japan"
   },
   {
     "id": "akihabara",
@@ -2141,7 +2204,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/central-tokyo/akihabara/index.html",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "photoQuery": "Akihabara Electric Town Tokyo Japan Japan"
   },
   {
     "id": "disneyland",
@@ -2185,7 +2249,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.tokyodisneyresort.jp/en/tdr/access/railway",
     "checkedAt": "2026-09-30",
-    "art": "park"
+    "art": "park",
+    "photoQuery": "Tokyo Disneyland Japan Japan"
   },
   {
     "id": "disneysea",
@@ -2229,7 +2294,8 @@ export const discoverPlaces = [
     "art": "park",
     "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Tokyo%20DisneySea%20Mysterious%20Island%20View%20201306.jpg?width=1200",
     "imageSource": "https://commons.wikimedia.org/wiki/File:Tokyo%20DisneySea%20Mysterious%20Island%20View%20201306.jpg",
-    "imageCredit": "Wikimedia Commons · Wing1990hk"
+    "imageCredit": "Wikimedia Commons · Wing1990hk",
+    "photoQuery": "Tokyo DisneySea Japan Japan"
   },
   {
     "id": "tokyo-tower",
@@ -2270,7 +2336,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/southern-tokyo/tokyo-tower-and-around/index.html",
     "checkedAt": "2026-09-30",
-    "art": "tower"
+    "art": "tower",
+    "photoQuery": "Tokyo Tower Tokyo Japan Japan"
   },
   {
     "id": "zojoji",
@@ -2312,7 +2379,8 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/southern-tokyo/tokyo-tower-and-around/index.html",
     "checkedAt": "2026-09-30",
-    "art": "tower"
+    "art": "tower",
+    "photoQuery": "Zojoji Temple Tokyo Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2363,7 +2431,8 @@ export const discoverPlaces = [
     "description": "เดินเล่นริมทะเลสาบ ชมวิวฟูจิ และเลือกจุดถ่ายภาพตามสภาพอากาศ",
     "tip": "วิวฟูจิขึ้นกับเมฆและทัศนวิสัย เผื่อแผนสำรองในวันที่ฟ้าปิด",
     "mapQuery": "Lake Kawaguchiko Yamanashi Japan",
-    "sourceURL": "https://www.japan.travel/en/spot/1308/"
+    "sourceURL": "https://www.japan.travel/en/spot/1308/",
+    "photoQuery": "Lake Kawaguchiko Yamanashi Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2406,7 +2475,8 @@ export const discoverPlaces = [
     "description": "สวนริมทะเลสาบฝั่งเหนือที่มองฟูจิข้ามน้ำ เหมาะกับเดินเล่นและถ่ายรูป",
     "tip": "ดอกไม้เปลี่ยนตามฤดู และวิวฟูจิอาจถูกเมฆบัง",
     "mapQuery": "Oishi Park Fujikawaguchiko Japan",
-    "sourceURL": "https://www.japan.travel/en/spot/1329/"
+    "sourceURL": "https://www.japan.travel/en/spot/1329/",
+    "photoQuery": "Oishi Park Fujikawaguchiko Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2451,7 +2521,8 @@ export const discoverPlaces = [
     "description": "จุดชมวิวเจดีย์ห้าชั้นกับภูเขาไฟฟูจิ ต้องเดินขึ้นบันไดและทางลาด",
     "tip": "มีการเดินขึ้นเนินค่อนข้างมาก เตรียมน้ำและรองเท้าที่เดินสบาย",
     "mapQuery": "Chureito Pagoda Arakurayama Sengen Park Japan",
-    "sourceURL": "https://www.japan.travel/en/spot/1298/"
+    "sourceURL": "https://www.japan.travel/en/spot/1298/",
+    "photoQuery": "Chureito Pagoda Arakurayama Sengen Park Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2495,7 +2566,8 @@ export const discoverPlaces = [
     "description": "หมู่บ่อน้ำใสและบ้านแบบญี่ปุ่นดั้งเดิม พร้อมฉากภูเขาไฟฟูจิในวันที่ฟ้าเปิด",
     "tip": "พื้นที่หลักเดินชมได้ แต่พิพิธภัณฑ์หรือพื้นที่เอกชนบางส่วนอาจมีค่าเข้า",
     "mapQuery": "Oshino Hakkai Yamanashi Japan",
-    "sourceURL": "https://www.japan.travel/en/spot/1297/"
+    "sourceURL": "https://www.japan.travel/en/spot/1297/",
+    "photoQuery": "Oshino Hakkai Yamanashi Japan Japan"
   },
   {
     "admissionJPY": null,
@@ -2537,7 +2609,8 @@ export const discoverPlaces = [
     "description": "ขึ้นกระเช้าจากริมคาวากุจิโกะไปจุดชมวิวเหนือทะเลสาบ",
     "tip": "อาจหยุดเดินรถจากลมหรือสภาพอากาศ ควรตรวจประกาศก่อนเดินทาง",
     "mapQuery": "Mt Fuji Panoramic Ropeway Japan",
-    "sourceURL": "https://www.mtfujiropeway.jp/en/"
+    "sourceURL": "https://www.mtfujiropeway.jp/en/",
+    "photoQuery": "Mt Fuji Panoramic Ropeway Japan Japan"
   },
   {
     "admissionJPY": null,
@@ -2586,7 +2659,8 @@ export const discoverPlaces = [
     "mapQuery": "Fuji-Q Highland Japan",
     "sourceURL": "https://www.fujiq.jp/en/",
     "priceApproxMinJPY": 1800,
-    "priceApproxMaxJPY": 6800
+    "priceApproxMaxJPY": 6800,
+    "photoQuery": "Fuji-Q Highland Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2638,7 +2712,8 @@ export const discoverPlaces = [
     "description": "ย่านป้ายไฟริมคลอง จุดถ่ายรูปยอดนิยมและศูนย์รวมของกินโอซาก้า",
     "tip": "ช่วงค่ำคนหนาแน่นมาก ระวังของมีค่าและเผื่อเวลารอร้านดัง",
     "mapQuery": "Dotonbori Osaka Japan",
-    "sourceURL": "https://osaka-info.jp/en/spot/dotonbori/"
+    "sourceURL": "https://osaka-info.jp/en/spot/dotonbori/",
+    "photoQuery": "Dotonbori Osaka Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2681,7 +2756,8 @@ export const discoverPlaces = [
     "description": "ถนนช้อปปิ้งมีหลังคายาวต่อเนื่อง เดินเชื่อมกับย่านนัมบะและโดทงโบริได้ง่าย",
     "tip": "ถ้าฝนตกยังเดินได้สะดวกหลายช่วง แต่ร้านแต่ละแห่งมีเวลาเปิดต่างกัน",
     "mapQuery": "Shinsaibashi-suji Osaka Japan",
-    "sourceURL": "https://osaka-info.jp/en/spot/shinsaibashi/"
+    "sourceURL": "https://osaka-info.jp/en/spot/shinsaibashi/",
+    "photoQuery": "Shinsaibashi-suji Osaka Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2722,7 +2798,8 @@ export const discoverPlaces = [
     "description": "ตลาดอาหารและวัตถุดิบ มีร้านซีฟู้ด ผลไม้ และของกินพร้อมทาน",
     "tip": "ราคาแตกต่างกันมาก ควรดูป้ายราคาก่อนสั่งและหลีกเลี่ยงยืนขวางทาง",
     "mapQuery": "Kuromon Ichiba Market Osaka Japan",
-    "sourceURL": "https://kuromon.com/en/"
+    "sourceURL": "https://kuromon.com/en/",
+    "photoQuery": "Kuromon Ichiba Market Osaka Japan Japan"
   },
   {
     "admissionJPY": null,
@@ -2764,7 +2841,8 @@ export const discoverPlaces = [
     "description": "แลนด์มาร์กประวัติศาสตร์ของโอซาก้า มีสวนขนาดใหญ่และพิพิธภัณฑ์ภายในหอคอย",
     "tip": "ระยะเดินในสวนค่อนข้างมาก เลือกสถานีเข้าให้ตรงด้านที่ต้องการ",
     "mapQuery": "Osaka Castle Japan",
-    "sourceURL": "https://www.osakacastle.net/english/"
+    "sourceURL": "https://www.osakacastle.net/english/",
+    "photoQuery": "Osaka Castle Japan Japan"
   },
   {
     "admissionJPY": null,
@@ -2805,7 +2883,8 @@ export const discoverPlaces = [
     "description": "อาคารคู่เชื่อมกันด้านบน มีจุดชมวิวเมืองจากโซน Floating Garden Observatory",
     "tip": "ช่วงพระอาทิตย์ตกคนเยอะ ควรเผื่อเวลาจาก Osaka Station",
     "mapQuery": "Umeda Sky Building Osaka Japan",
-    "sourceURL": "https://www.skybldg.co.jp/en/"
+    "sourceURL": "https://www.skybldg.co.jp/en/",
+    "photoQuery": "Umeda Sky Building Osaka Japan Japan"
   },
   {
     "admissionJPY": null,
@@ -2848,7 +2927,8 @@ export const discoverPlaces = [
     "description": "สวนสนุกใหญ่ของโอซาก้า รวมโซนภาพยนตร์และเครื่องเล่นยอดนิยมหลายธีม",
     "tip": "ตั๋วเข้าชมและสิทธิ์เข้าโซนยอดนิยมอาจมีเงื่อนไขตามวัน ตรวจแอปทางการก่อน",
     "mapQuery": "Universal Studios Japan Osaka",
-    "sourceURL": "https://www.usj.co.jp/web/en/us"
+    "sourceURL": "https://www.usj.co.jp/web/en/us",
+    "photoQuery": "Universal Studios Japan Osaka Japan"
   },
   {
     "admissionJPY": 0,
@@ -2891,7 +2971,8 @@ export const discoverPlaces = [
     "description": "ย่านบรรยากาศเรโทรรอบหอคอย Tsutenkaku มีร้านคุชิคัตสึและป้ายไฟสีสันจัด",
     "tip": "แยกเวลาเดินย่านออกจากเวลาขึ้น Tsutenkaku เพราะจุดชมวิวมีค่าเข้าและคิว",
     "mapQuery": "Shinsekai Osaka Japan",
-    "sourceURL": "https://osaka-info.jp/en/spot/shinsekai/"
+    "sourceURL": "https://osaka-info.jp/en/spot/shinsekai/",
+    "photoQuery": "Shinsekai Osaka Japan Japan"
   },
   {
     "admissionJPY": null,
@@ -2931,7 +3012,8 @@ export const discoverPlaces = [
     "description": "หอคอยสัญลักษณ์ของย่านชินเซไก มองเห็นเมืองจากจุดชมวิว",
     "tip": "บางกิจกรรมมีค่าบริการแยกจากตั๋วจุดชมวิว",
     "mapQuery": "Tsutenkaku Osaka Japan",
-    "sourceURL": "https://www.tsutenkaku.co.jp/"
+    "sourceURL": "https://www.tsutenkaku.co.jp/",
+    "photoQuery": "Tsutenkaku Osaka Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -2972,7 +3054,8 @@ export const discoverPlaces = [
     "description": "ศาลเจ้าที่โดดเด่นด้วยเวทีรูปหัวสิงโตขนาดใหญ่ อยู่ไม่ไกลจากนัมบะ",
     "tip": "เป็นสถานที่ประกอบศาสนกิจ ควรรักษาความสงบและหลีกเลี่ยงรบกวนผู้มาสักการะ",
     "mapQuery": "Namba Yasaka Shrine Osaka Japan",
-    "sourceURL": "https://nambayasaka.jp/"
+    "sourceURL": "https://nambayasaka.jp/",
+    "photoQuery": "Namba Yasaka Shrine Osaka Japan Japan"
   },
   {
     "admissionJPY": 0,
@@ -3006,7 +3089,8 @@ export const discoverPlaces = [
     "description": "ศาลเจ้าชินโตสำคัญของโอซาก้า บรรยากาศสงบและมีสะพานโค้งเด่น",
     "tip": "ตรวจมารยาทศาลเจ้าก่อนเข้า และช่วงเทศกาลอาจมีคนหนาแน่น",
     "mapQuery": "Sumiyoshi Taisha Osaka Japan",
-    "sourceURL": "https://www.sumiyoshitaisha.net/"
+    "sourceURL": "https://www.sumiyoshitaisha.net/",
+    "photoQuery": "Sumiyoshi Taisha Osaka Japan Japan"
   },
   {
     "admissionJPY": null,
@@ -3047,7 +3131,8 @@ export const discoverPlaces = [
     "description": "จุดชมวิวบนอาคารสูงติดสถานี Tennoji มองเมืองโอซาก้าได้รอบด้าน",
     "tip": "ถ้าต้องการชมพระอาทิตย์ตกควรเผื่อเวลาขึ้นอาคารและคิวลิฟต์",
     "mapQuery": "Abeno Harukas 300 Osaka Japan",
-    "sourceURL": "https://www.abenoharukas-300.jp/en/"
+    "sourceURL": "https://www.abenoharukas-300.jp/en/",
+    "photoQuery": "Abeno Harukas 300 Osaka Japan Japan"
   }
 ];
 export const discoverFoods = [
@@ -3082,9 +3167,23 @@ export const discoverFoods = [
       "ชิบูย่า",
       "ทงคตสึ"
     ],
-    "sourceURL": "https://ichiran.com/",
+    "sourceURL": "https://ichiran.com/shop/tokyo/shibuya/",
     "checkedAt": "2026-10-01",
-    "art": "city"
+    "art": "city",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "famous",
+    "photoQuery": "ICHIRAN Shibuya ramen Tokyo",
+    "hoursNote": "เปิดตามประกาศของสาขา Shibuya; เว็บไซต์ร้านแจ้งว่าเวลาอาจเปลี่ยนตามกำลังคน",
+    "closedDaysNote": "ไม่มีวันหยุดประจำที่ระบุในหน้าสาขา",
+    "reservationLabel": "Walk-in เป็นหลัก",
+    "reservationNote": "บริการ Priority Seating ของ ICHIRAN มีเฉพาะบางสาขา; สาขา Shibuya ทั่วไปควรเผื่อคิว",
+    "officialURL": "https://ichiran.com/shop/tokyo/shibuya/",
+    "sourceName": "ICHIRAN official",
+    "queueNote": "ช่วงค่ำและหลังเที่ยว Shibuya มีโอกาสรอคิว",
+    "paymentNote": "ชำระตามระบบของสาขา; ตรวจหน้าร้านอีกครั้ง",
+    "warningNote": "ชื่อสาขา Shibuya และ Shibuya Spain-zaka คนละสาขา อย่าจองผิด"
   },
   {
     "id": "tokyo-ginza-kagari",
@@ -3118,7 +3217,20 @@ export const discoverFoods = [
     ],
     "sourceURL": "https://www.kagario.tokyo/",
     "checkedAt": "2026-10-01",
-    "art": "city"
+    "art": "city",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "famous",
+    "photoQuery": "Ginza Kagari ramen Tokyo",
+    "hoursNote": "เวลาเปิดขึ้นกับสาขา/วัน ควรเช็กหน้า official ก่อนเดินทาง",
+    "closedDaysNote": "อาจมีวันหยุดตามประกาศร้าน",
+    "reservationLabel": "Walk-in เป็นหลัก",
+    "reservationNote": "ร้านราเมงแนวคิว ไม่มีข้อมูลจองโต๊ะทั่วไปที่ชัดเจน",
+    "officialURL": "https://www.kagario.tokyo/",
+    "sourceName": "Ginza Kagari official",
+    "queueNote": "มื้อกลางวันและเย็นอาจต้องรอ",
+    "warningNote": "ข้อมูลภาษาอังกฤษบนเว็บมีจำกัด ให้กด Google Maps ตรวจเวลาในวันจริง"
   },
   {
     "id": "tokyo-uogashi-nihonichi",
@@ -3152,7 +3264,20 @@ export const discoverFoods = [
     ],
     "sourceURL": "https://www.sushi-nh.com/",
     "checkedAt": "2026-10-01",
-    "art": "city"
+    "art": "city",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "local",
+    "photoQuery": "Uogashi Nihon-Ichi standing sushi Tokyo",
+    "hoursNote": "หลายสาขา เวลาแตกต่างกัน",
+    "closedDaysNote": "ขึ้นกับสาขา",
+    "reservationLabel": "ไม่จำเป็น",
+    "reservationNote": "รูปแบบยืนกิน/หมุนเร็ว เหมาะ walk-in",
+    "officialURL": "https://www.sushi-nh.com/",
+    "sourceName": "Uogashi Nihon-Ichi official",
+    "queueNote": "สาขาใกล้ออฟฟิศช่วงเที่ยงอาจแน่น",
+    "warningNote": "เลือกสาขาใน Maps ให้ตรงก่อนเดินทาง"
   },
   {
     "id": "tokyo-asakusa-imahan",
@@ -3184,9 +3309,24 @@ export const discoverFoods = [
       "อาซากุสะ",
       "wagyu"
     ],
-    "sourceURL": "https://www.asakusaimahan.co.jp/",
+    "sourceURL": "https://www.asakusaimahan.co.jp/en/contact",
     "checkedAt": "2026-10-01",
-    "art": "temple"
+    "art": "temple",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "famous",
+    "photoQuery": "Asakusa Imahan Kokusai Street restaurant sukiyaki",
+    "hoursNote": "ร้าน Kokusai Street Head Restaurant เปิดตามตารางของร้าน; ห้องส่วนตัวมีเงื่อนไขเวลา",
+    "closedDaysNote": "มีประกาศปิดชั่วคราวเป็นบางช่วง ตรวจ News ก่อน",
+    "reservationLabel": "แนะนำจองสำหรับมื้อพิเศษ",
+    "reservationNote": "จองทางโทรศัพท์เท่านั้น; ไม่รับจองออนไลน์ และ lunch menu ไม่รับจอง",
+    "bookingURL": "https://www.asakusaimahan.co.jp/en/contact",
+    "officialURL": "https://www.asakusaimahan.co.jp/en/",
+    "sourceName": "Asakusa Imahan official",
+    "queueNote": "มื้อกลางวันเป็น first-come, first-served",
+    "paymentNote": "มีค่า table charge บางประเภทการจอง",
+    "warningNote": "ห้อง private room มี minimum course order ต่อคน"
   },
   {
     "id": "tokyo-suzukien",
@@ -3221,7 +3361,20 @@ export const discoverFoods = [
     ],
     "sourceURL": "https://www.tocha.co.jp/",
     "checkedAt": "2026-10-01",
-    "art": "temple"
+    "art": "temple",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "cafe",
+    "photoQuery": "Suzukien Asakusa matcha gelato",
+    "hoursNote": "ตรวจเวลาเปิดจากเว็บไซต์ร้าน/Maps ในวันจริง",
+    "closedDaysNote": "อาจเปลี่ยนตามฤดูกาล",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "ร้านของหวาน ไม่จำเป็นต้องจอง",
+    "officialURL": "https://www.tocha.co.jp/",
+    "sourceName": "Suzukien / tea company site",
+    "queueNote": "บ่ายและวันหยุดอาจมีคิว",
+    "warningNote": "ระดับมัทฉะเข้มมีรสขมชัด เหมาะแชร์ชิม"
   },
   {
     "id": "tokyo-tsujihan-nihonbashi",
@@ -3252,9 +3405,22 @@ export const discoverFoods = [
       "อาหารทะเล",
       "nihonbashi"
     ],
-    "sourceURL": "https://www.tsujihan-jp.com/",
+    "sourceURL": "https://www.tsujihan-jp.com/blank",
     "checkedAt": "2026-10-01",
-    "art": "city"
+    "art": "city",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "famous",
+    "photoQuery": "Tsujihan Nihonbashi kaisen don",
+    "hoursNote": "Nihonbashi Main Store 10:00–22:30 (L.O. 22:00) ตามหน้า official ที่ตรวจล่าสุด",
+    "closedDaysNote": "ไม่แน่นอน ยกเว้นช่วงปีใหม่; ร้านเตือนว่าอาจเปลี่ยน",
+    "reservationLabel": "Walk-in เป็นหลัก",
+    "reservationNote": "หน้า official ไม่ระบุระบบจองสำหรับสาขาหลัก",
+    "officialURL": "https://www.tsujihan-jp.com/",
+    "sourceName": "Tsujihan official",
+    "queueNote": "คิวยาวได้ช่วงเที่ยง",
+    "warningNote": "เวลา/วันหยุดอาจเปลี่ยน ให้ตรวจหน้าร้านก่อน"
   },
   {
     "id": "osaka-ajinoya",
@@ -3288,7 +3454,21 @@ export const discoverFoods = [
     ],
     "sourceURL": "https://ajinoya-okonomiyaki.com/",
     "checkedAt": "2026-10-01",
-    "art": "city"
+    "art": "city",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "famous",
+    "photoQuery": "Ajinoya Honten okonomiyaki Osaka",
+    "hoursNote": "อังคาร–อาทิตย์ 11:00–22:00; จันทร์และวันปีใหม่ปิด ตาม official ที่ตรวจ 1 ต.ค. 2026",
+    "closedDaysNote": "จันทร์, 1 ม.ค. และอาจมีวันหยุดพิเศษ",
+    "reservationLabel": "มี FastPass",
+    "reservationNote": "ร้านเตือนว่า AutoReserve ไม่ใช่ช่องทางที่ยอมรับ; ใช้ FastPass จาก official/TableCheck",
+    "bookingURL": "https://www.tablecheck.com/shops/ajinoya/reserve",
+    "officialURL": "https://ajinoya-okonomiyaki.com/",
+    "sourceName": "Ajinoya official",
+    "queueNote": "เป็นร้านดัง คิวยาวได้มาก; FastPass ช่วยลดความเสี่ยง",
+    "warningNote": "อย่าซื้อสิทธิ์จาก AutoReserve เพราะร้านประกาศว่าไม่รับ"
   },
   {
     "id": "osaka-kiji-umeda",
@@ -3319,9 +3499,22 @@ export const discoverFoods = [
       "okonomiyaki",
       "ร้านดัง"
     ],
-    "sourceURL": "https://www.kijiweb.com/",
+    "sourceURL": "https://www.goumeda.com/shop/okonomiyaki-kiji/",
     "checkedAt": "2026-10-01",
-    "art": "tower"
+    "art": "tower",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "local",
+    "photoQuery": "Okonomiyaki Kiji Umeda Osaka",
+    "hoursNote": "ข้อมูลไกด์ล่าสุดระบุประมาณ 11:45–20:30; ปิดวันอาทิตย์",
+    "closedDaysNote": "อาทิตย์",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "ไม่มีระบบจองที่ชัดเจนในข้อมูลล่าสุด; เผื่อคิว",
+    "officialURL": "https://www.goumeda.com/shop/okonomiyaki-kiji/",
+    "sourceName": "Go Umeda current listing",
+    "queueNote": "ร้านเล็กและดัง มีโอกาสรอ",
+    "warningNote": "แหล่งข้อมูลเป็น local guide ไม่ใช่เว็บไซต์ร้านโดยตรง จึงควรเช็ก Maps ในวันจริง"
   },
   {
     "id": "osaka-jiyuken-namba",
@@ -3352,9 +3545,22 @@ export const discoverFoods = [
       "osaka local",
       "นัมบะ"
     ],
-    "sourceURL": "https://jiyuken.co.jp/",
+    "sourceURL": "https://www.jiyuken.co.jp/",
     "checkedAt": "2026-10-01",
-    "art": "city"
+    "art": "city",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "local",
+    "photoQuery": "Jiyuken Namba curry Osaka",
+    "hoursNote": "ร้าน Namba Main Store ยังมีหน้า official และประกาศปรับราคา 14 ก.ค. 2026",
+    "closedDaysNote": "ตรวจหน้า official ก่อนเดินทาง",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "เหมาะแวะกินเร็ว ไม่มีข้อมูลจองโต๊ะเด่นชัด",
+    "officialURL": "https://www.jiyuken.co.jp/",
+    "sourceName": "Jiyuken official",
+    "queueNote": "ช่วงมื้อกลางวันอาจแน่น",
+    "warningNote": "ราคาเพิ่งมีการปรับในปี 2026 จึงควรดูเมนูล่าสุด"
   },
   {
     "id": "osaka-rikuro-namba",
@@ -3386,9 +3592,22 @@ export const discoverFoods = [
       "ของฝาก",
       "โอซาก้า"
     ],
-    "sourceURL": "https://www.rikuro.co.jp/",
+    "sourceURL": "https://www.rikuro.co.jp/shoplist/134.html",
     "checkedAt": "2026-10-01",
-    "art": "city"
+    "art": "city",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "cafe",
+    "photoQuery": "Rikuro Ojisan Namba cheesecake",
+    "hoursNote": "ชั้น 1 09:00–20:00; Cafe ROOM 11:00–17:30 (L.O.16:30) ตาม official",
+    "closedDaysNote": "ตรวจประกาศร้านช่วงเทศกาล",
+    "reservationLabel": "ไม่รับจอง",
+    "reservationNote": "Namba Main Store ระบุว่าไม่รับจองหน้าร้าน/ออนไลน์/โทรศัพท์",
+    "officialURL": "https://www.rikuro.co.jp/shoplist/134.html",
+    "sourceName": "Rikuro official",
+    "queueNote": "สินค้าบางช่วงอาจจำกัดจำนวน",
+    "warningNote": "ร้านมีหลายสาขาและบางสาขาปิด/ย้ายในปี 2026 เลือก Namba Main Store ให้ตรง"
   },
   {
     "id": "osaka-harukoma-tenjinbashi",
@@ -3419,9 +3638,22 @@ export const discoverFoods = [
       "tenjinbashisuji",
       "โอซาก้า"
     ],
-    "sourceURL": "https://www.harukoma.co.jp/",
+    "sourceURL": "https://tabelog.com/en/osaka/A2701/A270103/27002205/",
     "checkedAt": "2026-10-01",
-    "art": "tower"
+    "art": "tower",
+    "operationalStatus": "verify",
+    "statusText": "⚠️ ต้องเช็กก่อนออกเดินทาง",
+    "statusNote": "ข้อมูลล่าสุดระบุ Main Store ปิดปรับปรุงถึง 30 ก.ย. 2026 และตั้งใจกลับมา 1 ต.ค. 2026; วันเปิดจริงอาจเลื่อน",
+    "foodTab": "local",
+    "photoQuery": "Harukoma Sushi Tenjinbashi Osaka",
+    "hoursNote": "ปกติ 11:00–21:30 และปิดวันอังคาร; ปิดเมื่อของหมด",
+    "closedDaysNote": "อังคาร; อาจมีปิดปรับปรุง/ขายหมด",
+    "reservationLabel": "ไม่รับจอง",
+    "reservationNote": "คิวหน้างาน",
+    "officialURL": "https://tabelog.com/en/osaka/A2701/A270103/27002205/",
+    "sourceName": "Tabelog listing checked 2026",
+    "queueNote": "ปกติรอ 30–60 นาทีช่วงพีค",
+    "warningNote": "วันที่ 1 ต.ค. 2026 เป็นวันคาดเปิดหลังปรับปรุง โปรดเช็ก Instagram/โทรก่อน"
   },
   {
     "id": "fuji-houtou-fudou",
@@ -3452,9 +3684,22 @@ export const discoverFoods = [
       "คาวากุจิโกะ",
       "ฟูจิ"
     ],
-    "sourceURL": "https://www.houtou-fudou.jp/",
+    "sourceURL": "https://www.yamanashi-kankou.jp/kankou/eat/p3_0111.html",
     "checkedAt": "2026-10-01",
-    "art": "park"
+    "art": "park",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "famous",
+    "photoQuery": "Houtou Fudou Kawaguchiko restaurant",
+    "hoursNote": "เวลาแตกต่างตามสาขา; ข้อมูลท่องเที่ยวจังหวัดยังระบุร้านในพื้นที่ Kawaguchiko",
+    "closedDaysNote": "ขึ้นกับสาขาและฤดูกาล",
+    "reservationLabel": "Walk-in เป็นหลัก",
+    "reservationNote": "ร้านสไตล์ local chain แนะนำเผื่อคิวช่วงเที่ยง",
+    "officialURL": "https://www.houtou-fudou.jp/",
+    "sourceName": "Yamanashi official tourism",
+    "queueNote": "วันหยุดและฤดูใบไม้เปลี่ยนสีคนเยอะ",
+    "warningNote": "ให้เลือกสาขาให้ตรงกับเส้นทาง เพราะมีหลายสาขา"
   },
   {
     "id": "fuji-tempura-idaten",
@@ -3485,9 +3730,24 @@ export const discoverFoods = [
       "kawaguchiko",
       "ร้านดัง"
     ],
-    "sourceURL": "https://fujikanko-travel.jp/food/40",
+    "sourceURL": "https://fuji.creative-r.com/en/pages/idaten-kawaguchiko",
     "checkedAt": "2026-10-01",
-    "art": "park"
+    "art": "park",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "famous",
+    "photoQuery": "Fuji Tempura Idaten Kawaguchiko",
+    "hoursNote": "10:00–22:00 (L.O.21:30) ตาม official ที่ตรวจล่าสุด",
+    "closedDaysNote": "ตรวจ official หากมีประกาศพิเศษ",
+    "reservationLabel": "รับจองออนไลน์",
+    "reservationNote": "จองผ่าน TableCheck ได้; ไม่จำเป็นทุกวันแต่ช่วยลดความเสี่ยงช่วงพีค",
+    "bookingURL": "https://www.tablecheck.com/en/idaten-kawaguchiko/reserve",
+    "officialURL": "https://fuji.creative-r.com/en/pages/idaten-kawaguchiko",
+    "sourceName": "Fuji Tempura Idaten official",
+    "queueNote": "ใกล้สถานีมาก จึงแน่นหลังรถไฟ/รถบัสลง",
+    "paymentNote": "รองรับบัตรและ QR หลายแบบตาม official",
+    "warningNote": "โปรโมชันรายเดือนมีวันหมดอายุ อย่ายึดราคาคูปองเก่า"
   },
   {
     "id": "fuji-lake-bake",
@@ -3519,9 +3779,22 @@ export const discoverFoods = [
       "เบเกอรี่",
       "วิวฟูจิ"
     ],
-    "sourceURL": "https://lakebake.com/",
+    "sourceURL": "https://lakebake.com/shop.html",
     "checkedAt": "2026-10-01",
-    "art": "park"
+    "art": "park",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "cafe",
+    "photoQuery": "Lake Bake Kawaguchiko cafe Mount Fuji",
+    "hoursNote": "หน้า official ระบุ 10:00–16:00/17:00 และเวลาคาเฟ่ปิดก่อนร้าน; ควรเช็กหน้าร้านล่าสุด",
+    "closedDaysNote": "พุธ + พฤหัสที่ 2 และ 4 (ยกเว้นบางช่วงเทศกาล)",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "ไม่มีระบบจองเด่นชัด",
+    "officialURL": "https://www.lakebake.com/",
+    "sourceName": "Lake Bake official",
+    "queueNote": "ของอบบางชนิดอาจหมดถ้าไปบ่าย",
+    "warningNote": "เว็บไซต์มีข้อมูลเวลาสองชุดต่างกันเล็กน้อย จึงควรเช็กอีกครั้งก่อนออกเดินทาง"
   },
   {
     "id": "fuji-sanrokuen",
@@ -3552,9 +3825,777 @@ export const discoverFoods = [
       "traditional",
       "คาวากุจิโกะ"
     ],
-    "sourceURL": "https://www.irori-sanrokuen.com/",
+    "sourceURL": "https://kawaguchiko-sanrokuen.com/",
     "checkedAt": "2026-10-01",
-    "art": "park"
+    "art": "park",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "statusNote": "ข้อมูลเวลา/วันหยุดอาจเปลี่ยน แนะนำกดเว็บไซต์ร้านหรือ Google Maps ก่อนออกเดินทาง",
+    "foodTab": "local",
+    "photoQuery": "Sanrokuen Kawaguchiko robatayaki",
+    "hoursNote": "ข้อมูล official ปัจจุบันยังแสดงร้านและการเดินทาง; เวลาให้เช็กหน้าร้านก่อน",
+    "closedDaysNote": "อาจมีวันหยุดตามฤดูกาล",
+    "reservationLabel": "แนะนำจอง",
+    "reservationNote": "มื้อใช้เวลาและจำนวนโต๊ะมีจำกัด เหมาะโทร/เช็ก official ก่อน",
+    "officialURL": "https://kawaguchiko-sanrokuen.com/",
+    "sourceName": "Sanrokuen official",
+    "queueNote": "เหมาะเผื่อเวลา 1–1.5 ชม.",
+    "warningNote": "เสิร์ฟแบบเตาถ่าน/囲炉裏 ใช้เวลามากกว่าร้านจานด่วน"
+  },
+  {
+    "id": "tokyo-fuunji",
+    "city": "tokyo",
+    "area": "shinjuku",
+    "name": "Fuunji Shinjuku",
+    "nameTH": "ฟูอุนจิ ชินจูกุ",
+    "categories": [
+      "food",
+      "ramen",
+      "famous",
+      "rain"
+    ],
+    "station": "Shinjuku · South Exit เดินประมาณ 5 นาที",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1000,
+    "budgetJPYMax": 1600,
+    "budgetNote": "Tsukemen / ramen + topping",
+    "recommendedTime": "ก่อนเที่ยงหรือช่วงเปิดรอบเย็น",
+    "indoor": true,
+    "description": "ร้านสึเคเม็งซุปเข้มข้นชื่อดัง คิวหมุนไวและรสชัด",
+    "mustTry": "Special Tsukemen",
+    "tip": "ร้านมีเคาน์เตอร์ 15 ที่นั่ง",
+    "foodTab": "famous",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official ระบุเปิดทุกวันจนซุปหมด",
+    "hoursNote": "11:00–15:00, 17:00–21:00",
+    "closedDaysNote": "ไม่มีวันหยุดประจำ",
+    "reservationLabel": "ไม่รับจอง",
+    "reservationNote": "official ระบุไม่รับ reservation",
+    "bookingURL": "",
+    "officialURL": "https://fu-unji.com/",
+    "sourceURL": "https://fu-unji.com/",
+    "sourceName": "Fuunji official",
+    "queueNote": "คิวหน้าร้านเป็นปกติ; เลี่ยง 12:00–14:00",
+    "paymentNote": "ตรวจหน้าร้าน",
+    "warningNote": "อาจปิดก่อนเวลาเมื่อซุปหมด",
+    "mapQuery": "Fuunji Shinjuku Tokyo",
+    "keywords": [
+      "tsukemen",
+      "ราเมง",
+      "ชินจูกุ"
+    ],
+    "art": "city",
+    "photoQuery": "Fuunji Shinjuku tsukemen"
+  },
+  {
+    "id": "tokyo-maisen-aoyama",
+    "city": "tokyo",
+    "area": "shibuya",
+    "name": "Tonkatsu Maisen Aoyama",
+    "nameTH": "ทงคัตสึ ไมเซ็น อาโอยามะ",
+    "categories": [
+      "food",
+      "local-specialty",
+      "family",
+      "rain"
+    ],
+    "station": "Omotesando A2 · เดินประมาณ 3 นาที",
+    "durationMinutes": 75,
+    "duration": "1–1.25 ชั่วโมง",
+    "budgetJPYMin": 1800,
+    "budgetJPYMax": 3200,
+    "budgetNote": "ชุดทงคัตสึ; course สูงกว่านี้",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ทงคัตสึร้านเก่าแก่ในอาคารโรงอาบน้ำเดิม บรรยากาศเป็นเอกลักษณ์",
+    "mustTry": "Kurobuta Tonkatsu Set",
+    "tip": "วันหยุดคิวเยอะ",
+    "foodTab": "famous",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "หน้า official มีเมนู seasonal ก.ย.–ต.ค. 2026",
+    "hoursNote": "11:00–22:00 (L.O.21:00)",
+    "closedDaysNote": "ไม่มี; อาจมีปิดชั่วคราว",
+    "reservationLabel": "รับจองบางรูปแบบ",
+    "reservationNote": "เสาร์–อาทิตย์/วันหยุดรับจองเฉพาะ banquet course; course บางรายการต้องจองล่วงหน้า 2 วันก่อน 14:00",
+    "bookingURL": "https://mai-sen.com/restaurant/aoyama/",
+    "officialURL": "https://mai-sen.com/restaurant/aoyama/",
+    "sourceURL": "https://mai-sen.com/restaurant/aoyama/",
+    "sourceName": "Maisen official",
+    "queueNote": "ถ้าไม่กิน course ให้ walk-in",
+    "paymentNote": "ตรวจ official",
+    "warningNote": "เงื่อนไขจอง weekend ต่างจากวันธรรมดา",
+    "mapQuery": "Tonkatsu Maisen Aoyama",
+    "keywords": [
+      "tonkatsu",
+      "อาโอยามะ",
+      "omotesando"
+    ],
+    "art": "city",
+    "photoQuery": "Tonkatsu Maisen Aoyama Tokyo"
+  },
+  {
+    "id": "tokyo-udon-shin",
+    "city": "tokyo",
+    "area": "shinjuku",
+    "name": "Udon Shin",
+    "nameTH": "อุด้ง ชิน",
+    "categories": [
+      "food",
+      "local-specialty",
+      "rain"
+    ],
+    "station": "Shinjuku Exit 6 · เดินประมาณ 2 นาที",
+    "durationMinutes": 75,
+    "duration": "1–1.25 ชั่วโมง",
+    "budgetJPYMin": 1000,
+    "budgetJPYMax": 2200,
+    "budgetNote": "อุด้ง + tempura/topping",
+    "recommendedTime": "ก่อนเที่ยงหรือช่วงบ่าย",
+    "indoor": true,
+    "description": "อุด้งทำสดชามต่อชาม เน้นเส้นเหนียวนุ่มและเสิร์ฟทันที",
+    "mustTry": "Fresh-cut Udon + Tempura",
+    "tip": "หลังสั่งอาจรอ 10–15 นาทีเพราะทำใหม่ทุกชาม",
+    "foodTab": "local",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official ระบุเปิดทุกวันยกเว้นปีใหม่",
+    "hoursNote": "11:00–L.O.22:00",
+    "closedDaysNote": "ไม่มีวันหยุดประจำ (ยกเว้นปีใหม่)",
+    "reservationLabel": "เช็กหน้า Reservation",
+    "reservationNote": "เว็บไซต์มีเมนู Reservation; คิว walk-in ยังพบได้บ่อย",
+    "officialURL": "https://udonshin.com/",
+    "sourceURL": "https://udonshin.com/",
+    "sourceName": "Udon Shin official",
+    "queueNote": "ร้านดังและทำสดทุกชาม ควรเผื่อคิว",
+    "warningNote": "การรอหลังสั่งเป็นส่วนหนึ่งของกระบวนการทำสด",
+    "mapQuery": "Udon Shin Shinjuku Tokyo",
+    "keywords": [
+      "udon",
+      "ชินจูกุ",
+      "อุด้ง"
+    ],
+    "art": "city",
+    "photoQuery": "Udon Shin Shinjuku"
+  },
+  {
+    "id": "tokyo-rokurinsha",
+    "city": "tokyo",
+    "area": "central",
+    "name": "Rokurinsha Tokyo Station",
+    "nameTH": "โรคุรินฉะ โตเกียวสเตชัน",
+    "categories": [
+      "food",
+      "ramen",
+      "famous",
+      "rain"
+    ],
+    "station": "Tokyo Station · Yaesu / Tokyo Ramen Street B1",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1000,
+    "budgetJPYMax": 1600,
+    "budgetNote": "Tsukemen / ramen",
+    "recommendedTime": "เช้าหรือ 14:00–18:00",
+    "indoor": true,
+    "description": "ร้านสึเคเม็งซุปเข้มข้นใน Tokyo Ramen Street ขึ้นชื่อเรื่องเส้นหนาและคิว",
+    "mustTry": "Special Tsukemen",
+    "tip": "เวลาเปิดอาจเปลี่ยนตาม facility",
+    "foodTab": "famous",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "Tokyo Ramen Street official ยังแสดงร้านใน 2026",
+    "hoursNote": "Tokyo Station branch ปกติเปิดเช้าถึงดึก; ตรวจหน้า facility ในวันจริง",
+    "closedDaysNote": "ตาม Tokyo Station facility",
+    "reservationLabel": "ไม่รับจอง",
+    "reservationNote": "official Solamachi listing ของแบรนด์ระบุ reservation none; Tokyo Station ใช้คิวหน้างาน",
+    "officialURL": "https://rokurinsha.com/",
+    "sourceURL": "https://www.tokyoeki-1bangai.co.jp/street/ramen/en/",
+    "sourceName": "Tokyo Ramen Street official",
+    "queueNote": "เป็นร้านคิวยาว เลี่ยงเที่ยง/เย็น",
+    "warningNote": "บางวันมีเปลี่ยนเวลาเพราะ maintenance ของอาคาร",
+    "mapQuery": "Rokurinsha Tokyo Station",
+    "keywords": [
+      "tsukemen",
+      "Tokyo Ramen Street",
+      "โตเกียวสเตชัน"
+    ],
+    "art": "city",
+    "photoQuery": "Rokurinsha Tokyo Station tsukemen"
+  },
+  {
+    "id": "tokyo-koffee-mameya-kakeru",
+    "city": "tokyo",
+    "area": "kiyosumi",
+    "name": "KOFFEE MAMEYA -Kakeru-",
+    "nameTH": "คอฟฟี่ มาเมยะ คาเครุ",
+    "categories": [
+      "food",
+      "cafe",
+      "couple",
+      "rain"
+    ],
+    "station": "Kiyosumi-shirakawa / Kiba / Monzen-nakacho",
+    "durationMinutes": 105,
+    "duration": "1 ชั่วโมง 45 นาที",
+    "budgetJPYMin": 3000,
+    "budgetJPYMax": 8500,
+    "budgetNote": "coffee course / experience แล้วแต่ชุด",
+    "recommendedTime": "ตามเวลาจอง",
+    "indoor": true,
+    "description": "coffee experience แบบเคาน์เตอร์ เน้นชิมกาแฟจริงจังมากกว่าคาเฟ่แวะเร็ว",
+    "mustTry": "Coffee Course / Pairing",
+    "tip": "ทุกที่นั่งเป็น counter",
+    "foodTab": "cafe",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "ระบบจอง TableCheck เปิดใช้งานอยู่",
+    "hoursNote": "ตาม slot ใน TableCheck",
+    "closedDaysNote": "ตรวจ slot ที่เปิดให้จอง",
+    "reservationLabel": "ควรจอง",
+    "reservationNote": "จองล่วงหน้าได้ถึง 2 เดือน; เวลาโต๊ะ 1:45 ชม.; กลุ่มสูงสุด 4 คน",
+    "bookingURL": "https://www.tablecheck.com/en/koffee-mameya-kakeru/reserve/landing",
+    "officialURL": "https://www.koffee-mameya.com/",
+    "sourceURL": "https://www.tablecheck.com/en/koffee-mameya-kakeru/reserve/landing",
+    "sourceName": "TableCheck booking policy",
+    "queueNote": "ไม่เหมาะ walk-in แบบหวังได้โต๊ะทันที",
+    "paymentNote": "ยกเลิก/เปลี่ยนภายใน 24 ชม.มีค่าธรรมเนียม ¥8,500/คนตาม policy",
+    "warningNote": "ค่าปรับยกเลิกสูง อ่าน booking policy ก่อนกดยืนยัน",
+    "mapQuery": "KOFFEE MAMEYA Kakeru Tokyo",
+    "keywords": [
+      "specialty coffee",
+      "kiyosumi",
+      "คาเฟ่"
+    ],
+    "art": "city",
+    "photoQuery": "KOFFEE MAMEYA Kakeru Tokyo coffee"
+  },
+  {
+    "id": "tokyo-blue-bottle-shibuya",
+    "city": "tokyo",
+    "area": "shibuya",
+    "name": "Blue Bottle Coffee Shibuya",
+    "nameTH": "บลูบอทเทิล คอฟฟี่ ชิบูย่า",
+    "categories": [
+      "food",
+      "cafe",
+      "walk",
+      "rain"
+    ],
+    "station": "Shibuya · Kitaya Park",
+    "durationMinutes": 45,
+    "duration": "30–45 นาที",
+    "budgetJPYMin": 600,
+    "budgetJPYMax": 1600,
+    "budgetNote": "กาแฟ + เบเกอรี่",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": true,
+    "description": "คาเฟ่สาขา Shibuya ในสวน Kitaya Park เหมาะพักระหว่าง Harajuku–Shibuya",
+    "mustTry": "Pour-over / seasonal drink",
+    "tip": "มี Wi‑Fi และที่นั่งสองชั้น",
+    "foodTab": "cafe",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official cafe page แสดงเวลาและที่อยู่ปัจจุบัน",
+    "hoursNote": "08:00–20:00 ทุกวัน",
+    "closedDaysNote": "ไม่มีตามหน้า official",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "คาเฟ่ทั่วไป ไม่ต้องจอง",
+    "officialURL": "https://store.bluebottlecoffee.jp/pages/shibuya",
+    "sourceURL": "https://store.bluebottlecoffee.jp/pages/shibuya",
+    "sourceName": "Blue Bottle official",
+    "queueNote": "ช่วงสุดสัปดาห์อาจแน่น",
+    "warningNote": "Blue Bottle มีหลายสาขา เลือก Shibuya Cafe ให้ตรง",
+    "mapQuery": "Blue Bottle Coffee Shibuya",
+    "keywords": [
+      "coffee",
+      "คาเฟ่",
+      "shibuya"
+    ],
+    "art": "city",
+    "photoQuery": "Blue Bottle Coffee Shibuya Cafe"
+  },
+  {
+    "id": "tokyo-glitch-ginza",
+    "city": "tokyo",
+    "area": "central",
+    "name": "GLITCH COFFEE GINZA",
+    "nameTH": "กลิทช์ คอฟฟี่ กินซ่า",
+    "categories": [
+      "food",
+      "cafe",
+      "couple",
+      "rain"
+    ],
+    "station": "Ginza / Higashi-ginza",
+    "durationMinutes": 45,
+    "duration": "30–45 นาที",
+    "budgetJPYMin": 800,
+    "budgetJPYMax": 2500,
+    "budgetNote": "single origin specialty coffee",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": true,
+    "description": "specialty coffee สาย single-origin ที่เด่นเรื่องเมล็ดหายากและ tasting notes ชัด",
+    "mustTry": "Single-origin pour-over",
+    "tip": "ราคาแก้วขึ้นกับเมล็ด",
+    "foodTab": "cafe",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official store page แสดง “営業中”",
+    "hoursNote": "09:00–18:00 ทุกวัน ตาม store page ที่ตรวจล่าสุด",
+    "closedDaysNote": "ไม่มีตามหน้า store",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "ไม่จำเป็นต้องจอง",
+    "officialURL": "https://shop.glitchcoffee.com/en/pages/store-ginza",
+    "sourceURL": "https://shop.glitchcoffee.com/en/pages/store-ginza",
+    "sourceName": "GLITCH official",
+    "queueNote": "เสาร์–อาทิตย์อาจมีคิว",
+    "warningNote": "ราคาเมล็ด specialty สูงกว่าคาเฟ่ทั่วไป",
+    "mapQuery": "GLITCH COFFEE GINZA",
+    "keywords": [
+      "specialty coffee",
+      "ginza",
+      "กาแฟ"
+    ],
+    "art": "city",
+    "photoQuery": "GLITCH COFFEE GINZA"
+  },
+  {
+    "id": "tokyo-onibus-nakameguro",
+    "city": "tokyo",
+    "area": "nakameguro",
+    "name": "ONIBUS COFFEE Nakameguro",
+    "nameTH": "โอนิบัส คอฟฟี่ นากาเมกุโระ",
+    "categories": [
+      "food",
+      "cafe",
+      "local",
+      "walk"
+    ],
+    "station": "Nakameguro Station",
+    "durationMinutes": 45,
+    "duration": "30–45 นาที",
+    "budgetJPYMin": 500,
+    "budgetJPYMax": 1500,
+    "budgetNote": "กาแฟ + ขนม",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": true,
+    "description": "คาเฟ่ specialty ขนาดกะทัดรัดใกล้สถานี นั่งพักก่อนเดินย่าน Nakameguro ได้ดี",
+    "mustTry": "Hand drip / espresso",
+    "tip": "ร้านไม่ใหญ่มาก",
+    "foodTab": "cafe",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official location page ยังแสดงสาขา",
+    "hoursNote": "09:00–18:00",
+    "closedDaysNote": "วันหยุดไม่แน่นอน",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "ไม่ต้องจอง",
+    "officialURL": "https://onibuscoffee-jp.com/en/pages/locations/nakameguro",
+    "sourceURL": "https://onibuscoffee-jp.com/en/pages/locations/nakameguro",
+    "sourceName": "ONIBUS official",
+    "queueNote": "อาจเต็มเร็วช่วง weekend",
+    "warningNote": "พื้นที่นั่งจำกัด",
+    "mapQuery": "ONIBUS COFFEE Nakameguro",
+    "keywords": [
+      "coffee",
+      "nakameguro",
+      "คาเฟ่"
+    ],
+    "art": "city",
+    "photoQuery": "ONIBUS COFFEE Nakameguro"
+  },
+  {
+    "id": "tokyo-monja-tsukishima",
+    "city": "tokyo",
+    "area": "tsukishima",
+    "name": "Monja Tsukishima",
+    "nameTH": "มอนจะ สึกิชิมะ",
+    "categories": [
+      "food",
+      "local-specialty",
+      "local",
+      "family",
+      "rain"
+    ],
+    "station": "Tsukishima Exit 7/10",
+    "durationMinutes": 90,
+    "duration": "1–1.5 ชั่วโมง",
+    "budgetJPYMin": 2000,
+    "budgetJPYMax": 3500,
+    "budgetNote": "มอนจะ + เครื่องดื่ม",
+    "recommendedTime": "เย็น / weekend เที่ยง",
+    "indoor": true,
+    "description": "ร้านมอนจะในย่านต้นตำรับ Tsukishima เหมาะลองอาหารโตเกียวแบบ local",
+    "mustTry": "Motsu Nira Monja",
+    "tip": "โต๊ะเป็น teppan ให้ทำ/กินร้อน ๆ",
+    "foodTab": "local",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "หน้า Tsukishima Monja Association ยังแสดงข้อมูลและระบบจอง",
+    "hoursNote": "วันธรรมดา 17:00–22:00; เสาร์อาทิตย์/วันหยุด 11:30–22:00",
+    "closedDaysNote": "จันทร์ + อังคารที่ 1 และ 3",
+    "reservationLabel": "รับจองออนไลน์",
+    "reservationNote": "มี Web reservation และรับ seat reservation",
+    "bookingURL": "https://monja.gr.jp/stores/monja-tsukishima/",
+    "officialURL": "https://monja.gr.jp/stores/monja-tsukishima/",
+    "sourceURL": "https://monja.gr.jp/stores/monja-tsukishima/",
+    "sourceName": "Tsukishima Monja Association official",
+    "queueNote": "จองช่วยลดคิวช่วง weekend",
+    "paymentNote": "รองรับบัตรหลักตาม listing",
+    "warningNote": "วันหยุดรายเดือนละเอียด ควรเช็กปฏิทินก่อน",
+    "mapQuery": "Monja Tsukishima Tokyo",
+    "keywords": [
+      "monjayaki",
+      "สึกิชิมะ",
+      "local tokyo"
+    ],
+    "art": "bay",
+    "photoQuery": "Tsukishima monjayaki Tokyo restaurant"
+  },
+  {
+    "id": "tokyo-afuri-harajuku",
+    "city": "tokyo",
+    "area": "shibuya",
+    "name": "AFURI Harajuku",
+    "nameTH": "อาฟุริ ฮาราจูกุ",
+    "categories": [
+      "food",
+      "ramen",
+      "famous",
+      "walk",
+      "rain"
+    ],
+    "station": "Harajuku / Meiji-jingumae",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1200,
+    "budgetJPYMax": 2200,
+    "budgetNote": "ramen + topping",
+    "recommendedTime": "ก่อนพีคเที่ยง/เย็น",
+    "indoor": true,
+    "description": "ราเมงยูซุที่กลิ่นสดและเบากว่าทงคตสึหนัก ๆ เหมาะพักระหว่าง Harajuku",
+    "mustTry": "Yuzu Shio Ramen",
+    "tip": "สาขานี้ cashless only ตาม official",
+    "foodTab": "famous",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official store list แสดงสาขา Harajuku ปัจจุบัน",
+    "hoursNote": "10:00–23:00 หรือจนซุปหมด",
+    "closedDaysNote": "เปิดทุกวัน",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "หน้า official ไม่ได้ระบุ reservation สำหรับ Harajuku เหมือนสาขา Ebisu ที่เพิ่งเปิดรับจอง",
+    "officialURL": "https://www.afuri.com/findus/",
+    "sourceURL": "https://www.afuri.com/findus/",
+    "sourceName": "AFURI official",
+    "queueNote": "ช่วงกลางวันคิวได้",
+    "paymentNote": "Cashless only",
+    "warningNote": "ถ้าต้องการจอง อย่าสับสนกับ Ebisu ซึ่งมี TableCheck ตั้งแต่ ก.ย. 2026",
+    "mapQuery": "AFURI Harajuku Tokyo",
+    "keywords": [
+      "yuzu ramen",
+      "harajuku",
+      "ราเมง"
+    ],
+    "art": "city",
+    "photoQuery": "AFURI Harajuku ramen"
+  },
+  {
+    "id": "osaka-daruma-shinsekai",
+    "city": "osaka",
+    "area": "osaka-tennoji",
+    "name": "Kushikatsu Daruma Shinsekai",
+    "nameTH": "คุชิคัตสึ ดารุมะ ชินเซไก",
+    "categories": [
+      "food",
+      "local-specialty",
+      "famous",
+      "night"
+    ],
+    "station": "Dobutsuen-mae / Shin-Imamiya",
+    "durationMinutes": 75,
+    "duration": "1–1.25 ชั่วโมง",
+    "budgetJPYMin": 1800,
+    "budgetJPYMax": 3500,
+    "budgetNote": "คุชิคัตสึ + เครื่องดื่ม",
+    "recommendedTime": "กลางวัน–ค่ำ",
+    "indoor": true,
+    "description": "ร้านคุชิคัตสึชื่อดังของย่าน Shinsekai ต้นตำรับบรรยากาศโอซาก้า",
+    "mustTry": "Assorted Kushikatsu",
+    "tip": "สาขา Shinsekai Main Store ไม่รับจอง",
+    "foodTab": "famous",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official location page แสดงเวลาและ policy ปัจจุบัน",
+    "hoursNote": "วันธรรมดา 11:00–22:30; เสาร์อาทิตย์/วันหยุด 10:30–22:30",
+    "closedDaysNote": "เปิดทุกวันตามหน้า official",
+    "reservationLabel": "ไม่รับจองสาขานี้",
+    "reservationNote": "ถ้าอยากจอง ให้เลือกสาขาอื่นของ Daruma ที่รับ reservation",
+    "officialURL": "https://www.kushikatu-daruma.com/location/",
+    "sourceURL": "https://www.kushikatu-daruma.com/location/",
+    "sourceName": "Kushikatsu Daruma official",
+    "queueNote": "คิวช่วงเย็น/วันหยุด",
+    "warningNote": "แบรนด์มีหลายสาขาและ policy จองต่างกันมาก",
+    "mapQuery": "Kushikatsu Daruma Shinsekai Osaka",
+    "keywords": [
+      "kushikatsu",
+      "shinsekai",
+      "daruma"
+    ],
+    "art": "tower",
+    "photoQuery": "Kushikatsu Daruma Shinsekai"
+  },
+  {
+    "id": "osaka-wanaka-namba",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Takoyaki Wanaka Namba",
+    "nameTH": "ทาโกะยากิ วานากะ นัมบะ",
+    "categories": [
+      "food",
+      "local-specialty",
+      "famous",
+      "budget",
+      "walk"
+    ],
+    "station": "Namba / Sennichimae",
+    "durationMinutes": 30,
+    "duration": "20–30 นาที",
+    "budgetJPYMin": 700,
+    "budgetJPYMax": 1500,
+    "budgetNote": "ทาโกะยากิ 1–2 ชุด",
+    "recommendedTime": "บ่าย–ค่ำ",
+    "indoor": false,
+    "description": "ทาโกะยากิร้านดังเก่าแก่ย่านนัมบะ เนื้อแป้งนุ่มด้านในและมีรสให้เลือกหลายแบบ",
+    "mustTry": "Takoyaki assorted flavors",
+    "tip": "เหมาะเป็นของกินเล่นระหว่างเดิน Dotonbori",
+    "foodTab": "famous",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official มีประกาศล่าสุด 25 ก.ย. 2026",
+    "hoursNote": "เวลาแตกต่างตามสาขา; Namba มีประกาศรายวันใน official",
+    "closedDaysNote": "อาจมีวันหยุด/เปิดพิเศษเป็นช่วง",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "ร้านทาโกะยากิแบบคิวหน้าร้าน",
+    "officialURL": "https://takoyaki-wanaka.com/en/",
+    "sourceURL": "https://www.takoyaki-wanaka.com/",
+    "sourceName": "Wanaka official",
+    "queueNote": "วันหยุดและกิจกรรมพิเศษคิวแน่นมาก",
+    "warningNote": "official เคยประกาศปิดสาขาบางแห่งในปี 2026 เลือก Namba ให้ตรง",
+    "mapQuery": "Takoyaki Wanaka Namba Osaka",
+    "keywords": [
+      "takoyaki",
+      "wanaka",
+      "namba"
+    ],
+    "art": "city",
+    "photoQuery": "Takoyaki Wanaka Namba Osaka"
+  },
+  {
+    "id": "osaka-lilo-coffee",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "LiLo Coffee Roasters",
+    "nameTH": "ไลโล คอฟฟี่ โรสเตอร์ส",
+    "categories": [
+      "food",
+      "cafe",
+      "local",
+      "walk"
+    ],
+    "station": "Shinsaibashi",
+    "durationMinutes": 45,
+    "duration": "30–45 นาที",
+    "budgetJPYMin": 600,
+    "budgetJPYMax": 1800,
+    "budgetNote": "specialty coffee + beans",
+    "recommendedTime": "บ่าย–ค่ำ",
+    "indoor": true,
+    "description": "ร้าน specialty coffee ของโอซาก้าที่มีคาแรกเตอร์ชัดและเมล็ดหลากหลาย",
+    "mustTry": "Hand drip / Osaka Blend",
+    "tip": "เดินต่อจาก Shinsaibashi ง่าย",
+    "foodTab": "cafe",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official store location page อัปเดตและแสดงเวลา",
+    "hoursNote": "ทุกวัน 11:00–23:00",
+    "closedDaysNote": "ไม่มีตามหน้า official",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "ไม่ต้องจอง",
+    "officialURL": "https://coffee.liloinveve.com/pages/store-location",
+    "sourceURL": "https://coffee.liloinveve.com/pages/store-location",
+    "sourceName": "LiLo Coffee official",
+    "queueNote": "ร้านเล็ก อาจแน่นช่วงเย็น",
+    "warningNote": "LiLo มีหลาย location; ร้าน Roasters คือ 1-10-28 Nishishinsaibashi",
+    "mapQuery": "LiLo Coffee Roasters Osaka",
+    "keywords": [
+      "coffee",
+      "shinsaibashi",
+      "คาเฟ่"
+    ],
+    "art": "city",
+    "photoQuery": "LiLo Coffee Roasters Osaka"
+  },
+  {
+    "id": "osaka-matsusaka-m-hozenji",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Matsusakagyu Yakiniku M Houzenji Yokocho",
+    "nameTH": "มัตสึซากะกิว ยากินิกุ M โฮเซ็นจิ",
+    "categories": [
+      "food",
+      "local-specialty",
+      "famous",
+      "couple",
+      "night"
+    ],
+    "station": "Namba / Nipponbashi",
+    "durationMinutes": 120,
+    "duration": "1.5–2 ชั่วโมง",
+    "budgetJPYMin": 6000,
+    "budgetJPYMax": 12000,
+    "budgetNote": "Matsusaka beef yakiniku course / a la carte",
+    "recommendedTime": "มื้อเย็น",
+    "indoor": true,
+    "description": "ยากินิกุเนื้อ Matsusaka สำหรับมื้อพิเศษในตรอก Hozenji Yokocho",
+    "mustTry": "Matsusaka beef assorted cuts",
+    "tip": "เหมาะจองล่วงหน้า โดยเฉพาะ weekend",
+    "foodTab": "famous",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official store list แนะนำให้จองผ่านเว็บไซต์หรือ social official",
+    "hoursNote": "ตรวจเวลาสาขาจาก official booking",
+    "closedDaysNote": "ขึ้นกับสาขา",
+    "reservationLabel": "แนะนำจองมาก",
+    "reservationNote": "official ระบุแนะนำจองออนไลน์; เหมาะกับมื้อค่ำที่ต้องการแน่นอน",
+    "bookingURL": "https://matsusaka-projects.com/english/shop",
+    "officialURL": "https://matsusaka-projects.com/english/shop",
+    "sourceURL": "https://matsusaka-projects.com/english/shop",
+    "sourceName": "Yakiniku M official",
+    "queueNote": "walk-in เสี่ยงเต็มในช่วงพีค",
+    "paymentNote": "ตรวจรายละเอียดใน booking page",
+    "warningNote": "สาขาในเครือมีหลายที่ เลือก Houzenji Yokocho ให้ตรง",
+    "mapQuery": "Matsusakagyu Yakiniku M Hozenji Yokocho Osaka",
+    "keywords": [
+      "wagyu",
+      "yakiniku",
+      "hozenji",
+      "matsusaka"
+    ],
+    "art": "city",
+    "photoQuery": "Matsusakagyu Yakiniku M Houzenji Yokocho"
+  },
+  {
+    "id": "fuji-kosaku",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Kosaku Kawaguchiko",
+    "nameTH": "โคซากุ คาวากุจิโกะ",
+    "categories": [
+      "food",
+      "local-specialty",
+      "local",
+      "family",
+      "rain"
+    ],
+    "station": "Kawaguchiko · รถ/แท็กซี่สะดวก",
+    "durationMinutes": 75,
+    "duration": "1–1.25 ชั่วโมง",
+    "budgetJPYMin": 1200,
+    "budgetJPYMax": 2200,
+    "budgetNote": "Hoto noodle + side",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ร้าน Hoto จานใหญ่สไตล์ Yamanashi มีที่นั่งเยอะ เหมาะกลุ่มและครอบครัว",
+    "mustTry": "Pumpkin Hoto",
+    "tip": "ชามใหญ่และร้อนมาก เหมาะอากาศเย็น",
+    "foodTab": "local",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official Kawaguchiko page มีประกาศล่าสุด ก.ย. 2026",
+    "hoursNote": "11:00–20:00 (L.O.19:30)",
+    "closedDaysNote": "ปกติไม่มีวันหยุดประจำ แต่มีประกาศปิดเฉพาะกิจ",
+    "reservationLabel": "ไม่รับจอง",
+    "reservationNote": "official ระบุไม่รับ reservation ทุกประเภท ให้มาเรียงคิวหน้างาน",
+    "officialURL": "https://www.kosaku.co.jp/tenpo-kawagutikoten",
+    "sourceURL": "https://www.kosaku.co.jp/tenpo-kawagutikoten",
+    "sourceName": "Kosaku official",
+    "queueNote": "ลานจอดอาจเต็ม; ร้านขอให้เลื่อนเวลามาหากแน่น",
+    "paymentNote": "รับเงินสดและบัตร; official ระบุ QR payment ไม่รับ",
+    "warningNote": "มีประกาศปิดเฉพาะวันเป็นระยะ ต้องเช็ก news ก่อน",
+    "mapQuery": "Kosaku Kawaguchiko Yamanashi",
+    "keywords": [
+      "hoto",
+      "kawaguchiko",
+      "local food"
+    ],
+    "art": "park",
+    "photoQuery": "Kosaku Kawaguchiko hoto"
+  },
+  {
+    "id": "fuji-troisieme-marche",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "cafe troisième marché",
+    "nameTH": "คาเฟ่ ทรัวซีแยม มาร์เช่",
+    "categories": [
+      "food",
+      "cafe",
+      "dessert",
+      "local",
+      "couple"
+    ],
+    "station": "Kawaguchiko / รถสะดวกกว่า",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 900,
+    "budgetJPYMax": 2200,
+    "budgetNote": "กาแฟ + เค้ก / sandwich",
+    "recommendedTime": "บ่าย",
+    "indoor": true,
+    "description": "คาเฟ่ local โทนอบอุ่น มีเค้กทำเอง กาแฟคั่วเอง และร้านของจุกจิก",
+    "mustTry": "Handmade seasonal cake + house-roasted coffee",
+    "tip": "Friday คาเฟ่ปิด เหลือเฉพาะร้านของ",
+    "foodTab": "cafe",
+    "operationalStatus": "open",
+    "statusText": "✅ ตรวจข้อมูลล่าสุดแล้ว",
+    "checkedAt": "2026-10-01",
+    "statusNote": "official site มี schedule และแนะนำเช็ก Instagram สำหรับปิดพิเศษ",
+    "hoursNote": "11:30–17:00",
+    "closedDaysNote": "พุธ–พฤหัส; ศุกร์ cafe ปิด ร้านของเปิด",
+    "reservationLabel": "Walk-in",
+    "reservationNote": "เค้กวันเกิด/anniversary cake ต้องจอง แต่โต๊ะคาเฟ่ทั่วไปใช้ walk-in",
+    "officialURL": "https://www.cafe-marche.com/",
+    "sourceURL": "https://www.cafe-marche.com/",
+    "sourceName": "troisième marché official",
+    "queueNote": "ที่นั่งจำกัดและปิดค่อนข้างเร็ว",
+    "warningNote": "มี event/temporary closure ได้ ให้ดู Instagram ในวันที่ไป",
+    "mapQuery": "cafe troisieme marche Kawaguchiko",
+    "keywords": [
+      "cafe",
+      "cake",
+      "kawaguchiko",
+      "hidden gem"
+    ],
+    "art": "park",
+    "photoQuery": "cafe troisieme marche Kawaguchiko"
   }
 ];
 export const discoverRoutes = [
