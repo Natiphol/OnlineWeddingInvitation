@@ -1,5 +1,5 @@
-import { createDiscover } from './discover.js?v=156';
-import { phrasebook, routeGuides, railMaps, immigrationQA, etiquette } from './travel-data.js?v=156';
+import { createDiscover } from './discover.js?v=155';
+import { phrasebook, routeGuides, railMaps, immigrationQA, etiquette } from './travel-data.js?v=155';
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), uid=()=>crypto.randomUUID(), today=()=>{const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).map(x=>[x.type,x.value]));return p.year+'-'+p.month+'-'+p.day};
 const icons={home:'M3 10 12 3l9 7M5 9v12h5v-6h4v6h5V9',plan:'M4 5h16v16H4zM8 3v4M16 3v4M4 10h16M8 14h2M14 14h2',travel:'M5 4h14v13H5zM5 11h14M8 20l-2 2M16 20l2 2M8 15h1M15 15h1',money:'M3 6h17v15H3zM3 6l14-3v3M15 11h6v5h-6z',trip:'M4 7h16v14H4zM8 7V3h8v4M9 7v14M15 7v14',plus:'M12 5v14M5 12h14',help:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20M9 8a3 3 0 0 1 6 0c0 2-3 2-3 5M12 17h.01',download:'M12 3v12M7 10l5 5 5-5M4 15v6h16v-6',check:'M5 12l4 4L19 6',shop:'M4 7h16l-1 14H5zM8 8V5a4 4 0 0 1 8 0v3',settings:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2',plane:'m3 12 7-2V4c0-3 4-3 4 0v6l7 2v3l-7-1v5l3 2H7l3-2v-5l-7 1z',pin:'M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0M15 10a3 3 0 1 0-6 0 3 3 0 0 0 6 0',edit:'m4 16 12-12 4 4L8 20H4z',refresh:'M20 7a9 9 0 1 0 1 9M20 2v5h-5',chat:'M3 3h18v14H9l-6 4zM7 8h10M7 12h7',file:'M5 2h9l5 5v15H5zM14 2v6h5M8 12h8M8 16h6',trash:'M3 6h18M6 6l1 15h10l1-15M9 6V3h6v3'};
 const icon=n=>`<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="${icons[n]||icons.file}"/></svg>`;
@@ -66,7 +66,7 @@ document.addEventListener('submit',ev=>{ev.preventDefault();const f=ev.target,v=
 $('#docfile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(f.size>8*1024*1024){toast('ไฟล์ต้องไม่เกิน 8 MB');return}if(!/^(image\/(png|jpeg|webp|gif|heic|heif)|application\/pdf)$/.test(f.type)){toast('รองรับภาพ PNG, JPG, WEBP, GIF, HEIC และ PDF');return}const trip=T().id;try{const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});await dbCall('put',{id:uid(),trip,name:f.name,type:f.type,data});S.docRevision=Date.now();save();renderDocs();toast('เก็บไฟล์ไว้ในเครื่องแล้ว')}catch{toast('เก็บไฟล์ไม่ได้ พื้นที่อาจไม่เพียงพอ')}});
 $('#importfile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{if(f.size>100*1024*1024)throw Error('ไฟล์สำรองใหญ่เกิน 100 MB');const d=validateImport(JSON.parse(await f.text()));if(!confirm('นำเข้าจะรวมทริปใหม่ และแทนที่ทริปที่มีรหัสเดียวกัน ควรสำรองเครื่องนี้ก่อน ดำเนินการต่อไหม?'))return;for(const x of d.files)await dbCall('put',x);for(const t of d.state.trips){const i=S.trips.findIndex(x=>x.id===t.id);if(i>=0)S.trips[i]=t;else S.trips.push(t)}S.current=d.state.current;save();day='';guideAirport='';render();toast('นำเข้าสำเร็จ')}catch(err){toast(err.message||'นำเข้าไม่สำเร็จ')}});
 window.addEventListener('hashchange',()=>{page=location.hash.slice(1);render()});window.addEventListener('online',render);window.addEventListener('offline',render);
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=156').then(r=>r.update()).catch(()=>{});
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=155').then(r=>r.update()).catch(()=>{});
 let swRefreshed=false;navigator.serviceWorker?.addEventListener('controllerchange',()=>{if(!swRefreshed){swRefreshed=true;toast('ICHI-JAPAN อัปเดตพร้อมแล้ว ปิดแล้วเปิดหน้าใหม่ได้เลย')}});
 if(document.modelContext?.registerTool){try{document.modelContext.registerTool({name:'read_trip_summary',description:'Read the selected trip dates and locally recorded financial totals. Does not modify data.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('No parameters accepted');const t=T();return {name:t.name,start:t.start,end:t.end,expenseCount:t.expenses.length,...totals(t)}}})}catch{}}
 let phraseLanguage='ja';
@@ -117,7 +117,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
 let offlineState=null,offlineError='',offlineProgress='',offlineBusy=false,offlineDownloadQueued=false;
 function offlinePanel(){const names={core:'หน้าแอป + ภาษา + ที่ควรไป',guide:'รูปและตัวอักษร',maps:'แผนที่รถไฟ',audio:'เสียงญี่ปุ่น',english:'เสียงอังกฤษ'},p=offlineState?.packs;return `<div class="offline-groups">${Object.entries(names).map(([k,n])=>`<div class="row"><span>${n}</span><strong>${p?`${p[k].ready}/${p[k].total} ${p[k].ready===p[k].total?'พร้อม':'ยังไม่ครบ'}`:'ยังไม่ได้ตรวจ'}</strong></div>`).join('')}</div><p class="note" role="status">${esc(offlineProgress||offlineError||'ตรวจจากไฟล์ที่เก็บในเบราว์เซอร์นี้')}</p><p class="note">${navigator.serviceWorker?.controller?'หน้าเว็บนี้อยู่ภายใต้ระบบออฟไลน์แล้ว':'ยังต้องรอระบบออฟไลน์ทำงาน แล้วปิด–เปิดหน้าใหม่'}</p><ol class="offline-steps"><li>เปิดลิงก์นี้ใน Safari / Chrome ขณะมีเน็ตและเข้าสู่ระบบให้เรียบร้อย</li><li>เพิ่มลงหน้าจอโฮม แล้วเปิดจากไอคอน ICHI-JAPAN ขณะออนไลน์อีกครั้ง</li><li>กดเตรียมใช้ออฟไลน์ในไอคอนนั้น รอทุกหมวดพร้อม</li><li>เปิดโหมดเครื่องบิน ปิดแล้วเปิดจากไอคอนเดิม ทดลองจดเงินและฟังเสียง</li></ol><p class="note">ครั้งแรกและการเข้าสู่ระบบต้องใช้เน็ต ลิงก์แปลภาษา เรทใหม่ และเส้นทางสดต้องใช้เน็ตด้วย การเพิ่มไอคอนอย่างเดียวไม่ได้ดาวน์โหลดข้อมูล</p>${btn('ฉันทดลองเปิดโหมดเครื่องบินสำเร็จแล้ว','offlineconfirmed','small soft')}<p class="note">${esc(S.offlineTest||'ยังไม่ได้ยืนยันผลทดลองบนเครื่องนี้')}<br>อย่าล้างข้อมูลเว็บก่อนส่งออกบัญชีและสำรอง</p>`}
 function paintOffline(){if($('#offlinePanel'))$('#offlinePanel').innerHTML=offlinePanel()}
-async function offlineRequest(download=false){if(offlineBusy){if(download)offlineDownloadQueued=true;return;}offlineBusy=true;offlineError='';offlineProgress=download?'กำลังเตรียมไฟล์…':'';paintOffline();try{if(!('serviceWorker'in navigator))throw Error('เบราว์เซอร์นี้ไม่รองรับ ให้เปิดใน Safari หรือ Chrome');const reg=navigator.onLine?await navigator.serviceWorker.register('./sw.js?v=156'):await navigator.serviceWorker.getRegistration();if(!reg)throw Error('ยังไม่ได้เตรียมออฟไลน์ ต้องเปิดออนไลน์ก่อน');if(reg.installing)await new Promise((resolve,reject)=>{const sw=reg.installing,timer=setTimeout(()=>reject(Error('เตรียมหน้าแอปไม่สำเร็จ ลองเปิดลิงก์ตรงและเข้าสู่ระบบใหม่')),30000);const done=()=>{if(sw.state==='activated'){clearTimeout(timer);resolve()}if(sw.state==='redundant'){clearTimeout(timer);reject(Error('ดาวน์โหลดหน้าแอปไม่ผ่าน ตรวจอินเทอร์เน็ตแล้วลองใหม่'))}};sw.addEventListener('statechange',done);done()});const active=reg.active;if(!active)throw Error('ระบบออฟไลน์ยังไม่พร้อม ลองเปิดหน้าใหม่ขณะออนไลน์');const result=await new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();reject(Error('ตรวจไม่สำเร็จ อาจยังเป็นรุ่นเก่า ปิดแล้วเปิดหน้าใหม่ขณะออนไลน์'))},download?180000:10000);channel.port1.onmessage=e=>{if(e.data.type==='PROGRESS'){offlineProgress=`ดาวน์โหลด ${e.data.done}/${e.data.total} ไฟล์`;paintOffline();return}clearTimeout(timer);channel.port1.close();if(!e.data.ok||e.data.version!==5)reject(Error(e.data.error||'ต้องเปิดเวอร์ชันใหม่ขณะออนไลน์ก่อน'));else resolve(e.data)};active.postMessage({type:download?'CACHE_APP':'STATUS'},[channel.port2])});offlineState=result;offlineProgress=download?(result.failed.length?'ยังไม่ครบ กดดาวน์โหลดซ้ำเพื่อเก็บเฉพาะไฟล์ที่ขาด':'ดาวน์โหลดครบแล้ว ต่อไปทดลองเปิดในโหมดเครื่องบิน'):'';if(download&&navigator.storage?.persist)await navigator.storage.persist().catch(()=>false)}catch(e){offlineError=e.message;offlineProgress=''}finally{offlineBusy=false;paintOffline();if(offlineDownloadQueued){offlineDownloadQueued=false;await offlineRequest(true)}}}
+async function offlineRequest(download=false){if(offlineBusy){if(download)offlineDownloadQueued=true;return;}offlineBusy=true;offlineError='';offlineProgress=download?'กำลังเตรียมไฟล์…':'';paintOffline();try{if(!('serviceWorker'in navigator))throw Error('เบราว์เซอร์นี้ไม่รองรับ ให้เปิดใน Safari หรือ Chrome');const reg=navigator.onLine?await navigator.serviceWorker.register('./sw.js?v=155'):await navigator.serviceWorker.getRegistration();if(!reg)throw Error('ยังไม่ได้เตรียมออฟไลน์ ต้องเปิดออนไลน์ก่อน');if(reg.installing)await new Promise((resolve,reject)=>{const sw=reg.installing,timer=setTimeout(()=>reject(Error('เตรียมหน้าแอปไม่สำเร็จ ลองเปิดลิงก์ตรงและเข้าสู่ระบบใหม่')),30000);const done=()=>{if(sw.state==='activated'){clearTimeout(timer);resolve()}if(sw.state==='redundant'){clearTimeout(timer);reject(Error('ดาวน์โหลดหน้าแอปไม่ผ่าน ตรวจอินเทอร์เน็ตแล้วลองใหม่'))}};sw.addEventListener('statechange',done);done()});const active=reg.active;if(!active)throw Error('ระบบออฟไลน์ยังไม่พร้อม ลองเปิดหน้าใหม่ขณะออนไลน์');const result=await new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();reject(Error('ตรวจไม่สำเร็จ อาจยังเป็นรุ่นเก่า ปิดแล้วเปิดหน้าใหม่ขณะออนไลน์'))},download?180000:10000);channel.port1.onmessage=e=>{if(e.data.type==='PROGRESS'){offlineProgress=`ดาวน์โหลด ${e.data.done}/${e.data.total} ไฟล์`;paintOffline();return}clearTimeout(timer);channel.port1.close();if(!e.data.ok||e.data.version!==5)reject(Error(e.data.error||'ต้องเปิดเวอร์ชันใหม่ขณะออนไลน์ก่อน'));else resolve(e.data)};active.postMessage({type:download?'CACHE_APP':'STATUS'},[channel.port2])});offlineState=result;offlineProgress=download?(result.failed.length?'ยังไม่ครบ กดดาวน์โหลดซ้ำเพื่อเก็บเฉพาะไฟล์ที่ขาด':'ดาวน์โหลดครบแล้ว ต่อไปทดลองเปิดในโหมดเครื่องบิน'):'';if(download&&navigator.storage?.persist)await navigator.storage.persist().catch(()=>false)}catch(e){offlineError=e.message;offlineProgress=''}finally{offlineBusy=false;paintOffline();if(offlineDownloadQueued){offlineDownloadQueued=false;await offlineRequest(true)}}}
 function backupSignature(){const c=JSON.parse(JSON.stringify(S));delete c.backupSignature;delete c.offlineTest;for(const t of c.trips)delete t.lastBackup;const str=JSON.stringify(c);let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(16)}
 function backupStatus(){return !S.backupSignature?'ยังไม่ได้สร้างไฟล์สำรอง':S.backupSignature===backupSignature()?'ไม่มีข้อมูลใหม่หลังสร้างไฟล์สำรองล่าสุด':'มีข้อมูลเปลี่ยนหลังสำรองครั้งล่าสุด ควรส่งออกอีกครั้ง'}
 function nativeMoney(e){return e.currency==='THB'?thb(Math.abs(e.amount*e.rate)):jpy(Math.abs(e.amount))}
@@ -134,7 +134,7 @@ function translatorPanel(){return `<details class="translator-composer"><summary
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(b?.dataset.action==='translatecompose'){const value=$('#translateText').value.trim();if(!value){toast('พิมพ์ข้อความที่ต้องการแปลก่อน');return}const [from,to]=$('[name=translatePair]').value.split('-');window.open(translateURL(value,from,to),'_blank','noopener,noreferrer')}});
 
 // ICHI-JAPAN 1.4.0: public trips, groups, travel tools and itinerary controls.
-const APP_VERSION='1.5.6';
+const APP_VERSION='1.5.5';
 const personOptions=(t=T())=>t.people.map((n,i)=>[String(i),n]);
 function payerIndex(e){return Number.isInteger(e.payerIndex)?e.payerIndex:e.payer==='other'?1:0}
 function sharesOf(e,t=T()){if(Array.isArray(e.shares))return t.people.map((_,i)=>e.shares[i]||0);return t.people.map((_,i)=>i===0?e.mine:i===1?e.amount-e.mine:0)}
@@ -674,129 +674,6 @@ render=function(){
   if(top&&!top.querySelector('.dual-time154'))top.insertAdjacentHTML('afterbegin',dualClockHTML154());
  }
  refreshDualClocks154();
-};
-
-
-// === 1.5.6 TRANSPORTATION ================================================
-// Structured A -> B route records. The route is still stored on the origin event
-// so existing backups and offline behavior remain backwards compatible.
-const routeModes156={rail:'🚆 รถไฟ / Metro',bus:'🚌 รถบัส',walk:'🚶 เดิน',taxi:'🚕 Taxi',other:'🧭 อื่น ๆ'};
-function routeBetween156(a,b){return a?.routeToNext?.destinationId===b?.id?a.routeToNext:null}
-function routeNumber156(v){const n=Number(v);return Number.isFinite(n)&&n>0?n:null}
-function routeHasData156(r){return !!(r&&(String(r.text||'').trim()||String(r.line||'').trim()||String(r.originStation||'').trim()||String(r.destinationStation||'').trim()||routeNumber156(r.durationMinutes)||routeNumber156(r.fareYen)))}
-function routeMissingFields156(r){
- if(!r)return ['เส้นทาง'];const mode=r.mode||'rail',out=[];
- if(mode==='rail'||mode==='bus'){
-  if(!String(r.originStation||'').trim())out.push('สถานีต้นทาง');
-  if(!String(r.destinationStation||'').trim())out.push('สถานีปลายทาง');
-  if(!String(r.line||'').trim())out.push(mode==='rail'?'สายรถไฟ':'สายรถบัส');
- }
- if(!routeNumber156(r.durationMinutes))out.push('เวลาเดินทาง');
- return out;
-}
-function routeDetailed156(r){return routeHasData156(r)&&routeMissingFields156(r).length===0}
-function routeModeLabel156(r){return routeModes156[r?.mode]||routeModes156.rail}
-function routeText156(r){
- if(!r)return '';const rows=[];
- rows.push(routeModeLabel156(r));
- if(r.originStation)rows.push(`ต้นทาง: ${r.originStation}`);
- if(r.destinationStation)rows.push(`ปลายทาง: ${r.destinationStation}`);
- if(r.line)rows.push(`สาย/ขบวน: ${r.line}`);
- if(r.transfer)rows.push(`เปลี่ยน: ${r.transfer}`);
- if(r.platform)rows.push(`ชานชาลา/ทิศทาง: ${r.platform}`);
- if(r.exit)rows.push(`Exit: ${r.exit}`);
- if(routeNumber156(r.durationMinutes))rows.push(`เวลา: ประมาณ ${Math.round(Number(r.durationMinutes))} นาที`);
- if(routeNumber156(r.fareYen))rows.push(`ค่าโดยสาร: ประมาณ ¥${Math.round(Number(r.fareYen)).toLocaleString('en-US')}`);
- if(r.note)rows.push(`หมายเหตุ: ${r.note}`);
- return rows.join('\n');
-}
-function routeChips156(r){if(!r)return '';const chips=[];if(r.line)chips.push(`🚆 ${esc(r.line)}`);if(routeNumber156(r.durationMinutes))chips.push(`⏱ ${Math.round(Number(r.durationMinutes))} นาที`);if(routeNumber156(r.fareYen))chips.push(`¥${Math.round(Number(r.fareYen)).toLocaleString('en-US')}`);if(r.exit)chips.push(`Exit ${esc(r.exit)}`);return chips.length?`<div class="route-chips156">${chips.map(x=>`<span>${x}</span>`).join('')}</div>`:''}
-function routeMini156(r){
- if(!routeHasData156(r))return '';
- const detail=routeDetailed156(r),missing=routeMissingFields156(r),from=r.originStation||'ต้นทางยังไม่ระบุ',to=r.destinationStation||'ปลายทางยังไม่ระบุ';
- return `<div class="leg156 ${detail?'ready':'partial'}"><div class="leg156-head"><span>${detail?'✓ ROUTE READY':'• ROUTE SAVED'}</span>${r.checkedAt?`<small>บันทึก ${esc(r.checkedAt)}</small>`:''}</div><div class="leg156-path"><b>${esc(from)}</b><i>→</i><b>${esc(to)}</b></div>${routeChips156(r)}${r.transfer?`<p><strong>เปลี่ยน</strong> ${esc(r.transfer)}</p>`:''}${!detail?`<small class="leg156-missing">ควรเติม: ${esc(missing.join(' · '))}</small>`:''}</div>`;
-}
-function routeEdit(id,nextId){
- const e=T().events.find(x=>x.id===id),n=T().events.find(x=>x.id===nextId);if(!e||!n)return;
- const cur=routeBetween156(e,n)||{},gm=googleLeg(e,n),mode=cur.mode||'rail';
- formModal('เส้นทางไปจุดถัดไป','routeform156',`<input type="hidden" name="id" value="${esc(e.id)}"><input type="hidden" name="next" value="${esc(n.id)}"><div class="route-editor156"><section class="route-editor156-title"><span>A</span><div><small>จาก</small><b>${esc(e.title)}</b></div><i>→</i><span>B</span><div><small>ไป</small><b>${esc(n.title)}</b></div></section><a class="btn full soft" data-online-route href="${gm}" target="_blank" rel="noopener">เปิด Google Maps เพื่อเช็กเส้นทางล่าสุด ↗</a><p class="note">Google Maps ต้องใช้เน็ต ส่วนข้อมูลที่กรอกด้านล่างจะเก็บไว้อ่านออฟไลน์</p>${select('รูปแบบการเดินทาง','mode',Object.entries(routeModes156).map(([v,l])=>[v,l]),mode)}<div class="grid two formgrid">${field('สถานี / ป้ายต้นทาง','originStation',cur.originStation||'','text','placeholder="เช่น Shinjuku Station"')}${field('สถานี / ป้ายปลายทาง','destinationStation',cur.destinationStation||'','text','placeholder="เช่น Shibuya Station"')}</div>${field('สายรถไฟ / ขบวน / สายรถบัส','line',cur.line||'','text','placeholder="เช่น JR Yamanote Line"')}${field('จุดเปลี่ยนสาย','transfer',cur.transfer||'','text','placeholder="เช่น Akasaka-mitsuke → Ginza Line · ถ้าไม่มีให้เว้นว่าง"')}${field('ชานชาลา / ทิศทาง','platform',cur.platform||'','text','placeholder="เช่น Platform 14 · toward Shibuya"')}<div class="grid two formgrid">${field('Exit เมื่อถึง','exit',cur.exit||'','text','placeholder="เช่น Hachiko Exit"')}${field('เวลาโดยประมาณ (นาที)','durationMinutes',cur.durationMinutes||'','number','min="1" max="480" step="1" inputmode="numeric"')}</div>${field('ค่าโดยสารโดยประมาณ (¥)','fareYen',cur.fareYen||'','number','min="0" max="100000" step="1" inputmode="numeric"')}${textarea('หมายเหตุออฟไลน์','note',cur.note||(!cur.originStation?cur.text||'':''))}<div class="route-editor156-help"><b>เก็บอะไรไว้ดี?</b><span>สถานี → สาย → จุดเปลี่ยน → Exit → เวลา → ค่าโดยสาร</span><small>เลขชานชาลา ค่าโดยสาร และเส้นทางจริงอาจเปลี่ยนได้ ให้ดูป้าย/Google Maps ในวันเดินทาง</small></div></div>`);
-}
-
-document.addEventListener('submit',e=>{
- const f=e.target;if(f?.id!=='routeform156')return;e.preventDefault();e.stopImmediatePropagation();
- const v=Object.fromEntries(new FormData(f)),t=T();
- try{
-  const ev=t.events.find(x=>x.id===v.id),next=t.events.find(x=>x.id===v.next);if(!ev||!next)throw Error('ไม่พบจุดในแผน');
-  const route={destinationId:next.id,mode:routeModes156[v.mode]?v.mode:'rail',originStation:String(v.originStation||'').trim(),destinationStation:String(v.destinationStation||'').trim(),line:String(v.line||'').trim(),transfer:String(v.transfer||'').trim(),platform:String(v.platform||'').trim(),exit:String(v.exit||'').trim(),durationMinutes:routeNumber156(v.durationMinutes),fareYen:routeNumber156(v.fareYen),note:String(v.note||'').trim(),checkedAt:new Intl.DateTimeFormat('th-TH',{day:'numeric',month:'short',year:'numeric'}).format(new Date())};
-  route.text=routeText156(route);
-  if(!routeHasData156(route))throw Error('กรอกอย่างน้อยวิธีเดินทางหรือเวลาเดินทางก่อนบันทึก');
-  ev.routeToNext=route;if(!save())throw Error('พื้นที่บันทึกไม่พร้อม');$('#modal').close();render();
-  toast(routeDetailed156(route)?'บันทึก Route พร้อมใช้ออฟไลน์แล้ว':'บันทึกแล้ว · ยังมีรายละเอียดที่ควรเติม');
- }catch(err){toast(err.message||'บันทึกเส้นทางไม่สำเร็จ')}
-},true);
-
-// Rich route coverage: "saved" remains backwards compatible; "detailed" means
-// station/line/time are filled enough for practical offline use.
-routeStats130=function(date,source=T().events){
- const list=dayEvents(date,source),legs=[];
- for(let i=0;i<list.length-1;i++){
-  const a=list[i],b=list[i+1],route=routeBetween156(a,b),saved=routeHasData156(route),detailed=routeDetailed156(route);
-  legs.push({a,b,route,saved,detailed,text:saved?(route.text||routeText156(route)):''});
- }
- return {list,legs,total:legs.length,saved:legs.filter(x=>x.saved).length,detailed:legs.filter(x=>x.detailed).length,partial:legs.filter(x=>x.saved&&!x.detailed).length,missing:legs.filter(x=>!x.saved).length};
-};
-
-travelEstimate154=function(a,b){
- const route=routeBetween156(a,b),saved=routeHasData156(route),explicit=routeNumber156(route?.durationMinutes)||routeMinutesFromText140(route?.text);
- if(explicit)return {minutes:explicit,source:'saved',saved:true,label:`Route ที่บันทึก ${minText140(explicit)}`};
- const ca=areaCoord140(a),cb=areaCoord140(b);if(ca&&cb){const km=distance140(ca,cb);if(km<=25){const mins=Math.max(12,Math.min(105,Math.round((10+km*4)/5)*5));return {minutes:mins,source:'area',saved,label:`ประมาณ ${minText140(mins)} จากระดับย่าน`,km}}}
- return {minutes:null,source:saved?'saved-no-time':'unknown',saved,label:saved?'มี Route แต่ยังไม่มีเวลาเดินทาง':'ยังไม่มีเวลาการเดินทาง'};
-};
-
-routeHub130=function(date=focusTripDate130()){
- const r=routeStats130(date),pct=r.total?Math.round(r.saved/r.total*100):100,detailPct=r.total?Math.round(r.detailed/r.total*100):100;
- modal(`Transportation Pack · ${formatDate(date)}`,r.total?`<div class="transport-head156"><div><span class="eyebrow">OFFLINE ROUTE PACK</span><h3>${r.saved}/${r.total} ช่วงมี Route</h3><p>${r.detailed}/${r.total} ช่วงรายละเอียดพร้อมใช้งานจริง</p></div><div class="transport-ring156"><b>${pct}%</b><small>saved</small></div></div><div class="transport-bars156"><span><i style="width:${pct}%"></i></span><small>Route บันทึก ${r.saved}/${r.total} · รายละเอียดครบ ${r.detailed}/${r.total}${r.partial?` · ควรเติม ${r.partial}`:''}</small></div><div class="route-pack156">${r.legs.map((x,i)=>{const rr=x.route,missing=x.saved&&!x.detailed?routeMissingFields156(rr):[];return `<article class="route-pack-row156 ${x.detailed?'ready':x.saved?'partial':'missing'}"><span class="route-pack-num156">${i+1}</span><div class="route-pack-main156"><div class="route-pack-title156"><b>${esc(x.a.title)}</b><i>→</i><b>${esc(x.b.title)}</b></div>${x.saved?`${routeMini156(rr)}${missing.length?`<p class="route-pack-warning156">เติมอีก: ${esc(missing.join(' · '))}</p>`:''}`:'<p class="note">ยังไม่มีข้อมูลสำหรับอ่านออฟไลน์</p>'}<div class="route-pack-actions156"><a class="btn small" data-online-route href="${googleLeg(x.a,x.b)}" target="_blank" rel="noopener">Google Maps ↗</a>${btn(x.saved?'แก้ Route':'บันทึก Route','routeedit','small '+(x.saved?'':'primary'),`data-id="${esc(x.a.id)}" data-next="${esc(x.b.id)}"`)}</div></div></article>`}).join('')}</div><p class="note">Route Pack เก็บข้อมูลไว้ในเครื่องนี้เพื่ออ่านออฟไลน์ · Google Maps และสถานะรถจริงต้องใช้อินเทอร์เน็ต · เวลา/ค่าโดยสารเป็นค่าที่คุณบันทึกและควรเช็กอีกครั้งในวันเดินทาง</p>`:`<div class="health-empty">🚆<h3>วันนี้ยังไม่มีช่วง A → B</h3><p>เพิ่มอย่างน้อย 2 จุดในแผน แล้วระบบจะสร้าง Route Checklist ให้ทีละช่วง</p></div>`);
-};
-
-// Show practical route details directly in the itinerary instead of one long text blob.
-eventRows109=function(events){
- const list=events.slice().sort((a,b)=>{const ao=Number.isFinite(a.order)?a.order:1e9,bo=Number.isFinite(b.order)?b.order:1e9;if(ao!==bo)return ao-bo;return String(a.time||'99:99').localeCompare(String(b.time||'99:99'))});
- if(!list.length)return `<div class="empty">วันนี้ยังไม่มีแผน<br>เพิ่มสถานที่หรือเวลานัดหมายได้เลย</div>`;
- return list.map((e,i)=>{const next=list[i+1],status=validBooking.has(e.bookingStatus)?e.bookingStatus:'planned',route=next?routeBetween156(e,next):null;return `<article class="event event-card ${e.done?'done':''}"><time>${esc(e.time||'—')}</time><span class="dot"></span><div class="event-main"><div class="event-heading"><h3>${esc(e.title)}</h3><div class="event-state"><span class="booking-chip booking-${status}">${bookingLabels[status]}</span>${e.entryTime?`<span class="entry-chip">เข้า ${esc(e.entryTime)}</span>`:''}${e.done?'<span class="entry-chip done-chip">ไปแล้ว ✓</span>':''}</div></div>${e.note?`<p>${esc(e.note)}</p>`:''}${routeMini156(route)}${e.ticketFileId?`<div class="ticket-line">🎟 ${esc(e.ticketName||'ตั๋วที่แนบไว้')} ${btn('เปิดตั๋ว','docopen','small',`data-id="${esc(e.ticketFileId)}"`)}</div>`:''}<div class="event-route-actions">${next?`<a class="btn small route-next" data-online-route href="${googleLeg(e,next)}" target="_blank" rel="noopener noreferrer">Google Maps A → B ↗</a>${btn(routeHasData156(route)?'แก้ Route':'บันทึก Route','routeedit','small',`data-id="${esc(e.id)}" data-next="${esc(next.id)}"`)}`:''}${e.discoverId?`<button type="button" class="btn small" data-discover="detail" data-id="${esc(e.discoverId)}">📍 สถานที่</button>`:''}</div></div><div class="event-mobile-controls">${btn('↑','eventup','small',`data-id="${esc(e.id)}" aria-label="เลื่อน ${esc(e.title)} ขึ้น" ${i===0?'disabled':''}`)}${btn('↓','eventdown','small',`data-id="${esc(e.id)}" aria-label="เลื่อน ${esc(e.title)} ลง" ${i===list.length-1?'disabled':''}`)}${btn('ย้ายวัน','eventmove','small',`data-id="${esc(e.id)}"`)}${btn(e.done?'ยังไม่ไป':'ไปแล้ว ✓','eventdone','small',`data-id="${esc(e.id)}"`)}${btn(icon('edit'),'eventedit','small',`data-id="${esc(e.id)}" aria-label="แก้ไข ${esc(e.title)}"`)}</div></article>`}).join('')
-};
-eventRows=eventRows109;
-
-// Dashboard route tile distinguishes "saved" from "details ready".
-statusDeck150=function({pending,tickets,routes,hotel,dataHealth,focus}){
- const dataWarn=(dataHealth?.stale||0)+(dataHealth?.watch||0),dataText=!dataHealth?.total?'ไม่มีรายการ Discover':dataWarn?`${dataWarn} ควรเช็ก`:'ข้อมูลวันนี้ยังใหม่',routeSmall=routes.missing?`ขาด ${routes.missing}`:routes.partial?`เติมรายละเอียด ${routes.partial}`:'พร้อมออฟไลน์';
- return `<section class="companion-status-deck"><button data-action="bookinghub"><span>การจอง</span><b>${pending}</b><small>${pending?'ต้องจัดการ':'พร้อม'}</small></button><button data-action="ticketwallet"><span>ตั๋ว</span><b>${tickets}</b><small>${tickets?'พร้อมเปิด':'ยังไม่มีไฟล์'}</small></button><button data-action="hotelhub"><span>ที่พัก</span><b>${hotel?'✓':'!'}</b><small>${hotel?esc(hotel.name):'ยังไม่ครบ'}</small></button><button data-action="routehub" data-date="${esc(focus)}"><span>เส้นทาง</span><b>${routes.saved}/${routes.total}</b><small>${esc(routeSmall)}</small></button><button data-action="freshnesshub" data-date="${esc(focus)}"><span>ข้อมูล</span><b>${dataWarn||'✓'}</b><small>${esc(dataText)}</small></button></section>`;
-};
-
-const smartIssuesBefore156=smartIssues140;
-smartIssues140=function(t=T()){
- const s=smartIssuesBefore156(t),focus=focusTripDate130(t),remaining=dates(t).filter(d=>d>=focus).map(d=>({date:d,...routeStats130(d)})),partials=remaining.reduce((n,x)=>n+x.partial,0),first=remaining.find(x=>x.partial);
- if(partials&&!s.issues.some(x=>x.title?.includes('Route')&&x.title?.includes('รายละเอียด'))){s.issues.push({level:'info',priority:5,icon:'🚉',title:`Route ${partials} ช่วงยังกรอกรายละเอียดไม่ครบ`,text:'เติมสถานี สาย และเวลา เพื่อให้ Live Trip คำนวณได้แม่นขึ้น',action:'routehub',date:first?.date||focus})}
- s.routePartial=partials;return s;
-};
-
-// Transportation page starts with the route pack for the day, then keeps the
-// verified airport/city route examples that already existed.
-const routeViewBefore156=routeView;
-routeView=function(){
- const focus=focusTripDate130(),r=routeStats130(focus),pct=r.total?Math.round(r.saved/r.total*100):100;
- return `<section class="transport-overview156"><div><span class="eyebrow">MY TRANSPORTATION</span><h2>${formatDate(focus)}</h2><p>${r.total?`มี ${r.total} ช่วงเดินทาง · บันทึกแล้ว ${r.saved} · รายละเอียดครบ ${r.detailed}`:'วันนี้ยังไม่มีช่วง A → B'}</p></div><div class="transport-overview-score156"><b>${pct}%</b><small>Route saved</small></div><div class="transport-overview-actions156">${btn('เปิด Route Pack','routehub','primary',`data-date="${esc(focus)}"`)}${btn('เปิดแผนวันนี้','openfocusday','soft',`data-date="${esc(focus)}"`)}</div></section>${routeViewBefore156()}`;
-};
-
-// Live Trip gets a compact transit card using the same structured offline data.
-const liveTripBefore156=liveTrip140;
-liveTrip140=function(){
- const m=currentTripMoment140(),next=m.next,prev=m.prevForNext,route=prev&&next?routeBetween156(prev,next):null;
- liveTripBefore156();
- if(!next||!prev||!routeHasData156(route))return;
- const modalBody=$('#modalbody .live150');if(!modalBody)return;
- const status=modalBody.querySelector('.live150-status');
- const html=`<section class="live-route156"><div class="live-route156-head"><span>OFFLINE ROUTE</span><b>${routeDetailed156(route)?'พร้อม':'ควรเติมข้อมูล'}</b></div><div class="live-route156-path"><strong>${esc(route.originStation||prev.title)}</strong><i>→</i><strong>${esc(route.destinationStation||next.title)}</strong></div>${routeChips156(route)}${route.transfer?`<p><b>เปลี่ยน</b> ${esc(route.transfer)}</p>`:''}${route.platform?`<p><b>ทิศทาง</b> ${esc(route.platform)}</p>`:''}${route.note?`<small>${esc(route.note)}</small>`:''}</section>`;
- if(status)status.insertAdjacentHTML('afterend',html);else modalBody.querySelector('.live150-next')?.insertAdjacentHTML('afterend',html);
 };
 
 save();render();
