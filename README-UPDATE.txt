@@ -1,54 +1,55 @@
-ICHI-JAPAN v1.5.6 · Build 1562 — STABILITY HOTFIX
-====================================================
+ICHI-JAPAN v1.5.6 · Build 1563 — MICRO STABILITY HOTFIX
+=========================================================
 วันที่: 1 ตุลาคม 2026
 
 ฐานของชุดนี้
-- ต่อจาก v1.5.6 HOTFIX 1 โดยตรง
-- ไม่เพิ่มฟีเจอร์ใหม่ และไม่เปลี่ยนข้อมูลทริปของผู้ใช้
-- Transportation / Smart Logic / Data Quality เดิมยังอยู่ครบ
+- ต่อจาก v1.5.6 Build 1562 โดยตรง
+- ไม่เพิ่มฟีเจอร์ใหม่ และไม่เปลี่ยนโครงสร้างข้อมูลทริป
+- เป้าหมายคือปิดบัคเล็กของ Transportation / Update / Recovery ก่อน Freeze 1.5.6
 
-สิ่งที่แก้ใน Build 1562
-1) แก้ Offline module version mismatch
-   - discover.js เคยเรียก places-data.js?v=156 แต่ Service Worker เก็บ v=1561
-   - ตอนนี้ core modules ทั้งชุดใช้ v=1562 เดียวกัน
-   - ลดโอกาส Discover/Places โหลดไม่ขึ้นในโหมด Offline
+สิ่งที่แก้ใน Build 1563
+1) แก้ค่าโดยสาร ¥0 ตอนกลับมาแก้ Route
+   - Build 1562 บันทึก ¥0 ได้แล้ว แต่เมื่อเปิดแก้ Route ช่องค่าโดยสารกลับเป็นค่าว่าง
+   - Build 1563 ใช้ nullish handling จึงคงค่า 0 ไว้ในฟอร์ม
+   - Save → Edit → Save ซ้ำ ค่า ¥0 จะไม่หาย
 
-2) ทำความสะอาด cache รุ่นเก่าอัตโนมัติ
-   - Service Worker จะเก็บเฉพาะ app cache ปัจจุบันและ photo cache ปัจจุบันที่ขึ้นต้นด้วย ichi-
-   - cache ICHI-JAPAN รุ่นเก่าจะถูกลบตอน Service Worker รุ่นใหม่ activate
-   - ไม่ลบ localStorage หรือ IndexedDB จึงไม่ตั้งใจลบทริป บัญชี ตั๋ว หรือเอกสาร
+2) ป้องกัน Route ว่างถูกบันทึกเป็น ROUTE SAVED
+   - Structured Route ใหม่จะไม่นับข้อความที่ระบบสร้างจากชื่อโหมดอย่างเดียวเป็นข้อมูล Route
+   - ถ้ายังไม่ได้ใส่ข้อมูลจริง ระบบจะไม่ยอมบันทึกเป็น Route ที่พร้อม
+   - Route แบบเก่าจาก 1.5.5 ที่มีเพียงข้อความ offline note ยังอ่านต่อได้ตามเดิม
 
-3) แก้ Route 0/0
-   - วันที่มี 0–1 จุดจะไม่ขึ้น 100% หรือ “พร้อมออฟไลน์” อีก
-   - Dashboard แสดง “— · ยังไม่มีช่วงเดินทาง”
-   - หน้า Transportation แสดง “— · ยังไม่มีช่วง”
+3) แก้ icon ของสายตามรูปแบบการเดินทาง
+   - Rail = 🚆
+   - Bus = 🚌
+   - Walk = 🚶
+   - Taxi = 🚕
+   - Other = 🧭
+   - ก่อนหน้านี้ช่อง line แสดงไอคอนรถไฟทุกโหมด
 
-4) แยก Release version กับ Build
-   - Release ยังเป็น 1.5.6
-   - Build ปัจจุบันคือ 1562
-   - หน้า Trip / footer / ระบบตรวจอัปเดตอ่าน Build ด้วย
-   - เครื่องที่ยังใช้ Build เก่าจะไม่ถูกบอกว่าเป็นรุ่นล่าสุดเพียงเพราะ version เท่ากัน
+4) Recovery ปลอดภัยกับเว็บอื่นบน origin เดียวกันมากขึ้น
+   - recover.html จะ unregister เฉพาะ Service Worker ใน scope /TravelJapan/
+   - ไม่ unregister Service Worker ของโปรเจกต์อื่นบน natiphol.github.io โดยไม่จำเป็น
+   - ยังคงล้างเฉพาะ cache ที่ขึ้นต้นด้วย ichi-
 
-5) รองรับค่าโดยสาร ¥0
-   - Shuttle / รถฟรี / ช่วงที่ไม่มีค่าโดยสารสามารถบันทึก 0 เยนได้
-   - ¥0 จะแสดงใน Route card และ Offline Route Pack ตามจริง
-
-6) Offline protocol bump
-   - Offline status protocol เปลี่ยนเป็น 6 เพื่อป้องกัน app ใหม่คุยกับ Service Worker เก่าแล้วคิดว่าพร้อม
+5) Build / Offline assets ขยับเป็น 1563 ทั้งชุด
+   - index.html / app.js / discover.js / places-data reference / CSS / travel-data / Service Worker ใช้ build เดียวกัน
+   - Release version ยังคง 1.5.6 เพื่อไม่สร้าง feature release ใหม่
 
 วิธีอัปเดต
-1. แนะนำให้ Export Backup จากหน้า “ทริป” ก่อน
-2. อัปโหลดไฟล์เว็บใน ZIP ทับไฟล์เดิมบน GitHub Pages
-3. รวม recover.html ไว้ใน repository เหมือน HOTFIX 1
-4. เปิดเว็บขณะออนไลน์ แล้วปิด/เปิดแท็บใหม่ 1 รอบ
-5. ไปหน้า “ทริป” ตรวจว่าแสดง ICHI-JAPAN v1.5.6 · Build 1562
-6. กด “เตรียมใช้ออฟไลน์” ใหม่ และทดลองเปิดโหมดเครื่องบิน
+1. Export Backup จากหน้า “ทริป” ก่อนถ้าต้องการความมั่นใจสูงสุด
+2. อัปโหลดไฟล์ 11 ไฟล์ใน ZIP ทับไฟล์เดิมที่ root ของ repository TravelJapan
+3. เปิดเว็บขณะออนไลน์ แล้วกด “ตรวจอัปเดต” ในหน้า “ทริป”
+4. ตรวจ footer ว่าเป็น “v1.5.6 · b1563”
+5. กด “เตรียมใช้ออฟไลน์” ใหม่หลังอัปเดต
+6. ถ้ายังค้าง build เก่า เปิด /TravelJapan/recover.html หนึ่งครั้ง
 
-หากยังติด Service Worker รุ่นเก่า
-เปิด https://natiphol.github.io/TravelJapan/recover.html หนึ่งครั้ง
-หน้านี้ล้างเฉพาะ cache ที่ขึ้นต้นด้วย ichi- และ unregister Service Worker โดยไม่ตั้งใจลบ localStorage/IndexedDB
+Regression checks ที่ใช้กับชุดนี้
+- ES module syntax/import
+- Structured Route ว่างต้องไม่ถูกบันทึก
+- Legacy text-only Route ต้องยังอ่านได้
+- ค่าโดยสาร ¥0: Save → Edit ต้องเห็น 0 → Save ซ้ำต้องยังเป็น 0
+- Route 0/0 ต้องไม่ขึ้น 100% / พร้อม
+- Build references ต้องเป็น 1563 ตรงกันทุก core asset
+- Recover ต้อง scope เฉพาะ TravelJapan
 
-หมายเหตุ Transportation
-- เวลาและค่าโดยสารเป็นค่าที่ผู้ใช้บันทึก ไม่ใช่ข้อมูลรถสด
-- Google Maps / เว็บไซต์ผู้ให้บริการต้องใช้อินเทอร์เน็ต
-- Offline Route Pack ใช้สำหรับเก็บ Station / Line / Transfer / Exit / Duration / Fare / Note ไว้อ่านหน้างาน
+ไม่มีการเปลี่ยน localStorage key (`tabi-v1`) หรือ IndexedDB เอกสาร/ตั๋ว
