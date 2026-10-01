@@ -1,4 +1,4 @@
-import {discoverCities,discoverCategories,discoverAreas,discoverPlaces,discoverFoods,discoverRoutes} from './places-data.js?v=130';
+import {discoverCities,discoverCategories,discoverAreas,discoverPlaces,discoverFoods,discoverRoutes} from './places-data.js?v=140';
 
 const tourismById=new Map(discoverPlaces.map(p=>[p.id,p]));
 const foodById=new Map(discoverFoods.map(p=>[p.id,p]));
@@ -202,7 +202,7 @@ export function createDiscover(h){
 
  function entrySummary(id){
   const item=entryById.get(id);if(!item)return null;const f=freshness(item);
-  return {id:item.id,kind:entryType(item.id),name:item.name,nameTH:item.nameTH||'',city:item.city,cityName:cityName(item.city),area:item.area,areaName:areaName(item),categories:[...(item.categories||[])],station:item.station||'',checkedAt:item.checkedAt||'',freshness:f,label:f.label,price:priceText(item,true),reservationLabel:item.reservationLabel||'',reservationNote:item.reservationNote||'',bookingURL:item.bookingURL||'',officialURL:item.officialURL||item.sourceURL||'',mapURL:mapURL(item),operationalStatus:item.operationalStatus||'',statusText:item.statusText||'',warningNote:item.warningNote||'',mustTry:item.mustTry||'',recommendedTime:item.recommendedTime||'',description:item.description||''};
+  return {id:item.id,kind:entryType(item.id),name:item.name,nameTH:item.nameTH||'',city:item.city,cityName:cityName(item.city),area:item.area,areaName:areaName(item),categories:[...(item.categories||[])],station:item.station||'',durationMinutes:Number(item.durationMinutes)||0,duration:item.duration||'',checkedAt:item.checkedAt||'',freshness:f,label:f.label,price:priceText(item,true),reservationLabel:item.reservationLabel||'',reservationNote:item.reservationNote||'',bookingURL:item.bookingURL||'',officialURL:item.officialURL||item.sourceURL||'',mapURL:mapURL(item),operationalStatus:item.operationalStatus||'',statusText:item.statusText||'',warningNote:item.warningNote||'',mustTry:item.mustTry||'',recommendedTime:item.recommendedTime||'',description:item.description||''};
  }
  function suggestFoodsForEvents(events=[],limit=6){
   const planned=events.map(e=>tourismById.get(e.discoverId)).filter(Boolean),areas=new Map(),cities=new Map(),used=new Set(events.map(e=>e.discoverId).filter(Boolean));
