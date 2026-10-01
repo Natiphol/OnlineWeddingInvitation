@@ -517,3 +517,32 @@
  .trip153-backup-actions .btn:first-child{grid-column:auto}
  .app-version153-actions{display:grid;grid-template-columns:1fr 1fr}
 }
+
+/* === 1.5.4 SMART LOGIC + MOBILE FINISH =============================== */
+.dual-time154{display:inline-flex;align-items:center;gap:9px;min-width:0;color:inherit;font-variant-numeric:tabular-nums}
+.dual-time154 span{display:flex;align-items:baseline;gap:5px;white-space:nowrap}
+.dual-time154 small{font:600 8px/1 system-ui;letter-spacing:1.15px;opacity:.65}
+.dual-time154 b{font:600 13px/1.15 system-ui;letter-spacing:-.2px}
+.dual-time154 i{display:block;width:1px;height:13px;background:currentColor;opacity:.22}
+.dual-time154 em{font:500 8px/1 system-ui;font-style:normal;opacity:.58;padding:4px 6px;border:1px solid currentColor;border-radius:999px}
+.companion-hero-top>.hero-live{display:none}
+.companion-hero-top .dual-time154{color:#fff}
+.live154>header .dual-time154{color:var(--green)}
+.live154>header>div{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.live154 .live150-leave.urgent{background:#fff1ed;color:#94463f}
+.live154 .live150-leave.urgent small{color:#986a64}
+
+/* Footer is app metadata, not content. Keep it close to the last section and
+   let the footer alone reserve space for the fixed bottom navigation. */
+footer .footer-local{white-space:nowrap}
+@media(max-width:800px){
+ main{min-height:0!important;padding-bottom:24px!important}
+ footer{margin-top:0!important;border-top:1px solid #e5ebe7;padding:17px 16px calc(86px + env(safe-area-inset-bottom))!important;display:grid!important;grid-template-columns:1fr!important;justify-items:start!important;gap:4px!important;line-height:1.45;background:transparent}
+ footer .signature{margin:0!important;font-size:11px}
+ footer .footer-local,footer #net{font-size:10px;color:#85918c}
+ .companion-hero-top{gap:10px;flex-wrap:wrap}
+ .companion-hero-top>.dual-time154{margin-right:auto}
+}
+@media(max-width:390px){
+ .dual-time154{gap:7px}.dual-time154 b{font-size:12px}.dual-time154 em{display:none}
+}
