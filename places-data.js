@@ -1,4 +1,4 @@
-// ICHI-JAPAN Discover catalog v1.5.5.
+// ICHI-JAPAN Discover catalog v1.5.6.
 // Data quality policy: missing hours/status are shown as unverified; variable prices must be rechecked before travel.
 export const discoverCities = [
   {
