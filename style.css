@@ -39,3 +39,165 @@
 @media(max-width:1050px){.dash-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}.dash-main-grid{grid-template-columns:1fr}.dash-side140{position:static;grid-template-columns:1fr 1fr}.dash-tools140{align-self:start}.dash-food140{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){.dash140-head{align-items:flex-start;display:grid}.dash-head-actions{justify-content:flex-start}.dash-cockpit{grid-template-columns:1fr}.dash-health{grid-template-columns:auto 1fr auto;text-align:left;justify-items:start;gap:14px;padding:15px}.dash-health .health-ring{width:76px;height:76px;grid-row:1/3}.dash-health .health-ring:before{inset:7px}.dash-health .health-ring b{font-size:21px}.dash-health h3{margin:5px 0 0}.dash-health p{margin:0;align-self:start}.dash-health .btn{grid-column:2/4}.dash-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.dash-metrics button{min-height:82px;padding:12px}.dash-next{padding:22px 18px;min-height:0;border-radius:19px}.dash-next h2{font-size:29px}.dash-next-actions{display:grid;grid-template-columns:1fr 1fr}.dash-next-actions .btn:first-child{grid-column:1/-1}.dash-side140{grid-template-columns:1fr}.dash-food140{grid-template-columns:1fr 1fr}.dash-panel{padding:16px;border-radius:17px}.dash-panel-head{align-items:flex-start}.dash-panel-head>div:last-child{display:grid}.dash-timeline button{grid-template-columns:43px minmax(0,1fr) 25px;gap:8px}.plan-smartbar{align-items:flex-start;display:grid}.smart-compare{grid-template-columns:1fr}.health-score-head{grid-template-columns:90px 1fr}.health-score-head .health-ring{width:86px;height:86px}.ticket-wallet{grid-template-columns:1fr 1fr}.fuji-card{grid-template-columns:1fr}.fuji-side{display:flex;justify-items:start;align-items:center;justify-content:space-between;flex-wrap:wrap}.fuji-disclaimer{grid-column:auto}.live-food>div{grid-template-columns:1fr 1fr}}
 @media(max-width:430px){.dash140-head h1{font-size:31px}.dash-head-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}.dash-head-actions .btn:first-child{grid-column:1/-1}.dash-metrics{grid-template-columns:1fr 1fr}.dash-food140{grid-template-columns:1fr}.ticket-wallet{grid-template-columns:1fr}.dash-next-actions{grid-template-columns:1fr}.dash-next-actions .btn:first-child{grid-column:auto}.dash-health{grid-template-columns:68px 1fr}.dash-health .btn{grid-column:1/-1;width:100%}.dash-health .health-ring{width:66px;height:66px}.dash-health .health-ring b{font-size:18px}.fuji-hours{display:grid;grid-template-columns:1fr 1fr}.live-food>div{grid-template-columns:1fr}.health-issue{grid-template-columns:28px minmax(0,1fr)}.health-issue .btn{grid-column:2}.hotel-focus .flex{display:grid;grid-template-columns:1fr 1fr}.hotel-focus .flex .btn:first-child{grid-column:1/-1}}
+
+/* === 1.4.1 FUJI DASHBOARD VISUAL POLISH ================================ */
+.dash140{
+ --dash-radius:24px;
+ --dash-radius-sm:18px;
+ --dash-gap:16px;
+ --dash-shadow:0 12px 34px rgba(28,62,55,.08);
+ --dash-soft-shadow:0 6px 18px rgba(28,62,55,.055);
+ max-width:1240px;
+}
+.dash140-head{align-items:center;margin-bottom:14px;padding:0 2px}
+.dash140-head>div:first-child{min-width:0}
+.dash140-head .eyebrow{font-size:10px;letter-spacing:2.5px;color:#61766e}
+.dash140-head h1{font-size:clamp(29px,3.4vw,40px);line-height:1.12;margin:7px 0 5px;letter-spacing:-1px}
+.dash140-head p{font-size:12px;color:#7c8883}
+.dash-head-actions .btn{border-radius:999px;min-height:40px;padding:8px 14px;font-size:12px}
+
+.dash-cockpit{grid-template-columns:minmax(0,2.2fr) minmax(245px,.72fr);gap:var(--dash-gap);margin-bottom:var(--dash-gap);align-items:stretch}
+.dash-next{
+ min-height:300px;
+ border-radius:var(--dash-radius);
+ padding:30px;
+ display:flex;
+ flex-direction:column;
+ justify-content:flex-end;
+ background:
+  linear-gradient(180deg,rgba(13,45,41,.12) 0%,rgba(15,50,46,.28) 34%,rgba(13,43,39,.84) 100%),
+  linear-gradient(90deg,rgba(16,54,49,.76) 0%,rgba(23,67,61,.22) 58%,rgba(23,67,61,.04) 100%),
+  url('fuji.webp') center 43%/cover no-repeat;
+ box-shadow:0 18px 45px rgba(21,63,56,.16);
+ border:1px solid rgba(255,255,255,.22);
+}
+.dash-next:after{display:none}
+.dash-next:before{content:'FUJI · JAPAN';position:absolute;right:22px;top:20px;font-size:9px;letter-spacing:2.4px;color:rgba(255,255,255,.62);z-index:1}
+.dash-status{align-self:flex-start;background:rgba(16,54,49,.38);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);font-size:11px;padding:7px 11px;color:#fff}
+.dash-next>p{margin:22px 0 5px;font-size:9px;color:#d5e3df;letter-spacing:2.4px}
+.dash-next h2{font-size:clamp(31px,4.5vw,48px);max-width:800px;text-shadow:0 2px 18px rgba(0,0,0,.18);letter-spacing:-.7px}
+.dash-next-meta{margin-top:14px;gap:6px}
+.dash-next-meta span{background:rgba(9,42,38,.34);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:6px 10px;color:#f4fbf8}
+.dash-next-actions{margin-top:18px;gap:7px}
+.dash-next-actions .btn{min-height:46px;border-radius:14px;padding:10px 17px;font-weight:600;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.dash-next-actions .btn.primary{background:rgba(255,255,255,.96);color:#194a42;border-color:#fff;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.dash-next-actions .btn.soft{background:rgba(20,66,59,.42);color:#fff;border-color:rgba(255,255,255,.22)}
+
+.dash-health{
+ border:0;
+ background:linear-gradient(160deg,#ffffff 0%,#f1f7f3 100%);
+ border-radius:var(--dash-radius);
+ padding:24px 20px;
+ box-shadow:var(--dash-soft-shadow);
+ position:relative;
+ overflow:hidden;
+}
+.dash-health:after{content:'';position:absolute;width:150px;height:150px;border-radius:50%;right:-75px;bottom:-80px;background:#dfeee6;opacity:.55}
+.dash-health>*{position:relative;z-index:1}
+.dash-health .health-ring{width:100px;height:100px;box-shadow:inset 0 0 0 1px rgba(31,93,78,.05)}
+.dash-health .health-ring:before{inset:8px}
+.dash-health h3{font-size:17px;margin:14px 0 3px}
+.dash-health p{font-size:11px;line-height:1.55;max-width:180px;margin:0 0 11px}
+.dash-health .btn{min-height:38px;border:0;background:transparent;color:#24584e;text-decoration:underline;text-underline-offset:3px;padding:5px 8px}
+
+.dash-metrics{grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;margin-bottom:22px}
+.dash-metrics button{
+ border:0;
+ background:#fff;
+ border-radius:var(--dash-radius-sm);
+ padding:14px 15px;
+ min-height:86px;
+ box-shadow:var(--dash-soft-shadow);
+ position:relative;
+ overflow:hidden;
+}
+.dash-metrics button:after{content:'›';position:absolute;right:12px;top:12px;color:#a0aea8;font-size:17px}
+.dash-metrics button:hover{background:#fff;border-color:transparent;transform:translateY(-1px)}
+.dash-metrics span{font-size:9px;letter-spacing:.7px;text-transform:uppercase}
+.dash-metrics b{font-size:24px;margin:4px 0 1px}
+.dash-metrics small{font-size:9px;padding-right:12px}
+
+.dash-main-grid{gap:var(--dash-gap)}
+.dash-main-grid>main,.dash-side140{gap:var(--dash-gap)}
+.dash-panel{
+ border:0;
+ border-radius:var(--dash-radius);
+ padding:22px;
+ box-shadow:var(--dash-soft-shadow);
+ background:#fff;
+}
+.dash-panel-head{margin-bottom:14px}
+.dash-panel-head h2{font-size:19px;letter-spacing:-.2px}
+.dash-panel-head .eyebrow{font-size:9px;letter-spacing:1.7px}
+.dash-panel-head .btn{border-radius:12px}
+.dash-timeline button{border-bottom-color:#eef2ef;padding:13px 4px;border-radius:10px}
+.dash-timeline button:hover{background:#f6faf7}
+.dash-food140>button{border:0;background:#f5f8f5;border-radius:16px;padding:15px;box-shadow:inset 0 0 0 1px rgba(50,93,80,.05)}
+.dash-food140>button:hover{background:#eef5f0}
+.hotel-mini-meta span{background:#edf4f0;border:1px solid #e2ebe5}
+.dash-tools140 button{border:0;background:#fff;border-radius:16px;box-shadow:var(--dash-soft-shadow);min-height:48px;justify-content:center}
+
+.fuji-card{border:0;border-radius:var(--dash-radius);box-shadow:var(--dash-soft-shadow);padding:22px;background:linear-gradient(135deg,rgba(236,247,243,.96),rgba(248,251,248,.98)),url('fuji.webp') center/cover no-repeat}
+.fuji-card.good,.fuji-card.mid,.fuji-card.low{border:0}
+.fuji-card:after{font-size:84px;right:20px;bottom:-26px}
+
+@media(max-width:720px){
+ body{background:#f4f7f4}
+ main{padding-top:22px}
+ .dash140{width:100%}
+ .dash140-head{margin:0 1px 13px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+ .dash140-head .eyebrow{font-size:8px;letter-spacing:2.1px}
+ .dash140-head h1{font-size:30px;margin:5px 0 3px;line-height:1.12}
+ .dash140-head p{font-size:10px;line-height:1.5}
+ .dash-head-actions{display:none}
+ .dash-cockpit{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:12px}
+ .dash-next{min-height:355px;padding:20px 18px 18px;border-radius:23px;background-position:center 42%}
+ .dash-next:before{right:17px;top:16px;font-size:8px;letter-spacing:2px}
+ .dash-status{font-size:10px;padding:6px 9px;max-width:calc(100% - 74px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ .dash-next>p{margin:0 0 5px;font-size:9px}
+ .dash-next h2{font-size:31px;line-height:1.16;max-width:100%}
+ .dash-next-meta{margin-top:11px}
+ .dash-next-meta span{font-size:10px;padding:5px 8px}
+ .dash-next-actions{display:grid;grid-template-columns:1.25fr .95fr;margin-top:15px}
+ .dash-next-actions .btn{min-height:48px;border-radius:14px;font-size:13px;padding:10px}
+ .dash-next-actions .warn-action{grid-column:1/-1}
+ .dash-health{display:grid;grid-template-columns:68px minmax(0,1fr) auto;grid-template-rows:auto auto;padding:13px 14px;gap:2px 12px;align-items:center;text-align:left;border-radius:20px;box-shadow:var(--dash-soft-shadow)}
+ .dash-health .health-ring{width:62px;height:62px;grid-row:1/3}
+ .dash-health .health-ring:before{inset:6px}
+ .dash-health .health-ring b{font-size:18px}
+ .dash-health h3{margin:0;font-size:15px;align-self:end}
+ .dash-health p{font-size:10px;margin:2px 0 0;align-self:start;max-width:none}
+ .dash-health .btn{grid-column:3;grid-row:1/3;align-self:center;width:auto;min-height:36px;text-decoration:none;border:1px solid #d9e7df;background:#fff;border-radius:12px;font-size:0;padding:8px 10px}
+ .dash-health .btn:after{content:'ตรวจ';font-size:10px}
+ .dash-metrics{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;margin:0 -2px 16px;padding:2px 2px 7px;scrollbar-width:none}
+ .dash-metrics::-webkit-scrollbar{display:none}
+ .dash-metrics button{flex:0 0 138px;min-height:76px;padding:12px 13px;border-radius:16px;scroll-snap-align:start}
+ .dash-metrics b{font-size:21px}
+ .dash-main-grid{gap:12px}
+ .dash-main-grid>main,.dash-side140{gap:12px}
+ .dash-panel{padding:16px;border-radius:20px;box-shadow:0 5px 16px rgba(28,62,55,.055)}
+ .dash-panel-head{margin-bottom:12px}
+ .dash-panel-head h2{font-size:18px}
+ .dash-panel-head>div:last-child{display:flex;gap:5px}
+ .dash-panel-head .btn{font-size:10px;min-height:34px;padding:6px 9px}
+ .dash-timeline button{grid-template-columns:42px minmax(0,1fr) 22px;padding:11px 2px}
+ .dash-food140{grid-template-columns:1fr}
+ .dash-side140{display:grid;grid-template-columns:1fr}
+ .dash-tools140{grid-template-columns:repeat(4,1fr);gap:6px}
+ .dash-tools140 button{min-height:62px;display:grid;justify-items:center;gap:4px;padding:8px 4px;font-size:9px}
+ .dash-tools140 .ico{width:18px;height:18px}
+ .fuji-card{padding:16px;border-radius:20px}
+}
+
+@media(max-width:430px){
+ .dash140-head h1{font-size:28px}
+ .dash-next{min-height:330px}
+ .dash-next h2{font-size:29px}
+ .dash-next-actions{grid-template-columns:1fr 1fr}
+ .dash-next-actions .btn:first-child{grid-column:auto}
+ .dash-health{grid-template-columns:62px minmax(0,1fr) auto;padding:12px}
+ .dash-health .health-ring{width:58px;height:58px}
+ .dash-health h3{font-size:14px}
+ .dash-health p{font-size:9px}
+ .dash-metrics button{flex-basis:130px}
+}

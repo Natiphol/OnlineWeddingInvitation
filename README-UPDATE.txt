@@ -1,12 +1,15 @@
-ICHI-JAPAN v1.4.0 — Travel Command Center
+ICHI-JAPAN v1.4.1 — Fuji Dashboard Visual Refresh
 1 ตุลาคม 2026
+
+รอบนี้เป็น UI/UX polish ของ Dashboard v1.4.0 โดยคงฟังก์ชัน Live Trip Mode, Ticket Wallet,
+Trip Health Check, Time Conflict Detector, Hotel Hub, Smart Day Planner และ Fuji Visibility ไว้ครบ
 
 ก่อนอัปเดต
 1) เปิดเว็บเดิม > ทริปของฉัน > ส่งออกสำรอง JSON เก็บไว้ก่อน
-2) อัปโหลดไฟล์เว็บทั้ง 9 ไฟล์ทับของเดิมใน repository TravelJapan ระดับเดียวกับ index.html
+2) อัปโหลดไฟล์ทั้ง 9 ไฟล์ด้านล่างทับไฟล์เดิมใน repository TravelJapan ระดับเดียวกับ index.html
 3) Commit แล้วรอ GitHub Pages เผยแพร่
 4) เปิดเว็บขณะออนไลน์ > ทริปของฉัน > ตรวจอัปเดต > ติดตั้งเวอร์ชันใหม่
-5) ตรวจ footer ว่าเป็น v1.4.0 แล้วกด “เตรียมใช้ออฟไลน์” อีกครั้ง
+5) ตรวจ footer ว่าเป็น v1.4.1 แล้วกด “เตรียมใช้ออฟไลน์” อีกครั้ง
 
 ไฟล์ที่ต้องอัปโหลด
 - index.html
@@ -19,131 +22,43 @@ ICHI-JAPAN v1.4.0 — Travel Command Center
 - discover.css
 - places-data.js
 
-============================================================
-สิ่งที่เพิ่มใน v1.4.0
-============================================================
+สิ่งที่เปลี่ยนใน v1.4.1
 
-1. Dashboard ใหม่ — ICHI Travel Command Center
-- ออกแบบใหม่ทั้งหน้า ไม่ใช้ Dashboard แบบกล่อง 4 ใบของ v1.3.0 เป็นหน้าหลักแล้ว
-- Hero หลักบอกสถานะทริป เวลา JST จุดถัดไป จำนวนจุด และความพร้อมของเส้นทาง
-- Trip Health Score 0–100 สรุปความพร้อมทั้งทริป
-- แถบสรุป การจอง / Ticket Wallet / เส้นทาง / Hotel / เวลาเสี่ยงชน
-- Timeline วันนี้แบบอ่านเร็ว
-- Smart Alerts ดึงปัญหาที่ควรจัดการขึ้นมาอัตโนมัติ
-- ร้านอาหารใกล้ย่านในแผนวันนี้
-- Budget Pulse
-- Fuji Visibility อยู่บน Dashboard โดยตรง
-- Mobile ปรับเป็น Card layout ใช้นิ้วเดียวได้ง่ายกว่าเดิม
+1. Dashboard Hero ใช้ภูเขาไฟฟูจิเป็นพื้นหลัง
+- ใช้ไฟล์ fuji.webp เดิมของโปรเจกต์ จึงไม่ต้องอัปโหลดรูปใหม่
+- เพิ่ม dark emerald overlay เพื่อให้ข้อความอ่านง่ายทั้งกลางวัน/กลางคืน
+- ลดวงกลมกราฟิกเดิมที่ทำให้ Hero ดูเหมือน dashboard enterprise มากเกินไป
+- เพิ่มคำว่า FUJI · JAPAN แบบเบา ๆ บนภาพ
 
-2. Live Trip Mode
-- ปุ่ม “Live Trip” จาก Dashboard
-- แสดงเวลา JST ปัจจุบัน
-- หา “จุดถัดไป” จากวันและเวลาที่บันทึกไว้
-- แสดงอีกกี่นาทีถึงเวลาตามแผน
-- ถ้าเส้นทางออฟไลน์มีข้อความเวลา เช่น 35 นาที ระบบช่วยคำนวณว่าเหลือเวลาประมาณเท่าไรควรเริ่มออก
-- ปุ่ม Google Maps ไปจุดถัดไป
-- เปิด Ticket Wallet / กลับโรงแรม / จดรายจ่ายจากหน้าเดียว
-- แสดง Route Note ที่บันทึกไว้ออฟไลน์
-- เตือนถ้าวันนั้นมี Time Conflict
-- แสดง Timeline และร้านอาหารใกล้แผน
+2. ปรับความบาลานซ์ของ Dashboard ใหม่
+- Hero และ Health Card ใช้ radius/spacing ชุดเดียวกัน
+- ลดความสูงของ Health Card บนมือถือให้เป็น status strip แบบ compact
+- ปุ่ม “ตรวจทั้งทริป” บนมือถือเล็กลง ไม่แย่งสายตาจาก Hero
+- ลดกรอบเส้นรอบ card ที่ซ้ำซ้อน และใช้เงาบางแทน
 
-หมายเหตุ: “ควรออกในอีก…” เป็นตัวช่วยจากเวลาที่ผู้ใช้บันทึก ไม่ใช่เวลารถไฟสด
+3. Metrics row ใหม่
+- Desktop ยังแสดง 5 ช่องเท่ากัน
+- Mobile เปลี่ยนเป็นแถวเลื่อนแนวนอน เพื่อไม่ให้กล่อง 2x3 ดูแน่น/ไม่บาลานซ์
+- แต่ละ metric มีน้ำหนักตัวเลข/ข้อความสม่ำเสมอ
 
-3. Ticket Wallet
-- รวมตั๋ว/ใบจองที่แนบกับแผนไว้หน้าเดียว
-- เรียงตามวันที่และเวลาเข้าชม
-- รูปตั๋วแสดง Thumbnail
-- PDF แสดงเป็น Ticket Card
-- เปิดไฟล์หรือแก้ Event ได้จาก Wallet
-- แยกรายการ “จองแล้วแต่ยังไม่มีตั๋วแนบ” ให้ตรวจง่าย
-- ไฟล์ยังเก็บใน IndexedDB ของอุปกรณ์นี้ และรวมใน Export Backup เดิม
+4. Action ใน Hero
+- ปุ่มหลัก “เปิดแผนวันนี้” เด่นที่สุด
+- Smart Day Planner เป็น secondary action ที่เบากว่า
+- แจ้งเตือนเวลาชนจะลงแถวของตัวเองเมื่อจำเป็น
 
-4. Trip Health Check
-ระบบตรวจจากข้อมูลในเครื่องและให้ Score 0–100 โดยดู:
-- รายการที่ยัง “ต้องจอง”
-- รายการที่ข้อมูลร้าน/สถานที่แนะนำให้เช็กการจอง
-- คืนโรงแรมที่ยังขาด
-- Time Conflict
-- วิธีเดินทางออฟไลน์ที่ยังขาด
-- ข้อมูล Discover ที่เก่า
-- วันที่ยังไม่มีแผน
-- Backup ล่าสุด
-- การทดสอบ Offline
+5. Card system
+- Dashboard ใช้ 24px outer radius และ 18px inner radius เป็นระบบเดียวกัน
+- Today Flow / Food / Hotel / Alerts / Budget / Fuji Visibility ใช้ภาษา visual เดียวกัน
+- ลดเส้น border และเพิ่ม soft shadow เพื่อให้หน้าเบาขึ้น
 
-ปุ่ม “จัดการ” ใน Health Check จะพาไปจุดที่เกี่ยวข้องทันที
-คะแนนเป็น Checklist ของข้อมูลที่บันทึก ไม่ใช่การรับประกันจากผู้ให้บริการภายนอก
+6. Mobile polish
+- ลดพื้นที่ว่างก่อน Hero
+- หัวข้อ Command Center กระชับขึ้น
+- Quick tools ด้านล่างเปลี่ยนเป็น 4 ช่องเท่ากัน
+- Food cards เปลี่ยนเป็น 1 คอลัมน์เพื่ออ่านง่ายบนมือถือ
+- Dashboard ไม่ควรมีกรอบขนาดใหญ่ซ้อนกันหลายชั้นเหมือน v1.4.0
 
-5. Time Conflict Detector
-- ตรวจลำดับเวลาที่วิ่งย้อน เช่น 13:00 แล้วรายการถัดไป 12:00
-- ตรวจรายการเริ่มเวลาเดียวกัน
-- ใช้ durationMinutes จากฐาน Discover เพื่อตรวจว่ารายการทับกันหรือไม่
-- แจ้ง Tight Buffer เมื่อเหลือเวลาต่ำกว่า 20 นาที
-- รายการ Custom ที่ไม่มี duration จะไม่เดาระยะเวลาเอง ลด False Alarm
-- เปิดตรวจได้จาก Dashboard, Live Trip และหน้าแผน
-
-6. Smart Day Planner
-- ช่วยจัดรายการ “ไม่มีเวลา” ให้ย่านใกล้กัน
-- รายการที่มีเวลาเป็น Anchor และไม่ถูกย้ายโดยระบบ
-- ใช้ตำแหน่งระดับย่าน (ไม่ใช่ GPS สด) เพื่อช่วยลดการวิ่งย้อนเมือง
-- แสดง Before / Suggested ก่อนกดยืนยัน
-- ถ้าวันเดียวมีหลายเมือง จะขึ้นเตือนให้ตรวจการเดินทางข้ามพื้นที่
-- เมื่อนำลำดับใหม่มาใช้ ระบบล้าง Route-to-next เดิม เพราะปลายทางเปลี่ยนแล้ว
-
-7. Hotel Hub
-ข้อมูลที่พักเพิ่มจากเดิม:
-- ชื่อ / ที่อยู่ / โทรศัพท์
-- Check-in / Check-out
-- สถานีใกล้สุด
-- Exit
-- ฝากกระเป๋า
-- อาหารเช้า
-- Coin Laundry
-- Onsen / ห้องอาบน้ำ
-- หมายเหตุสำคัญ
-
-Hotel Hub แสดง:
-- ที่พักคืนนี้
-- ปุ่มกลับโรงแรม Google Maps
-- โทรโรงแรม
-- จำนวนคืนที่ครอบคลุม
-- คืนที่ยังขาด
-- รายการโรงแรมทั้งหมด
-
-8. Fuji Visibility
-- ดึงพยากรณ์ Kawaguchiko แบบออนไลน์โดยไม่ต้อง API key
-- ใช้ Cloud cover ต่ำ/กลาง, precipitation probability, precipitation และ visibility
-- คำนวณ Visibility Score 0–100 เป็น “ตัวช่วยเลือกช่วงเวลา”
-- แนะนำช่วงเวลา 06:00–15:00 ใน forecast 3 วัน
-- แสดงเมฆต่ำและระยะ Visibility
-- Cache snapshot ล่าสุดในเครื่อง เพื่อยังเห็นข้อมูลล่าสุดเดิมตอน Offline
-- Refresh ได้เองจาก Dashboard
-- มีลิงก์เว็บท่องเที่ยว Fujikawaguchiko ทางการ
-
-สำคัญ: คะแนน Fuji Visibility ไม่ใช่ Live Camera และไม่รับประกันว่าจะเห็นยอดฟูจิ เป็น heuristic จาก weather forecast เท่านั้น
-Weather API: Open-Meteo
-Tourism reference: Fujikawaguchiko Town Tourism Information Site
-
-9. Data model compatibility
-- localStorage ยังใช้ key: tabi-v1
-- ข้อมูลทริป v1.3.0 และรุ่นเก่ายังเปิดได้
-- Event เดิมไม่ต้อง migration
-- Hotel field ใหม่เป็น Optional
-- durationMinutes ถูก expose เพิ่มใน Discover helper เพื่อใช้ Conflict Detector
-- Service Worker: ichi-1.4.0
-- Core cache query: ?v=140
-
-============================================================
-สิ่งที่ควรทดสอบหลัง Deploy
-============================================================
-1) เปิด Dashboard ทั้ง Desktop และ Mobile
-2) กด Live Trip
-3) แนบตั๋ว 1 ภาพ + 1 PDF แล้วเปิด Ticket Wallet
-4) สร้าง Event สองรายการให้เวลาชนกัน เพื่อลอง Conflict Detector
-5) เปิด Smart Day Planner และทดลอง Apply
-6) เพิ่มโรงแรม แล้วเปิด Hotel Hub
-7) ต่อ Internet แล้วดู Fuji Visibility
-8) ปิด Internet และดูว่า Snapshot Fuji ล่าสุดยังอ่านได้
-9) Export Backup JSON แล้วตรวจว่าไฟล์ตั๋วยังอยู่
-10) กดเตรียมใช้ออฟไลน์ใหม่หลังอัปเวอร์ชัน
-
-By ichitan
+หมายเหตุ
+- v1.4.1 ใช้ fuji.webp ที่มีอยู่เดิมใน repository และอยู่ใน Offline Guide pack แล้ว
+- ข้อมูลทริปยังใช้ localStorage key tabi-v1 เดิม ไม่ล้างข้อมูลเก่า
+- ฟังก์ชันทั้งหมดจาก v1.4.0 ยังอยู่ครบ
