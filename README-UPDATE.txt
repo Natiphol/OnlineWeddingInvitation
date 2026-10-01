@@ -1,22 +1,37 @@
-ICHI-JAPAN v1.5.2 — Dashboard Layout Hotfix
+ICHI-JAPAN v1.5.3 — UX Stability & Visual Polish
 Released: 2026-10-01
 
-ฐาน: v1.5.1
+ฐาน: v1.5.2
 
-แก้บัคหลัก
-- แก้ Dashboard บนมือถือที่ Hotel Hub / Budget / Quick actions ลอยทับ Hero และ Fuji Visibility
-- สาเหตุ: Dashboard ใช้แท็ก <aside> ซ้ำกับ selector aside ของ sidebar หลัก ทำให้ sidebar CSS (position: fixed / width / padding) ถูกนำไปใช้กับกล่อง Dashboard
-- เปลี่ยนคอลัมน์รองของ Dashboard เป็น .companion-secondary และแยก CSS ออกจาก sidebar โดยสมบูรณ์
-- เพิ่ม mobile hardening: width/min-width/max-width และ grid 1 คอลัมน์ที่ <=720px
-- Fuji Visibility ยังคงแสดงบน Dashboard แบบ contextual ตามที่ขอ
+เป้าหมายของรุ่นนี้
+- ไม่เพิ่มฟีเจอร์ใหม่
+- จัด Information Hierarchy ของหน้าให้ถูกลำดับ
+- เก็บ Mobile layout ให้เสถียรและอ่านง่าย
+- ปรับ visual consistency: spacing, radius, button, card และ typography
 
-ไม่ได้เปลี่ยนข้อมูลทริป
-- ยังใช้ localStorage key: tabi-v1
-- ฟีเจอร์ v1.5 เดิมยังอยู่
+สิ่งที่เปลี่ยน
+- หน้า “ทริปของฉัน” จัดใหม่ทั้งลำดับ:
+  1) ข้อมูลทริป
+  2) ที่พัก
+  3) ตั๋วและเอกสาร
+  4) Checklist ความพร้อม
+  5) ข้อมูลฉุกเฉิน
+  6) Offline / Backup
+  7) เวอร์ชันและอัปเดตเว็บ — ย้ายไปล่างสุด
+- Version panel ลดน้ำหนักเป็นส่วน maintenance ไม่แย่งข้อมูลทริป
+- Mobile <= 800px บังคับ layout หลักเป็นคอลัมน์เดียวและเผื่อพื้นที่ bottom navigation / safe area
+- ปรับ Card / Button / Heading / Empty state ให้ใช้ visual language เดียวกัน
+- หน้า Trip ใช้ layout ใหม่ที่อ่านง่ายและบาลานซ์บนจอเล็ก
+- Quick Rail Guide ลดน้ำหนัก visual ให้ไม่แย่งหัวข้อหลัก
+- ไม่เปลี่ยน localStorage key และไม่เปลี่ยนข้อมูลทริปเดิม
 
-อัปเดต
-1. สำรอง JSON ก่อน
+ข้อมูลเดิม
+- localStorage: tabi-v1
+- Dashboard / Live Trip / Ticket Wallet / Hotel Hub / Smart Planner / Fuji Visibility ยังคงเหมือน v1.5.2
+
+แนะนำก่อนอัปเดต
+1. Export JSON สำรองทริป
 2. อัปโหลดไฟล์ใน ZIP ทับไฟล์เดิม
 3. Commit GitHub Pages
 4. ปิดแท็บเว็บเดิม แล้วเปิดใหม่
-5. หากยังเห็นหน้าเก่า ให้ refresh / update service worker อีกครั้ง
+5. Refresh หนึ่งครั้งหาก Service Worker ยังแสดงไฟล์เก่า
