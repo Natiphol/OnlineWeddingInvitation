@@ -109,6 +109,41 @@ export const discoverCategories = [
     "id": "walk",
     "emoji": "🚶",
     "label": "เดินเล่น"
+  },
+  {
+    "id": "ramen",
+    "emoji": "🍜",
+    "label": "ราเมง"
+  },
+  {
+    "id": "sushi",
+    "emoji": "🍣",
+    "label": "ซูชิ"
+  },
+  {
+    "id": "cafe",
+    "emoji": "☕",
+    "label": "คาเฟ่"
+  },
+  {
+    "id": "dessert",
+    "emoji": "🍰",
+    "label": "ของหวาน"
+  },
+  {
+    "id": "okonomiyaki",
+    "emoji": "🥞",
+    "label": "โอโคโนมิยากิ"
+  },
+  {
+    "id": "local-specialty",
+    "emoji": "🏮",
+    "label": "ของขึ้นชื่อ"
+  },
+  {
+    "id": "seafood",
+    "emoji": "🦐",
+    "label": "ซีฟู้ด"
   }
 ];
 export const discoverAreas = {
@@ -416,7 +451,9 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.shibuya-scramble-square.com/sky/",
     "checkedAt": "2026-09-30",
-    "art": "city"
+    "art": "city",
+    "priceApproxMinJPY": 2200,
+    "priceApproxMaxJPY": 2500
   },
   {
     "id": "center-gai",
@@ -1370,7 +1407,9 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.gotokyo.org/en/destinations/eastern-tokyo/skytree-and-around/index.html",
     "checkedAt": "2026-09-30",
-    "art": "tower"
+    "art": "tower",
+    "priceApproxMinJPY": 2100,
+    "priceApproxMaxJPY": 3100
   },
   {
     "id": "tokyo-solamachi",
@@ -1460,7 +1499,9 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.sumida-aquarium.com/en/",
     "checkedAt": "2026-09-30",
-    "art": "tower"
+    "art": "tower",
+    "priceApproxMinJPY": 2300,
+    "priceApproxMaxJPY": 2500
   },
   {
     "id": "teamlab-planets",
@@ -1507,7 +1548,9 @@ export const discoverPlaces = [
     ],
     "sourceURL": "https://www.teamlab.art/e/planets/",
     "checkedAt": "2026-09-30",
-    "art": "bay"
+    "art": "bay",
+    "priceApproxMinJPY": 3800,
+    "priceApproxMaxJPY": 4200
   },
   {
     "id": "toyosu-market",
@@ -2541,7 +2584,9 @@ export const discoverPlaces = [
     "description": "สวนสนุกใกล้ภูเขาไฟฟูจิ มีรถไฟเหาะและเครื่องเล่นหลายระดับ",
     "tip": "เครื่องเล่นยอดนิยมมีเงื่อนไขส่วนสูงและอาจปิดจากสภาพอากาศ",
     "mapQuery": "Fuji-Q Highland Japan",
-    "sourceURL": "https://www.fujiq.jp/en/"
+    "sourceURL": "https://www.fujiq.jp/en/",
+    "priceApproxMinJPY": 1800,
+    "priceApproxMaxJPY": 6800
   },
   {
     "admissionJPY": 0,
@@ -3003,6 +3048,513 @@ export const discoverPlaces = [
     "tip": "ถ้าต้องการชมพระอาทิตย์ตกควรเผื่อเวลาขึ้นอาคารและคิวลิฟต์",
     "mapQuery": "Abeno Harukas 300 Osaka Japan",
     "sourceURL": "https://www.abenoharukas-300.jp/en/"
+  }
+];
+export const discoverFoods = [
+  {
+    "id": "tokyo-ichiran-shibuya",
+    "city": "tokyo",
+    "area": "shibuya",
+    "name": "Ichiran Shibuya",
+    "nameTH": "อิจิรัน ชิบูย่า",
+    "categories": [
+      "food",
+      "ramen",
+      "first-trip",
+      "rain",
+      "night"
+    ],
+    "station": "Shibuya · เดินประมาณ 5–8 นาที",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1200,
+    "budgetJPYMax": 1800,
+    "budgetNote": "ราเมง 1 ชาม + เพิ่มท็อปปิงเล็กน้อย",
+    "recommendedTime": "มื้อดึกหรือหลังเดินเล่น",
+    "indoor": true,
+    "description": "ราเมงทงคตสึสไตล์ฮากาตะ ร้านดังที่หลายคนอยากลองสักครั้ง",
+    "mustTry": "Natural Tonkotsu Ramen",
+    "tip": "ช่วงเย็นอาจรอนาน ใช้ตู้สั่งและเลือกระดับความเข้มของซุปได้",
+    "mapQuery": "Ichiran Shibuya Tokyo",
+    "keywords": [
+      "ราเมง",
+      "ichiran",
+      "ชิบูย่า",
+      "ทงคตสึ"
+    ],
+    "sourceURL": "https://ichiran.com/",
+    "checkedAt": "2026-10-01",
+    "art": "city"
+  },
+  {
+    "id": "tokyo-ginza-kagari",
+    "city": "tokyo",
+    "area": "central",
+    "name": "Ginza Kagari",
+    "nameTH": "กินซ่า คางาริ",
+    "categories": [
+      "food",
+      "ramen",
+      "couple",
+      "rain"
+    ],
+    "station": "Ginza / Yurakucho",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1500,
+    "budgetJPYMax": 2500,
+    "budgetNote": "ขึ้นกับเมนูไก่ขาวและท็อปปิง",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ราเมงซุปไก่ขาวเนียนละเอียด สายราเมงมักลิสต์ไว้",
+    "mustTry": "Chicken Paitan Soba",
+    "tip": "ร้านดัง แนะนำไปช่วงก่อนหรือหลังพีคไทม์",
+    "mapQuery": "Ginza Kagari Tokyo",
+    "keywords": [
+      "กินซ่า",
+      "ราเมง",
+      "ไก่",
+      "kagari"
+    ],
+    "sourceURL": "https://www.kagario.tokyo/",
+    "checkedAt": "2026-10-01",
+    "art": "city"
+  },
+  {
+    "id": "tokyo-uogashi-nihonichi",
+    "city": "tokyo",
+    "area": "central",
+    "name": "Uogashi Nihon-Ichi",
+    "nameTH": "อุโอะกาชิ นิปปงอิจิ",
+    "categories": [
+      "food",
+      "sushi",
+      "budget",
+      "rain",
+      "walk"
+    ],
+    "station": "Tokyo / Shimbashi / หลายสาขา",
+    "durationMinutes": 45,
+    "duration": "30–45 นาที",
+    "budgetJPYMin": 1200,
+    "budgetJPYMax": 2500,
+    "budgetNote": "ซูชิยืนกิน ราคาย่อมเยา",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ซูชิแบบยืนกิน กินเร็ว ราคาดี เหมาะกับคนอยากลองซูชิโดยไม่หนักงบ",
+    "mustTry": "Assorted Nigiri Set",
+    "tip": "สาขาในย่านออฟฟิศช่วงเที่ยงคนแน่น",
+    "mapQuery": "Uogashi Nihon-Ichi Tokyo",
+    "keywords": [
+      "ซูชิ",
+      "standing sushi",
+      "โตเกียวสเตชัน"
+    ],
+    "sourceURL": "https://www.sushi-nh.com/",
+    "checkedAt": "2026-10-01",
+    "art": "city"
+  },
+  {
+    "id": "tokyo-asakusa-imahan",
+    "city": "tokyo",
+    "area": "asakusa",
+    "name": "Asakusa Imahan",
+    "nameTH": "อาซากุสะ อิมะฮัง",
+    "categories": [
+      "food",
+      "local-specialty",
+      "couple",
+      "family",
+      "rain"
+    ],
+    "station": "Asakusa · เดินประมาณ 5–8 นาที",
+    "durationMinutes": 90,
+    "duration": "1–1.5 ชั่วโมง",
+    "budgetJPYMin": 5000,
+    "budgetJPYMax": 10000,
+    "budgetNote": "มื้อสุกี้ยากี้ / ชาบู ต่อคน",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ร้านสุกี้ยากี้เก่าแก่ชื่อดังในอาซากุสะ เหมาะกับมื้อพิเศษ",
+    "mustTry": "Sukiyaki Set",
+    "tip": "ถ้าอยากกินสบาย ๆ แนะนำจองล่วงหน้า",
+    "mapQuery": "Asakusa Imahan",
+    "keywords": [
+      "สุกี้ยากี้",
+      "อาซากุสะ",
+      "wagyu"
+    ],
+    "sourceURL": "https://www.asakusaimahan.co.jp/",
+    "checkedAt": "2026-10-01",
+    "art": "temple"
+  },
+  {
+    "id": "tokyo-suzukien",
+    "city": "tokyo",
+    "area": "asakusa",
+    "name": "Suzukien Asakusa",
+    "nameTH": "ซุซุกิเอ็น อาซากุสะ",
+    "categories": [
+      "food",
+      "dessert",
+      "cafe",
+      "budget",
+      "walk"
+    ],
+    "station": "Asakusa",
+    "durationMinutes": 30,
+    "duration": "20–30 นาที",
+    "budgetJPYMin": 450,
+    "budgetJPYMax": 900,
+    "budgetNote": "ไอศกรีมมัทฉะ / ชาเขียว",
+    "recommendedTime": "บ่าย",
+    "indoor": true,
+    "description": "ร้านมัทฉะเจลาโต้ยอดนิยม แวะง่ายระหว่างเดินอาซากุสะ",
+    "mustTry": "Matcha Gelato Level 5–7",
+    "tip": "คิวช่วงบ่ายเสาร์อาทิตย์อาจยาว",
+    "mapQuery": "Suzukien Asakusa",
+    "keywords": [
+      "ของหวาน",
+      "มัทฉะ",
+      "gelato",
+      "asakusa"
+    ],
+    "sourceURL": "https://www.tocha.co.jp/",
+    "checkedAt": "2026-10-01",
+    "art": "temple"
+  },
+  {
+    "id": "tokyo-tsujihan-nihonbashi",
+    "city": "tokyo",
+    "area": "central",
+    "name": "Tsujihan Nihonbashi",
+    "nameTH": "สึจิฮัง นิฮงบาชิ",
+    "categories": [
+      "food",
+      "seafood",
+      "first-trip",
+      "rain"
+    ],
+    "station": "Nihombashi / Tokyo",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1500,
+    "budgetJPYMax": 2800,
+    "budgetNote": "ข้าวหน้าทะเลชามเด่น",
+    "recommendedTime": "กลางวัน",
+    "indoor": true,
+    "description": "ข้าวหน้าอาหารทะเลแน่น ๆ ร้านฮิตของสายดงบุริ",
+    "mustTry": "Zeitaku Don",
+    "tip": "มักมีคิวช่วงกลางวัน แต่หมุนโต๊ะค่อนข้างเร็ว",
+    "mapQuery": "Tsujihan Nihonbashi",
+    "keywords": [
+      "kaisen don",
+      "อาหารทะเล",
+      "nihonbashi"
+    ],
+    "sourceURL": "https://www.tsujihan-jp.com/",
+    "checkedAt": "2026-10-01",
+    "art": "city"
+  },
+  {
+    "id": "osaka-ajinoya",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Ajinoya Honten",
+    "nameTH": "อาจิโนยะ ฮอนเท็น",
+    "categories": [
+      "food",
+      "okonomiyaki",
+      "first-trip",
+      "rain",
+      "family"
+    ],
+    "station": "Namba",
+    "durationMinutes": 75,
+    "duration": "1–1.25 ชั่วโมง",
+    "budgetJPYMin": 1200,
+    "budgetJPYMax": 2500,
+    "budgetNote": "โอโคโนมิยากิ / ยากิโซบะ ต่อคน",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ร้านโอโคโนมิยากิยอดนิยมแถวโดทงโบริ คนไทยและคนญี่ปุ่นรู้จักกันเยอะ",
+    "mustTry": "Mixed Okonomiyaki",
+    "tip": "คิวยาวได้ โดยเฉพาะช่วงค่ำ",
+    "mapQuery": "Ajinoya Honten Osaka",
+    "keywords": [
+      "okonomiyaki",
+      "นัมบะ",
+      "โดทงโบริ"
+    ],
+    "sourceURL": "https://ajinoya-okonomiyaki.com/",
+    "checkedAt": "2026-10-01",
+    "art": "city"
+  },
+  {
+    "id": "osaka-kiji-umeda",
+    "city": "osaka",
+    "area": "osaka-umeda",
+    "name": "Okonomiyaki Kiji Umeda",
+    "nameTH": "โอโคโนมิยากิ คิจิ อุเมดะ",
+    "categories": [
+      "food",
+      "okonomiyaki",
+      "local-specialty",
+      "rain"
+    ],
+    "station": "Umeda / Osaka",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1100,
+    "budgetJPYMax": 2200,
+    "budgetNote": "โอโคโนมิยากิคลาสสิก",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ร้านเก่าแก่ในย่านอุเมดะ เหมาะกับคนอยากลองรสโอซาก้าแท้",
+    "mustTry": "Pork & Cheese Okonomiyaki",
+    "tip": "หาโลเคชันในอาคารให้ดี เพราะอยู่โซนร้านอาหารด้านใน",
+    "mapQuery": "Kiji Umeda Osaka",
+    "keywords": [
+      "อุเมดะ",
+      "okonomiyaki",
+      "ร้านดัง"
+    ],
+    "sourceURL": "https://www.kijiweb.com/",
+    "checkedAt": "2026-10-01",
+    "art": "tower"
+  },
+  {
+    "id": "osaka-jiyuken-namba",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Jiyuken Namba",
+    "nameTH": "จิยูเค็น นัมบะ",
+    "categories": [
+      "food",
+      "local-specialty",
+      "budget",
+      "rain"
+    ],
+    "station": "Namba",
+    "durationMinutes": 45,
+    "duration": "30–45 นาที",
+    "budgetJPYMin": 900,
+    "budgetJPYMax": 1600,
+    "budgetNote": "ข้าวแกงกะหรี่สไตล์โอซาก้า",
+    "recommendedTime": "กลางวัน",
+    "indoor": true,
+    "description": "ร้านคารีไรซ์เก่าแก่ในย่านนัมบะ เมนูง่าย กินไว",
+    "mustTry": "Meibutsu Curry",
+    "tip": "ถ้าชอบไข่ดิบสามารถสั่งตามสไตล์ร้านได้",
+    "mapQuery": "Jiyuken Namba",
+    "keywords": [
+      "curry",
+      "osaka local",
+      "นัมบะ"
+    ],
+    "sourceURL": "https://jiyuken.co.jp/",
+    "checkedAt": "2026-10-01",
+    "art": "city"
+  },
+  {
+    "id": "osaka-rikuro-namba",
+    "city": "osaka",
+    "area": "osaka-minami",
+    "name": "Rikuro Ojisan Namba",
+    "nameTH": "ริคุโระ โอจิซัง นัมบะ",
+    "categories": [
+      "food",
+      "dessert",
+      "first-trip",
+      "budget",
+      "rain"
+    ],
+    "station": "Namba",
+    "durationMinutes": 30,
+    "duration": "20–30 นาที",
+    "budgetJPYMin": 1000,
+    "budgetJPYMax": 1200,
+    "budgetNote": "ชีสเค้กทั้งก้อน",
+    "recommendedTime": "บ่าย–ค่ำ",
+    "indoor": true,
+    "description": "ชีสเค้กนุ่ม ๆ ของฝากยอดนิยมของโอซาก้า",
+    "mustTry": "Freshly Baked Cheesecake",
+    "tip": "เหมาะซื้อกลับมากกว่านั่งกินยาว",
+    "mapQuery": "Rikuro Ojisan Namba",
+    "keywords": [
+      "ชีสเค้ก",
+      "ของฝาก",
+      "โอซาก้า"
+    ],
+    "sourceURL": "https://www.rikuro.co.jp/",
+    "checkedAt": "2026-10-01",
+    "art": "city"
+  },
+  {
+    "id": "osaka-harukoma-tenjinbashi",
+    "city": "osaka",
+    "area": "osaka-umeda",
+    "name": "Harukoma Sushi",
+    "nameTH": "ฮารุโคมะ ซูชิ",
+    "categories": [
+      "food",
+      "sushi",
+      "seafood",
+      "rain"
+    ],
+    "station": "Tenjinbashisuji 6-chome",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 2000,
+    "budgetJPYMax": 3500,
+    "budgetNote": "ซูชิต่อคนแบบกินอิ่ม",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ซูชิยอดนิยมราคาคุ้มค่าในโอซาก้า",
+    "mustTry": "Otoro / Assorted Sushi",
+    "tip": "อาจต้องรับบัตรคิวในช่วงพีค",
+    "mapQuery": "Harukoma Sushi Osaka",
+    "keywords": [
+      "ซูชิ",
+      "tenjinbashisuji",
+      "โอซาก้า"
+    ],
+    "sourceURL": "https://www.harukoma.co.jp/",
+    "checkedAt": "2026-10-01",
+    "art": "tower"
+  },
+  {
+    "id": "fuji-houtou-fudou",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Houtou Fudou",
+    "nameTH": "โฮโต ฟุโด",
+    "categories": [
+      "food",
+      "local-specialty",
+      "family",
+      "rain"
+    ],
+    "station": "Kawaguchiko / เดินทางต่อรถ",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1200,
+    "budgetJPYMax": 1800,
+    "budgetNote": "โฮโต 1 ชาม",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ร้านโฮโตเส้นหนาน้ำซุปร้อน ของขึ้นชื่อยามานาชิ",
+    "mustTry": "Hoto Noodles",
+    "tip": "เหมาะมากในวันที่อากาศเย็นหรือฝนตก",
+    "mapQuery": "Houtou Fudou Kawaguchiko",
+    "keywords": [
+      "hoto",
+      "คาวากุจิโกะ",
+      "ฟูจิ"
+    ],
+    "sourceURL": "https://www.houtou-fudou.jp/",
+    "checkedAt": "2026-10-01",
+    "art": "park"
+  },
+  {
+    "id": "fuji-tempura-idaten",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Fuji Tempura Idaten",
+    "nameTH": "ฟูจิ เทมปุระ อิดาเท็น",
+    "categories": [
+      "food",
+      "local-specialty",
+      "family",
+      "couple"
+    ],
+    "station": "Kawaguchiko · เดินประมาณ 3–5 นาที",
+    "durationMinutes": 60,
+    "duration": "45–60 นาที",
+    "budgetJPYMin": 1800,
+    "budgetJPYMax": 3200,
+    "budgetNote": "เทมปุระเซ็ตต่อคน",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ร้านเทมปุระยอดนิยมใกล้สถานีคาวากุจิโกะ แวะง่าย",
+    "mustTry": "Fuji Tempura Set",
+    "tip": "ช่วงเย็นคิวมากขึ้นหลังรถบัสทัวร์ลง",
+    "mapQuery": "Fuji Tempura Idaten",
+    "keywords": [
+      "tempura",
+      "kawaguchiko",
+      "ร้านดัง"
+    ],
+    "sourceURL": "https://fujikanko-travel.jp/food/40",
+    "checkedAt": "2026-10-01",
+    "art": "park"
+  },
+  {
+    "id": "fuji-lake-bake",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Lake Bake",
+    "nameTH": "เลค เบค",
+    "categories": [
+      "food",
+      "cafe",
+      "dessert",
+      "couple",
+      "walk"
+    ],
+    "station": "Kawaguchiko / รถหรือแท็กซี่สะดวกกว่า",
+    "durationMinutes": 45,
+    "duration": "30–45 นาที",
+    "budgetJPYMin": 500,
+    "budgetJPYMax": 1500,
+    "budgetNote": "เบเกอรี่ + เครื่องดื่ม",
+    "recommendedTime": "เช้า–บ่าย",
+    "indoor": true,
+    "description": "คาเฟ่เบเกอรี่บรรยากาศดี เหมาะพักจิบกาแฟมองวิว",
+    "mustTry": "Bread & Coffee Set",
+    "tip": "ถ้าไปเช้า ตัวเลือกขนมปังจะเยอะกว่า",
+    "mapQuery": "Lake Bake Kawaguchiko",
+    "keywords": [
+      "คาเฟ่",
+      "เบเกอรี่",
+      "วิวฟูจิ"
+    ],
+    "sourceURL": "https://lakebake.com/",
+    "checkedAt": "2026-10-01",
+    "art": "park"
+  },
+  {
+    "id": "fuji-sanrokuen",
+    "city": "fuji",
+    "area": "fuji-kawaguchiko",
+    "name": "Sanrokuen",
+    "nameTH": "ซันโรคุเอ็น",
+    "categories": [
+      "food",
+      "local-specialty",
+      "family",
+      "couple"
+    ],
+    "station": "Kawaguchiko / เดินทางต่อรถ",
+    "durationMinutes": 90,
+    "duration": "1–1.5 ชั่วโมง",
+    "budgetJPYMin": 3500,
+    "budgetJPYMax": 6000,
+    "budgetNote": "โรบาตะยากิ / เซ็ตปิ้งย่าง",
+    "recommendedTime": "กลางวัน–เย็น",
+    "indoor": true,
+    "description": "ร้านโรบาตะยากิในบ้านญี่ปุ่นดั้งเดิม ประสบการณ์ต่างจากร้านทั่วไป",
+    "mustTry": "Irori Robatayaki Set",
+    "tip": "มื้อค่อนข้างใช้เวลา เหมาะเผื่อเวลาพัก",
+    "mapQuery": "Sanrokuen Kawaguchiko",
+    "keywords": [
+      "robata",
+      "traditional",
+      "คาวากุจิโกะ"
+    ],
+    "sourceURL": "https://www.irori-sanrokuen.com/",
+    "checkedAt": "2026-10-01",
+    "art": "park"
   }
 ];
 export const discoverRoutes = [

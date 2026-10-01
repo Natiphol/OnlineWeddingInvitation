@@ -1,4 +1,4 @@
-ICHI-JAPAN v1.0.9 — Mobile polish + itinerary upgrade
+ICHI-JAPAN v1.1.0 — Discover bug fix + ราคา + ร้านอาหาร
 1 ตุลาคม 2026
 
 ก่อนอัปเดต
@@ -6,7 +6,7 @@ ICHI-JAPAN v1.0.9 — Mobile polish + itinerary upgrade
 2) อัปโหลดไฟล์ทั้ง 9 ไฟล์ด้านล่างทับไฟล์เดิมใน repository TravelJapan ระดับเดียวกับ index.html
 3) Commit แล้วรอ GitHub Pages เผยแพร่
 4) เปิดเว็บขณะออนไลน์ > ทริปของฉัน > ตรวจอัปเดต > ติดตั้งเวอร์ชันใหม่
-5) ตรวจ footer ว่าเป็น v1.0.9 แล้วกด “เตรียมใช้ออฟไลน์” อีกครั้ง
+5) ตรวจ footer ว่าเป็น v1.1.0 แล้วกด “เตรียมใช้ออฟไลน์” อีกครั้ง
 
 ไฟล์ที่ต้องอัปโหลด
 - index.html
@@ -20,84 +20,64 @@ ICHI-JAPAN v1.0.9 — Mobile polish + itinerary upgrade
 - places-data.js
 
 สิ่งที่แก้ตามรอบนี้
-1. Mobile header / ตำแหน่งที่วงแดง
-- จัด ICHI, SOS และ Online ให้อยู่แนวเดียวกันและเล็กลงบนมือถือ
-- แก้ bottom navigation เป็น 7 ช่องจริง ไม่ให้ขนาด/ตำแหน่งไหล
-- เปลี่ยนปุ่ม “วันนี้” เป็น “แดชบอร์ด” และวางไว้ตรงกลาง (ช่องที่ 4 จาก 7)
-- กล่อง JR · Kyoto · Disney · Fuji เดิมที่ยาวและดัน layout เปลี่ยนเป็น Quick Rail Guide แบบ compact
+1. แก้บัคภาพซ้ำใน Discover
+- เลิก fallback เอาภาพโซนเดียวกันไปแสดงซ้ำทุกการ์ด
+- ตอนนี้จะแสดงภาพเฉพาะจุดที่มีภาพประจำสถานที่จริง
+- ถ้าไม่มีภาพเฉพาะ จะใช้กราฟิก placeholder แทน เพื่อไม่ให้เกิดภาพผิดสถานที่
+- ปุ่ม “ดูภาพใหญ่” จะขึ้นเฉพาะรายการที่มีภาพจริง
 
-2. ภาพสถานที่ + ขยายภาพ
-- การ์ด Discover รองรับภาพจริงของพื้นที่/สถานที่ และกด “ดูภาพใหญ่” ได้
-- เพิ่มภาพตัวอย่างจาก Wikimedia Commons พร้อมลิงก์แหล่งภาพ
-- ถ้าออฟไลน์หรือรูปโหลดไม่สำเร็จ จะกลับไปแสดงกราฟิกเดิมแทน
-- ภาพภายนอกต้องใช้อินเทอร์เน็ต แต่ข้อมูลสถานที่ยังอ่านออฟไลน์ได้
+2. เพิ่มราคาคร่าว ๆ + แปลงเป็นเงินบาท
+- การ์ดสถานที่และหน้ารายละเอียด แสดงค่าเข้าแบบประมาณการ
+- รองรับทั้งราคา fix และช่วงราคาโดยประมาณ
+- แสดงเป็นเยน + ประมาณเงินบาท พร้อมเครื่องหมาย *
+- คิดเงินบาทตามเรทในทริปปัจจุบัน (ถ้าไม่มี ใช้ค่าเริ่มต้น ¥1 ≈ ฿0.23)
+- Route แนะนำแสดงค่าเข้ารวมโดยประมาณด้วย
 
-3. Disney แยกชัดเจน
-- เพิ่ม Destination chip “Disney Resort”
-- Tokyo Disneyland
-- Tokyo DisneySea
-- DisneySea ใช้ภาพเฉพาะของตัวเอง ไม่ปนกับ Disneyland
+3. เพิ่มหมวด “ร้านอาหาร” ใน Discover
+- สลับแท็บได้ระหว่าง “สถานที่” / “ร้านอาหาร” / “อยากไป”
+- ร้านอาหารกด ♡ เก็บ, เปิดแผนที่, และ “เพิ่มลงทริป” ได้เหมือนสถานที่
+- มีตัวกรองเมือง / โซน / หมวด / คำค้น แยกเหมาะกับร้านอาหาร
+- หมวดใหม่ เช่น ราเมง, ซูชิ, คาเฟ่, ของหวาน, โอโคโนมิยากิ, ของขึ้นชื่อ, ซีฟู้ด
 
-4. เพิ่ม Fuji
-- Lake Kawaguchiko
-- Oishi Park
-- Chureito Pagoda / Arakurayama Sengen Park
-- Oshino Hakkai
-- Mt. Fuji Panoramic Ropeway
-- Fuji-Q Highland
-- เพิ่ม Route Fuji Classic และ Fuji Family
+4. Seed data ร้านอาหารชุดแรก
+Tokyo
+- Ichiran Shibuya
+- Ginza Kagari
+- Uogashi Nihon-Ichi
+- Asakusa Imahan
+- Suzukien Asakusa
+- Tsujihan Nihonbashi
 
-5. เพิ่ม Osaka
-- Dotonbori
-- Shinsaibashi-suji
-- Kuromon Ichiba Market
-- Osaka Castle
-- Umeda Sky Building
-- Universal Studios Japan
-- Shinsekai
-- Tsutenkaku
-- Namba Yasaka Shrine
-- Sumiyoshi Taisha
-- Abeno Harukas 300
-- เพิ่ม Route Namba/Dotonbori, Osaka Classic และ Tennoji/Shinsekai
+Osaka
+- Ajinoya Honten
+- Okonomiyaki Kiji Umeda
+- Jiyuken Namba
+- Rikuro Ojisan Namba
+- Harukoma Sushi
 
-รวม Discover ตอนนี้ 60 แห่ง
-- Tokyo 41
-- Disney Resort 2
-- Osaka 11
-- Fuji 6
+Fuji / Kawaguchiko
+- Houtou Fudou
+- Fuji Tempura Idaten
+- Lake Bake
+- Sanrokuen
 
-6. “จากจุดนี้ไปจุดถัดไป” ในแผนเที่ยว
-- ทุกจุดในวันเดียวกันมีปุ่ม Google Maps ไปจุดถัดไป
-- ใส่ origin + destination จากชื่อสถานที่ให้โดยอัตโนมัติ
-- ค่าเริ่มต้น Google Maps เป็น Public Transit
-- เพิ่ม “บันทึกวิธีเดินทาง” สำหรับเขียน JR / Metro / ทางออก / วิธีเดิน แล้วอ่านออฟไลน์ได้
-- ถ้าสลับลำดับ ระบบล้างข้อความ leg เก่าที่อาจไม่ตรงกับจุดใหม่ ป้องกันอ่านผิด
+5. ข้อมูลร้านอาหารในการ์ด
+- สถานี / การเดินทางคร่าว ๆ
+- งบคร่าว ๆ ต่อคน (JPY / THB)
+- เมนูเด่น
+- ช่วงเวลาที่เหมาะไป
+- ทิปหน้าร้าน / คิว / การจอง (ถ้ามี)
 
-7. สถานะการจอง + ตั๋ว
-สถานะในแผน:
-อยากไป → ใส่แผนแล้ว → ต้องจอง → จองแล้ว
-- ตั้งเวลาเข้าชมตามตั๋วแยกจากเวลาในแผนได้
-- แนบภาพหรือ PDF ตั๋ว/ใบจอง สูงสุด 8 MB ต่อไฟล์
-- ไฟล์ถูกเก็บใน IndexedDB ของเครื่องเดียวกับเอกสารเดิม จึงเปิดจากเครื่องนี้ได้โดยไม่ต้องอัปโหลดขึ้น server
-- ไฟล์ตั๋วจะรวมอยู่ใน Export backup เดิม
-
-8. จัดลำดับบนมือถือโดยไม่ลาก
-แต่ละรายการมี:
-- ↑ เลื่อนขึ้น
-- ↓ เลื่อนลง
-- ย้ายวัน
-- ไปแล้ว ✓ / ยังไม่ไป
-- แก้ไข
-ลำดับถูกบันทึกแยกจากเวลา จึงจัด itinerary แบบที่ต้องการได้แม้เวลาไม่เรียงกัน
+6. ข้อมูลสถานที่เพิ่มเติม
+- เพิ่มช่วงราคาโดยประมาณให้จุดที่ราคาผันแปร เช่น Disney, Shibuya Sky, Skytree, teamLab, USJ, Fuji-Q ฯลฯ
 
 ความเข้ากันได้
-- ยังใช้ localStorage key tabi-v1 เดิม ไม่ล้างทริปเก่า
-- event เก่าที่ไม่มี bookingStatus/order จะเปิดได้ตามเดิม และใช้ค่าเริ่มต้น “ใส่แผนแล้ว”
-- Wishlist / Places เดิมยังอยู่
-- Service Worker เปลี่ยน cache เป็น ichi-1.0.9 และ core files ใช้ ?v=109
+- ยังใช้ localStorage key เดิม
+- ทริปเก่าไม่หาย
+- Wishlist / รายการในแผนเดิมยังเปิดได้ตามปกติ
+- Service Worker เปลี่ยน cache เป็น ichi-1.1.0 และ core files ใช้ ?v=110
 
 หมายเหตุ
-- Google Maps, ภาพ Wikimedia และเว็บไซต์ภายนอกต้องต่ออินเทอร์เน็ต
-- ข้อความวิธีเดินทางที่ผู้ใช้บันทึกเอง, itinerary, สถานะการจอง และตั๋วที่แนบไว้ในเครื่อง ใช้งานออฟไลน์ได้
-- เวลาเดินทาง/เวลาเที่ยวใน Discover เป็นค่าช่วยวางแผน ไม่ใช่ข้อมูลรถหรือ GPS สด
+- ราคาทั้งหมดเป็นราคาคร่าว ๆ เพื่อช่วยวางแผน ควรเช็กราคาจริงอีกครั้งก่อนเดินทางหรือจอง
+- รูป, Google Maps และเว็บไซต์ภายนอกต้องใช้อินเทอร์เน็ต
+- Discover และข้อมูลที่ถูก cache แล้วยังอ่านออฟไลน์ได้ตามเดิม
