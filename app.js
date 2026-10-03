@@ -1,5 +1,5 @@
-import { createDiscover } from './discover.js?v=1580';
-import { phrasebook, routeGuides, railMaps, immigrationQA, etiquette } from './travel-data.js?v=1580';
+import { createDiscover } from './discover.js?v=1570';
+import { phrasebook, routeGuides, railMaps, immigrationQA, etiquette } from './travel-data.js?v=1570';
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), uid=()=>crypto.randomUUID(), today=()=>{const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).map(x=>[x.type,x.value]));return p.year+'-'+p.month+'-'+p.day};
 const icons={home:'M3 10 12 3l9 7M5 9v12h5v-6h4v6h5V9',plan:'M4 5h16v16H4zM8 3v4M16 3v4M4 10h16M8 14h2M14 14h2',travel:'M5 4h14v13H5zM5 11h14M8 20l-2 2M16 20l2 2M8 15h1M15 15h1',money:'M3 6h17v15H3zM3 6l14-3v3M15 11h6v5h-6z',trip:'M4 7h16v14H4zM8 7V3h8v4M9 7v14M15 7v14',plus:'M12 5v14M5 12h14',help:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20M9 8a3 3 0 0 1 6 0c0 2-3 2-3 5M12 17h.01',download:'M12 3v12M7 10l5 5 5-5M4 15v6h16v-6',check:'M5 12l4 4L19 6',shop:'M4 7h16l-1 14H5zM8 8V5a4 4 0 0 1 8 0v3',settings:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2',plane:'m3 12 7-2V4c0-3 4-3 4 0v6l7 2v3l-7-1v5l3 2H7l3-2v-5l-7 1z',pin:'M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0M15 10a3 3 0 1 0-6 0 3 3 0 0 0 6 0',edit:'m4 16 12-12 4 4L8 20H4z',refresh:'M20 7a9 9 0 1 0 1 9M20 2v5h-5',chat:'M3 3h18v14H9l-6 4zM7 8h10M7 12h7',file:'M5 2h9l5 5v15H5zM14 2v6h5M8 12h8M8 16h6',trash:'M3 6h18M6 6l1 15h10l1-15M9 6V3h6v3'};
 const icon=n=>`<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="${icons[n]||icons.file}"/></svg>`;
@@ -66,7 +66,7 @@ document.addEventListener('submit',ev=>{ev.preventDefault();const f=ev.target,v=
 $('#docfile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(f.size>8*1024*1024){toast('ไฟล์ต้องไม่เกิน 8 MB');return}if(!/^(image\/(png|jpeg|webp|gif|heic|heif)|application\/pdf)$/.test(f.type)){toast('รองรับภาพ PNG, JPG, WEBP, GIF, HEIC และ PDF');return}const trip=T().id;try{const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});await dbCall('put',{id:uid(),trip,name:f.name,type:f.type,data});S.docRevision=Date.now();save();renderDocs();toast('เก็บไฟล์ไว้ในเครื่องแล้ว')}catch{toast('เก็บไฟล์ไม่ได้ พื้นที่อาจไม่เพียงพอ')}});
 $('#importfile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{if(f.size>100*1024*1024)throw Error('ไฟล์สำรองใหญ่เกิน 100 MB');const d=validateImport(JSON.parse(await f.text()));if(!confirm('นำเข้าจะรวมทริปใหม่ และแทนที่ทริปที่มีรหัสเดียวกัน ควรสำรองเครื่องนี้ก่อน ดำเนินการต่อไหม?'))return;for(const x of d.files)await dbCall('put',x);for(const t of d.state.trips){const i=S.trips.findIndex(x=>x.id===t.id);if(i>=0)S.trips[i]=t;else S.trips.push(t)}S.current=d.state.current;save();day='';guideAirport='';render();toast('นำเข้าสำเร็จ')}catch(err){toast(err.message||'นำเข้าไม่สำเร็จ')}});
 window.addEventListener('hashchange',()=>{page=location.hash.slice(1);render()});window.addEventListener('online',render);window.addEventListener('offline',render);
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=1580').then(r=>r.update()).catch(()=>{});
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=1570').then(r=>r.update()).catch(()=>{});
 let swRefreshed=false;navigator.serviceWorker?.addEventListener('controllerchange',()=>{if(!swRefreshed){swRefreshed=true;toast('ICHI-JAPAN อัปเดตพร้อมแล้ว ปิดแล้วเปิดหน้าใหม่ได้เลย')}});
 if(document.modelContext?.registerTool){try{document.modelContext.registerTool({name:'read_trip_summary',description:'Read the selected trip dates and locally recorded financial totals. Does not modify data.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('No parameters accepted');const t=T();return {name:t.name,start:t.start,end:t.end,expenseCount:t.expenses.length,...totals(t)}}})}catch{}}
 let phraseLanguage='ja';
@@ -117,7 +117,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
 let offlineState=null,offlineError='',offlineProgress='',offlineBusy=false,offlineDownloadQueued=false;
 function offlinePanel(){const names={core:'หน้าแอป + ภาษา + ที่ควรไป',guide:'รูปและตัวอักษร',maps:'แผนที่รถไฟ',audio:'เสียงญี่ปุ่น',english:'เสียงอังกฤษ'},p=offlineState?.packs;return `<div class="offline-groups">${Object.entries(names).map(([k,n])=>`<div class="row"><span>${n}</span><strong>${p?`${p[k].ready}/${p[k].total} ${p[k].ready===p[k].total?'พร้อม':'ยังไม่ครบ'}`:'ยังไม่ได้ตรวจ'}</strong></div>`).join('')}</div><p class="note" role="status">${esc(offlineProgress||offlineError||'ตรวจจากไฟล์ที่เก็บในเบราว์เซอร์นี้')}</p><p class="note">${navigator.serviceWorker?.controller?'หน้าเว็บนี้อยู่ภายใต้ระบบออฟไลน์แล้ว':'ยังต้องรอระบบออฟไลน์ทำงาน แล้วปิด–เปิดหน้าใหม่'}</p><ol class="offline-steps"><li>เปิดลิงก์นี้ใน Safari / Chrome ขณะมีเน็ตและเข้าสู่ระบบให้เรียบร้อย</li><li>เพิ่มลงหน้าจอโฮม แล้วเปิดจากไอคอน ICHI-JAPAN ขณะออนไลน์อีกครั้ง</li><li>กดเตรียมใช้ออฟไลน์ในไอคอนนั้น รอทุกหมวดพร้อม</li><li>เปิดโหมดเครื่องบิน ปิดแล้วเปิดจากไอคอนเดิม ทดลองจดเงินและฟังเสียง</li></ol><p class="note">ครั้งแรกและการเข้าสู่ระบบต้องใช้เน็ต ลิงก์แปลภาษา เรทใหม่ และเส้นทางสดต้องใช้เน็ตด้วย การเพิ่มไอคอนอย่างเดียวไม่ได้ดาวน์โหลดข้อมูล</p>${btn('ฉันทดลองเปิดโหมดเครื่องบินสำเร็จแล้ว','offlineconfirmed','small soft')}<p class="note">${esc(S.offlineTest||'ยังไม่ได้ยืนยันผลทดลองบนเครื่องนี้')}<br>อย่าล้างข้อมูลเว็บก่อนส่งออกบัญชีและสำรอง</p>`}
 function paintOffline(){if($('#offlinePanel'))$('#offlinePanel').innerHTML=offlinePanel()}
-async function offlineRequest(download=false){if(offlineBusy){if(download)offlineDownloadQueued=true;return;}offlineBusy=true;offlineError='';offlineProgress=download?'กำลังเตรียมไฟล์…':'';paintOffline();try{if(!('serviceWorker'in navigator))throw Error('เบราว์เซอร์นี้ไม่รองรับ ให้เปิดใน Safari หรือ Chrome');const reg=navigator.onLine?await navigator.serviceWorker.register('./sw.js?v=1580'):await navigator.serviceWorker.getRegistration();if(!reg)throw Error('ยังไม่ได้เตรียมออฟไลน์ ต้องเปิดออนไลน์ก่อน');if(reg.installing)await new Promise((resolve,reject)=>{const sw=reg.installing,timer=setTimeout(()=>reject(Error('เตรียมหน้าแอปไม่สำเร็จ ลองเปิดลิงก์ตรงและเข้าสู่ระบบใหม่')),30000);const done=()=>{if(sw.state==='activated'){clearTimeout(timer);resolve()}if(sw.state==='redundant'){clearTimeout(timer);reject(Error('ดาวน์โหลดหน้าแอปไม่ผ่าน ตรวจอินเทอร์เน็ตแล้วลองใหม่'))}};sw.addEventListener('statechange',done);done()});const active=reg.active;if(!active)throw Error('ระบบออฟไลน์ยังไม่พร้อม ลองเปิดหน้าใหม่ขณะออนไลน์');const result=await new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();reject(Error('ตรวจไม่สำเร็จ อาจยังเป็นรุ่นเก่า ปิดแล้วเปิดหน้าใหม่ขณะออนไลน์'))},download?180000:10000);channel.port1.onmessage=e=>{if(e.data.type==='PROGRESS'){offlineProgress=`ดาวน์โหลด ${e.data.done}/${e.data.total} ไฟล์`;paintOffline();return}clearTimeout(timer);channel.port1.close();if(!e.data.ok||e.data.version!==6)reject(Error(e.data.error||'ต้องเปิดเวอร์ชันใหม่ขณะออนไลน์ก่อน'));else resolve(e.data)};active.postMessage({type:download?'CACHE_APP':'STATUS'},[channel.port2])});offlineState=result;offlineProgress=download?(result.failed.length?'ยังไม่ครบ กดดาวน์โหลดซ้ำเพื่อเก็บเฉพาะไฟล์ที่ขาด':'ดาวน์โหลดครบแล้ว ต่อไปทดลองเปิดในโหมดเครื่องบิน'):'';if(download&&navigator.storage?.persist)await navigator.storage.persist().catch(()=>false)}catch(e){offlineError=e.message;offlineProgress=''}finally{offlineBusy=false;paintOffline();if(offlineDownloadQueued){offlineDownloadQueued=false;await offlineRequest(true)}}}
+async function offlineRequest(download=false){if(offlineBusy){if(download)offlineDownloadQueued=true;return;}offlineBusy=true;offlineError='';offlineProgress=download?'กำลังเตรียมไฟล์…':'';paintOffline();try{if(!('serviceWorker'in navigator))throw Error('เบราว์เซอร์นี้ไม่รองรับ ให้เปิดใน Safari หรือ Chrome');const reg=navigator.onLine?await navigator.serviceWorker.register('./sw.js?v=1570'):await navigator.serviceWorker.getRegistration();if(!reg)throw Error('ยังไม่ได้เตรียมออฟไลน์ ต้องเปิดออนไลน์ก่อน');if(reg.installing)await new Promise((resolve,reject)=>{const sw=reg.installing,timer=setTimeout(()=>reject(Error('เตรียมหน้าแอปไม่สำเร็จ ลองเปิดลิงก์ตรงและเข้าสู่ระบบใหม่')),30000);const done=()=>{if(sw.state==='activated'){clearTimeout(timer);resolve()}if(sw.state==='redundant'){clearTimeout(timer);reject(Error('ดาวน์โหลดหน้าแอปไม่ผ่าน ตรวจอินเทอร์เน็ตแล้วลองใหม่'))}};sw.addEventListener('statechange',done);done()});const active=reg.active;if(!active)throw Error('ระบบออฟไลน์ยังไม่พร้อม ลองเปิดหน้าใหม่ขณะออนไลน์');const result=await new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();reject(Error('ตรวจไม่สำเร็จ อาจยังเป็นรุ่นเก่า ปิดแล้วเปิดหน้าใหม่ขณะออนไลน์'))},download?180000:10000);channel.port1.onmessage=e=>{if(e.data.type==='PROGRESS'){offlineProgress=`ดาวน์โหลด ${e.data.done}/${e.data.total} ไฟล์`;paintOffline();return}clearTimeout(timer);channel.port1.close();if(!e.data.ok||e.data.version!==6)reject(Error(e.data.error||'ต้องเปิดเวอร์ชันใหม่ขณะออนไลน์ก่อน'));else resolve(e.data)};active.postMessage({type:download?'CACHE_APP':'STATUS'},[channel.port2])});offlineState=result;offlineProgress=download?(result.failed.length?'ยังไม่ครบ กดดาวน์โหลดซ้ำเพื่อเก็บเฉพาะไฟล์ที่ขาด':'ดาวน์โหลดครบแล้ว ต่อไปทดลองเปิดในโหมดเครื่องบิน'):'';if(download&&navigator.storage?.persist)await navigator.storage.persist().catch(()=>false)}catch(e){offlineError=e.message;offlineProgress=''}finally{offlineBusy=false;paintOffline();if(offlineDownloadQueued){offlineDownloadQueued=false;await offlineRequest(true)}}}
 function backupSignature(){const c=JSON.parse(JSON.stringify(S));delete c.backupSignature;delete c.offlineTest;for(const t of c.trips)delete t.lastBackup;const str=JSON.stringify(c);let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(16)}
 function backupStatus(){return !S.backupSignature?'ยังไม่ได้สร้างไฟล์สำรอง':S.backupSignature===backupSignature()?'ไม่มีข้อมูลใหม่หลังสร้างไฟล์สำรองล่าสุด':'มีข้อมูลเปลี่ยนหลังสำรองครั้งล่าสุด ควรส่งออกอีกครั้ง'}
 function nativeMoney(e){return e.currency==='THB'?thb(Math.abs(e.amount*e.rate)):jpy(Math.abs(e.amount))}
@@ -134,8 +134,8 @@ function translatorPanel(){return `<details class="translator-composer"><summary
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(b?.dataset.action==='translatecompose'){const value=$('#translateText').value.trim();if(!value){toast('พิมพ์ข้อความที่ต้องการแปลก่อน');return}const [from,to]=$('[name=translatePair]').value.split('-');window.open(translateURL(value,from,to),'_blank','noopener,noreferrer')}});
 
 // ICHI-JAPAN 1.4.0: public trips, groups, travel tools and itinerary controls.
-const APP_VERSION='1.5.8';
-const APP_BUILD=1580;
+const APP_VERSION='1.5.7';
+const APP_BUILD=1570;
 const personOptions=(t=T())=>t.people.map((n,i)=>[String(i),n]);
 function payerIndex(e){return Number.isInteger(e.payerIndex)?e.payerIndex:e.payer==='other'?1:0}
 function sharesOf(e,t=T()){if(Array.isArray(e.shares))return t.people.map((_,i)=>e.shares[i]||0);return t.people.map((_,i)=>i===0?e.mine:i===1?e.amount-e.mine:0)}
@@ -903,7 +903,7 @@ function immigrationQuestionRows157(){
 }
 immigrationView=function(){
  const t=T(),p=immigrationProfile157(t),r=immigrationReadiness157(t),nrt=t.airport==='nrt';
- return `<section class="imm-hero157"><div><span class="eyebrow">IMMIGRATION COACH · v1.5.8</span><h2>ซ้อม ตม. ให้ตอบสั้น ตรง และตรงกับเอกสาร</h2><p>ระบบใช้วันเดินทาง โรงแรม แผนเที่ยว และข้อมูลที่คุณกรอก เพื่อช่วยเตรียมคำตอบ — ถ้าข้อมูลยังไม่มี จะไม่แต่งให้เอง</p></div><div class="imm-score157"><b>${r.ready}/${r.total}</b><span>ข้อมูลพร้อม</span></div></section>
+ return `<section class="imm-hero157"><div><span class="eyebrow">IMMIGRATION COACH · v1.5.7</span><h2>ซ้อม ตม. ให้ตอบสั้น ตรง และตรงกับเอกสาร</h2><p>ระบบใช้วันเดินทาง โรงแรม แผนเที่ยว และข้อมูลที่คุณกรอก เพื่อช่วยเตรียมคำตอบ — ถ้าข้อมูลยังไม่มี จะไม่แต่งให้เอง</p></div><div class="imm-score157"><b>${r.ready}/${r.total}</b><span>ข้อมูลพร้อม</span></div></section>
  <div class="notice">นี่คือเครื่องมือซ้อมภาษาและจัดข้อมูล ไม่ใช่รายการคำถามตายตัวหรือการรับรองผ่านเข้าเมือง เจ้าหน้าที่อาจถามต่างออกไป ให้ตอบตามจริงเสมอ</div>
  <section class="imm-actions157">${btn('▶ ซ้อม ตม. 8 วินาที','practiceimmigration157','primary')}${btn('🧳 ซ้อมศุลกากร','practicecustoms157','soft')}${btn('🎲 สุ่มผสม','practicemixed157','soft')}${btn('✎ แก้ข้อมูลคำตอบ','immigrationprofile157')}</section>
  <section class="card imm-ready157"><div class="cardhead"><div><span class="eyebrow">QUICK ANSWER CARD</span><h2>คำตอบที่ควรพูดได้ทันที</h2></div>${btn('คัดลอกไว้ท่อง','immigrationcopy157','small')}</div>${quickImmigrationCard157()}</section>
@@ -1026,177 +1026,5 @@ document.addEventListener('submit',e=>{
 
 // Keep the practice timer tidy when the dialog is closed by Esc/backdrop.
 $('#modal')?.addEventListener('close',stopPracticeTimer157);
-
-save();render();
-
-
-// === 1.5.8 · AIRPORT & ARRIVAL COMPANION + IMMIGRATION CONVERSATION ======
-// Adds a focused travel-day flow without replacing the proven itinerary,
-// booking, transportation, immigration, or offline data models.
-
-const TRAVEL_DAY_STEPS_158=[
- ['leaveHome','ออกจากบ้าน','พาสปอร์ต โทรศัพท์ กระเป๋า และวิธีไปสนามบินพร้อม'],
- ['airport','ถึงสนามบิน','เช็กอาคารผู้โดยสาร เคาน์เตอร์ และเวลาเที่ยวบินจากสายการบิน/สนามบิน'],
- ['checkin','Check-in / Bag drop','เช็กอิน ฝากกระเป๋า และเก็บ Boarding Pass ให้เปิดได้เร็ว'],
- ['security','Security / ตม.ขาออก','ผ่านขั้นตอนสนามบินตามป้ายและคำแนะนำเจ้าหน้าที่'],
- ['gate','ถึง Gate','ตรวจ Gate และ Boarding time จากจอสนามบินอีกครั้ง'],
- ['boarded','ขึ้นเครื่อง','ปิดงานที่ต้องใช้อินเทอร์เน็ต และเก็บเอกสารสำคัญไว้หยิบง่าย'],
- ['landed','ถึงญี่ปุ่น','ตามป้าย Arrivals / Immigration ไม่ตามป้าย Transfer หากจะเข้าญี่ปุ่น'],
- ['immigration','ผ่าน ตม. ญี่ปุ่น','เตรียมพาสปอร์ต ข้อมูลทริป และ QR/ข้อมูลที่ลงทะเบียนไว้'],
- ['baggage','รับกระเป๋า','เช็ก Flight No. และแท็กกระเป๋าก่อนหยิบ'],
- ['customs','ผ่านศุลกากร','ทำตามช่อง/เครื่องที่สนามบินกำหนด และตอบตามของที่พกจริง'],
- ['internet','อินเทอร์เน็ตพร้อม','เปิด eSIM / SIM / Wi‑Fi และทดสอบ Maps'],
- ['transport','เริ่มเดินทางเข้าเมือง','เปิด Route Pack และเช็กป้ายจริงก่อนขึ้นรถ'],
- ['hotel','ถึงที่พัก','เก็บ Passport/ของสำคัญและเช็กแผนถัดไป']
-];
-const IMM_CONVERSATIONS_158={
- basic:['purpose','duration','hotel','return','companion','work','places','ticket'],
- documents:['hotelReservation','showReturn','showPlan','arrivalFlight','returnFlight'],
- customs:['declare','foodCustoms','meatPlants','medicineCustoms','cashCustoms'],
- mixed:['purpose','duration','hotel','companion','work','places','funds','ticket','declare']
-};
-let immConversation158={mode:'basic',index:0};
-
-function arrivalState158(t=T()){
- if(!t.arrival158||typeof t.arrival158!=='object')t.arrival158={};
- if(!t.arrival158.steps||typeof t.arrival158.steps!=='object')t.arrival158.steps={};
- if(!t.arrival158.flight||typeof t.arrival158.flight!=='object')t.arrival158.flight={};
- return t.arrival158;
-}
-function flightProfile158(t=T()){
- const a=arrivalState158(t),f=a.flight,p=immigrationProfile157(t);
- if(!f.number&&t.flight?.number)f.number=t.flight.number;
- if(!f.departureDate&&t.flight?.date)f.departureDate=t.flight.date;
- if(!f.number&&p.arrivalFlight)f.number=p.arrivalFlight;
- if(!f.arrivalAirport)f.arrivalAirport=(t.airport||'nrt').toUpperCase();
- return f;
-}
-function firstLeg158(t=T()){
- const list=dayEvents(t.start);if(list.length<2)return {a:null,b:null,route:null,ready:false};
- const a=list[0],b=list[1],route=routeBetween156(a,b);return {a,b,route,ready:routeDetailed156(route)};
-}
-function firstHotel158(t=T()){return firstHotel157(t)||hotelForDate140(t.start)||null}
-function arrivalReadiness158(t=T()){
- const f=flightProfile158(t),p=immigrationProfile157(t),h=firstHotel158(t),leg=firstLeg158(t);
- const checks=[
-  ['passport',!!t.checks?.passport,'พาสปอร์ต'],
-  ['flight',!!String(f.number||'').trim(),'เลขเที่ยวบินขาไป'],
-  ['terminal',!!String(f.departureTerminal||'').trim(),'Terminal ต้นทาง'],
-  ['boarding',!!(f.boardingPassReady||f.fileId),'Boarding Pass / e-ticket พร้อม'],
-  ['bags',!!String(f.baggage||'').trim(),'น้ำหนัก/กติกากระเป๋า'],
-  ['vjw',p.vjwStatus==='qr-ready','Visit Japan Web QR'],
-  ['hotel',!!h,'ที่พักคืนแรก'],
-  ['return',!!(p.returnFlight||p.returnTicketReady),'ตั๋ว/เที่ยวบินขากลับ'],
-  ['route',leg.ready,'Route แรกของวันพร้อม'],
-  ['net',!!t.checks?.net,'eSIM / Internet'],
-  ['offline',!!t.checks?.offline||!!S.offlineTest,'Offline Pack ทดลองแล้ว']
- ];
- return {checks,ready:checks.filter(x=>x[1]).length,total:checks.length,flight:f,hotel:h,leg};
-}
-function arrivalNextStep158(t=T()){
- const st=arrivalState158(t).steps;return TRAVEL_DAY_STEPS_158.find(x=>!st[x[0]])||null;
-}
-function flightSummary158(t=T()){
- const f=flightProfile158(t),from=[f.departureAirport,f.departureTerminal&&`T${String(f.departureTerminal).replace(/^T/i,'')}`].filter(Boolean).join(' · '),to=[f.arrivalAirport,f.arrivalTerminal&&`T${String(f.arrivalTerminal).replace(/^T/i,'')}`].filter(Boolean).join(' · ');
- return `<section class="card flight-card158"><div class="cardhead"><div><span class="eyebrow">FLIGHT CARD</span><h2>${esc(f.number||'ยังไม่กรอกเที่ยวบิน')}</h2></div>${btn('แก้ข้อมูล','flightcard158','small soft')}</div><div class="flight-path158"><div><small>DEPART</small><b>${esc(from||'ยังไม่ระบุสนามบิน/Terminal')}</b><span>${esc([f.departureDate?formatDate(f.departureDate):'',f.departureTime||''].filter(Boolean).join(' · ')||'ยังไม่ระบุเวลา')}</span></div><i>→</i><div><small>ARRIVE</small><b>${esc(to||'ยังไม่ระบุสนามบิน/Terminal')}</b><span>${esc([f.arrivalDate?formatDate(f.arrivalDate):'',f.arrivalTime||''].filter(Boolean).join(' · ')||'ยังไม่ระบุเวลา')}</span></div></div><div class="flight-meta158">${f.airline?`<span>✈️ ${esc(f.airline)}</span>`:''}${f.seat?`<span>💺 ${esc(f.seat)}</span>`:''}${f.baggage?`<span>🧳 ${esc(f.baggage)}</span>`:''}${f.bookingCode?`<span>🔖 ${esc(f.bookingCode)}</span>`:''}${(f.boardingPassReady||f.fileId)?'<span>✅ Boarding Pass พร้อม</span>':'<span>○ Boarding Pass ยังไม่ยืนยัน</span>'}</div>${f.note?`<p class="note">${esc(f.note)}</p>`:''}<div class="flex">${f.fileId?btn('เปิด Boarding Pass / PDF','docopen','small primary',`data-id="${esc(f.fileId)}"`):btn('แนบ Boarding Pass / PDF','flightfile158','small primary')}${f.fileId?btn('เอาไฟล์ออก','flightfileremove158','small danger'):''}${btn('Trip Docs','arrivaltrip158','small soft')}</div></section>`;
-}
-function arrivalTimeline158(t=T()){
- const st=arrivalState158(t).steps,next=arrivalNextStep158(t);
- return `<section class="card arrival-timeline158"><div class="cardhead"><div><span class="eyebrow">TRAVEL DAY TIMELINE</span><h2>ตั้งแต่ออกจากบ้านจนถึงโรงแรม</h2></div><span class="pill">${TRAVEL_DAY_STEPS_158.filter(x=>st[x[0]]).length}/${TRAVEL_DAY_STEPS_158.length}</span></div><div class="arrival-steps158">${TRAVEL_DAY_STEPS_158.map((x,i)=>`<button type="button" class="arrival-step158 ${st[x[0]]?'done':''} ${next?.[0]===x[0]?'next':''}" data-action="arrivalstep158" data-step="${esc(x[0])}"><span>${st[x[0]]?'✓':i+1}</span><div><b>${esc(x[1])}</b><small>${esc(x[2])}</small></div></button>`).join('')}</div><div class="flex">${btn('รีเซ็ต Timeline','arrivalreset158','small soft')}</div></section>`;
-}
-function arrivalQuick158(t=T()){
- const r=arrivalReadiness158(t),next=arrivalNextStep158(t),p=immigrationProfile157(t),h=r.hotel,leg=r.leg;
- return `<section class="arrival-hero158"><div><span class="eyebrow">AIRPORT & ARRIVAL COMPANION</span>${dualClockHTML154()}<h2>${next?esc(next[1]):'ถึงที่พักแล้ว 🎉'}</h2><p>${next?esc(next[2]):'Travel Day Timeline ครบทุกขั้นแล้ว'}</p><div class="arrival-hero-actions158">${btn('เปิด Quick Answer ตม.','immigration157','primary')}${btn('ซ้อมบทสนทนา ตม.','immconversation158','soft')}${p.vjwStatus==='qr-ready'?'<a class="btn" href="https://services.digital.go.jp/visit-japan-web/" target="_blank" rel="noopener">เปิด Visit Japan Web ↗</a>':'<a class="btn" href="https://services.digital.go.jp/visit-japan-web/" target="_blank" rel="noopener">ทำ Visit Japan Web ↗</a>'}</div></div><div class="arrival-score158"><b>${r.ready}/${r.total}</b><span>Arrival Ready</span></div></section><div class="grid two arrival-glance158"><section class="card"><h2>Landing Pack</h2><div class="arrival-mini158"><span>${h?'✅':'○'} ที่พักคืนแรก</span><span>${p.returnFlight||p.returnTicketReady?'✅':'○'} ตั๋วขากลับ</span><span>${p.vjwStatus==='qr-ready'?'✅':'○'} Visit Japan Web</span><span>${leg.ready?'✅':'○'} First Route</span></div>${h?`<p><b>${esc(h.name)}</b><br><span class="note">${esc(h.address||'ยังไม่มีที่อยู่')}</span></p>`:'<p class="note">ยังไม่มีที่พักคืนแรก</p>'}<div class="flex">${btn('เอกสาร / ที่พัก','arrivaltrip158','small')}${btn('Route วันแรก','arrivalroute158','small')}</div></section><section class="card"><h2>First Route Ready</h2>${leg.a&&leg.b?`<p><b>${esc(leg.a.title)} → ${esc(leg.b.title)}</b></p>${routeMini156(leg.route)}<div class="flex"><a class="btn small" href="${googleLeg(leg.a,leg.b)}" target="_blank" rel="noopener">Google Maps ↗</a>${btn(leg.ready?'แก้ Route':'บันทึก Route','routeedit','small '+(leg.ready?'':'primary'),`data-id="${esc(leg.a.id)}" data-next="${esc(leg.b.id)}"`)}</div>`:`<div class="health-empty">🚆<h3>ยังไม่มี A → B ในวันแรก</h3><p>เพิ่มสนามบิน/จุดเริ่ม → จุดถัดไปในแผนวันแรก แล้วบันทึก Route ไว้ใช้ออฟไลน์</p></div>`}</section></div>`;
-}
-function arrivalChecks158(t=T()){
- const r=arrivalReadiness158(t);return `<section class="card arrival-check158"><div class="cardhead"><h2>Pre-flight Checklist</h2><b>${Math.round(r.ready/r.total*100)}%</b></div><div class="arrival-checkgrid158">${r.checks.map(([k,ok,label])=>`<div class="${ok?'ok':'missing'}"><span>${ok?'✓':'!'}</span><b>${esc(label)}</b><small>${ok?'พร้อม':'ยังต้องเช็ก'}</small></div>`).join('')}</div><p class="note">สถานะนี้อ่านจากข้อมูลที่คุณบันทึกใน ICHI-JAPAN ไม่ใช่การตรวจจากสายการบิน/สนามบินแบบสด</p></section>`}
-function arrivalView158(){const t=T();return `${arrivalQuick158(t)}${flightSummary158(t)}${arrivalChecks158(t)}${arrivalTimeline158(t)}<section class="card gap arrival-offline158"><div class="cardhead"><div><span class="eyebrow">OFFLINE ARRIVAL PACK</span><h2>ของที่ควรเปิดได้แม้เน็ตหาย</h2></div>${btn('เตรียม Offline','offlinedetails','small')}</div><p>ที่พักคืนแรก · Quick Answer ตม. · เที่ยวบิน · Route แรก · Booking/Ticket ที่แนบไว้</p><div class="flex">${btn('Ticket Wallet','ticketwallet','soft')}${btn('Immigration Coach','immigration157','soft')}${btn('ทริป / เอกสาร','arrivaltrip158','soft')}</div><p class="note">Google Maps, สถานะเที่ยวบิน และข้อมูลสดจากเว็บภายนอกยังต้องใช้อินเทอร์เน็ต</p></section><section class="card gap"><h2>ข้อมูลทางการก่อนถึงญี่ปุ่น</h2><p class="note">Visit Japan Web ใช้เตรียมข้อมูลขั้นตอนเข้าเมือง/ศุลกากรและแสดง QR เมื่อถึงญี่ปุ่น ส่วนขั้นตอนจริงให้ทำตามป้ายและเจ้าหน้าที่ของสนามบินที่คุณเดินทางถึง</p><div class="flex"><a class="btn" href="https://services.digital.go.jp/visit-japan-web/guide/" target="_blank" rel="noopener">Visit Japan Web Guide ↗</a><a class="btn" href="${esc(airports[T().airport||'nrt']?.url||'https://www.narita-airport.jp/en/airportguide/inter-arr/')}" target="_blank" rel="noopener">Arrival Guide สนามบิน ↗</a></div></section>`}
-function flightModal158(){
- const f=flightProfile158(),t=T();formModal('Flight Card · ขาไปญี่ปุ่น','flightcardform158',`<p class="note">บันทึกไว้ใช้ออฟไลน์ ระบบไม่เช็ก Delay/Gate แบบสด ให้ยืนยันกับสายการบินหรือสนามบินอีกครั้ง</p><div class="grid two formgrid">${field('สายการบิน','airline',f.airline||'')}${field('เลขเที่ยวบิน','number',f.number||'','text','placeholder="เช่น VZ810"')}${field('Booking No.','bookingCode',f.bookingCode||'')}${field('ที่นั่ง','seat',f.seat||'','text','placeholder="เช่น 21A"')}${field('สนามบินต้นทาง','departureAirport',f.departureAirport||'','text','placeholder="เช่น BKK"')}${field('Terminal ต้นทาง','departureTerminal',f.departureTerminal||'')}${field('วันออกเดินทาง','departureDate',f.departureDate||t.start,'date')}${field('เวลาออก','departureTime',f.departureTime||'','time')}${select('สนามบินถึงญี่ปุ่น','arrivalAirport',[['NRT','Narita (NRT)'],['HND','Haneda (HND)'],['KIX','Kansai (KIX)'],['OTHER','อื่น ๆ']],f.arrivalAirport||'NRT')}${field('Terminal ถึงญี่ปุ่น','arrivalTerminal',f.arrivalTerminal||'')}${field('วันถึงญี่ปุ่น','arrivalDate',f.arrivalDate||t.start,'date')}${field('เวลาถึง','arrivalTime',f.arrivalTime||'','time')}${field('สัมภาระที่ซื้อ/อนุญาต','baggage',f.baggage||'','text','placeholder="เช่น Carry-on 7kg · Checked 20kg"')}</div><label class="checkboxlabel"><input type="checkbox" name="boardingPassReady" ${f.boardingPassReady?'checked':''}> Boarding Pass / e-ticket เปิดได้แล้ว</label>${textarea('หมายเหตุ Check-in / Gate / กระเป๋า','note',f.note||'')}<p class="note">Terminal/Gate อาจเปลี่ยนได้ ให้เช็กจากสายการบินหรือสนามบินในวันเดินทาง</p>`)}
-function travelShell158(body){
- const items=[['guide','สนามบิน','plane'],['arrival','วันบิน','plane'],['routes','ขึ้นรถที่ไหน','travel'],['maps','แผนที่รถไฟ','plan'],['phrases','ภาษา','chat'],['immigration','เตรียม ตม.','file'],['manners','มารยาท','check']];
- return title('EXPLORE WITH CONFIDENCE','ไปไหนกันดี','สนามบิน วันบิน เส้นทาง ภาษา และการเตรียมเข้าเมือง',btn(icon('pin')+' หลงทาง','lost','soft'))+`<section class="rail-shortcut"><div><span class="eyebrow">QUICK RAIL GUIDE</span><b>JR · Disney · Fuji · Shinkansen</b><small>รวมทางไปจุดหลักแบบอ่านง่าย</small></div>${btn('เปิดคู่มือรถไฟ','railmore','soft')}</section><div class="travelnav">${items.map(([v,l,ic])=>`<button class="travelnav-item ${travelTab===v?'selected':''}" data-travel="${v}">${icon(ic)}<span>${l}</span></button>`).join('')}</div>${body}`;
-}
-const travelViewBefore158=travelView;
-travelView=function(){
- if(travelTab==='arrival')return travelShell158(arrivalView158());
- const html=travelViewBefore158();
- if(html.includes('data-travel="arrival"'))return html;
- const arrivalButton=`<button class="travelnav-item" data-travel="arrival">${icon('plane')}<span>วันบิน</span></button>`;
- return html.replace(/(<button class="travelnav-item[^>]*data-travel="guide"[\s\S]*?<\/button>)/,`$1${arrivalButton}`);
-};
-
-function conversationPool158(mode='basic'){
- const keys=IMM_CONVERSATIONS_158[mode]||IMM_CONVERSATIONS_158.basic;
- return keys.map(k=>immigrationQA.find(q=>q[0]===k)).filter(Boolean);
-}
-function conversationQuestion158(reveal=false){
- const pool=conversationPool158(immConversation158.mode),q=pool[immConversation158.index];if(!q)return;
- const a=autoImmigrationAnswer157(q[0]),cat=immigrationCategory157(q),pct=Math.round((immConversation158.index+1)/pool.length*100);
- modal('Immigration Conversation',`<div class="imm-conv158"><div class="imm-conv-head158"><span>${immConversation158.index+1}/${pool.length} · ${cat==='customs'?'CUSTOMS':'IMMIGRATION'}</span><b>${pct}%</b></div><div class="imm-conv-bar158"><i style="width:${pct}%"></i></div><p class="imm-officer158">Officer</p><h2 lang="en">${esc(q[2])}</h2><p class="reading">${esc(q[3])}</p>${reveal?`<section class="imm-conv-answer158 ${a.ready?'ready':'missing'}"><span>Your answer</span><h3 lang="en">${esc(a.ready?a.en:'ยังไม่มีคำตอบส่วนตัว')}</h3>${a.ready?`<p class="reading">${esc(a.reading)}</p><small>${esc(a.th)}</small>`:`<p>${esc(q[6])}</p>`}</section>`:'<div class="practice-wait157">ลองตอบออกเสียงสั้น ๆ จากข้อมูลจริงก่อน</div>'}<div class="practice-actions157">${btn('🔊 ฟังคำถาม','immconvspeak158','soft',`data-text="${esc(q[2])}"`)}${reveal?btn(immConversation158.index===pool.length-1?'จบการซ้อม':'คำถามถัดไป →','immconvnext158','primary'):btn('ดูคำตอบ','immconvreveal158','primary')}${btn('แก้ข้อมูลคำตอบ','immigrationprofile157','soft')}</div><p class="note">โหมดนี้จำลองลำดับคำถามเพื่อฝึกเท่านั้น เจ้าหน้าที่จริงอาจถามไม่เหมือนกันและอาจถามต่อจากคำตอบของคุณ</p></div>`);
-}
-function startConversation158(mode='basic'){immConversation158={mode,index:0};conversationQuestion158(false)}
-function nextConversation158(){const pool=conversationPool158(immConversation158.mode);if(immConversation158.index>=pool.length-1){$('#modal').close();toast('ซ้อมบทสนทนาครบชุดแล้ว');return}immConversation158.index++;conversationQuestion158(false)}
-
-const immigrationViewBefore158=immigrationView;
-immigrationView=function(){
- const html=immigrationViewBefore158();
- const extra=`<section class="card imm-conversation-entry158"><div><span class="eyebrow">CONVERSATION MODE</span><h2>ฝึกตอบต่อเนื่องเหมือนคุยกับเจ้าหน้าที่</h2><p>คำถามจะต่อกันเป็นชุด เพื่อฝึกหยิบข้อมูลจริงขึ้นมาตอบโดยไม่ต้องจำประโยคยาว</p></div><div class="imm-conversation-actions158">${btn('เริ่มชุดพื้นฐาน','immconversation158','primary')}${btn('เอกสาร & Booking','immconversationdocs158','soft')}${btn('ศุลกากรต่อเนื่อง','immconversationcustoms158','soft')}</div></section>`;
- return html.replace('<section class="imm-actions157">',extra+'<section class="imm-actions157">');
-};
-
-const smartIssuesBefore158=smartIssues140;
-smartIssues140=function(t=T()){
- const s=smartIssuesBefore158(t),r=arrivalReadiness158(t),daysTo=isoDiffDays(t.start,today()),leg=r.leg;
- if(today()<=t.start&&daysTo<=14&&r.ready<r.total){s.issues.push({level:daysTo<=3?'danger':'warn',priority:1,icon:'✈️',title:`Arrival Pack ${r.ready}/${r.total}`,text:'เช็กเที่ยวบิน Terminal Visit Japan Web ที่พัก และ Route แรกก่อนบิน',action:'arrival158'})}
- if(today()<=t.start&&daysTo<=7&&!leg.ready){s.issues.push({level:'warn',priority:2,icon:'🚆',title:'First Route ยังไม่พร้อม',text:leg.a&&leg.b?`${leg.a.title} → ${leg.b.title} ยังไม่มี Route รายละเอียดครบ`:'เพิ่มอย่างน้อย 2 จุดในแผนวันแรก แล้วบันทึก Route',action:'arrival158'})}
- s.arrivalReadiness=r;return s;
-};
-
-const homeViewBefore158=homeView;
-homeView=function(){
- const html=homeViewBefore158();if(T().setupComplete===false)return html;const t=T(),daysTo=isoDiffDays(t.start,today());if(daysTo<0||daysTo>14)return html;
- const r=arrivalReadiness158(t),next=arrivalNextStep158(t),card=`<section class="arrival-dash158"><div><span class="eyebrow">AIRPORT & ARRIVAL</span><h2>${daysTo===0?'วันนี้เดินทาง':`อีก ${daysTo} วัน`}</h2><p>${r.ready}/${r.total} พร้อม · ${next?'เริ่มจาก '+esc(next[1]):'Travel Day พร้อมครบ'}</p></div><div><b>${Math.round(r.ready/r.total*100)}%</b>${btn('เปิด Arrival Companion','arrival158','small primary')}</div></section>`;
- return html.includes('<section class="dashboard-lower">')?html.replace('<section class="dashboard-lower">',card+'<section class="dashboard-lower">'):card+html;
-};
-
-const ACTIONS_158=new Set(['arrival158','flightcard158','arrivalstep158','arrivalreset158','arrivalroute158','arrivaltrip158','immconversation158','immconversationdocs158','immconversationcustoms158','immconvreveal158','immconvnext158','immconvspeak158','flightfile158','flightfileremove158']);
-document.addEventListener('click',e=>{
- const b=e.target.closest('button');if(!b||!ACTIONS_158.has(b.dataset.action))return;e.preventDefault();e.stopImmediatePropagation();const a=b.dataset.action;
- try{
-  if(a==='arrival158'){travelTab='arrival';go('travel');return}
-  if(a==='flightcard158'){flightModal158();return}
-  if(a==='arrivalstep158'){const st=arrivalState158().steps,key=b.dataset.step;if(!TRAVEL_DAY_STEPS_158.some(x=>x[0]===key))return;st[key]=!st[key];save();render();return}
-  if(a==='arrivalreset158'){if(confirm('รีเซ็ตสถานะ Travel Day Timeline ทั้งหมด?')){arrivalState158().steps={};save();render()}return}
-  if(a==='arrivalroute158'){routeHub130(T().start);return}
-  if(a==='arrivaltrip158'){go('trip');return}
-  if(a==='immconversation158'){startConversation158('basic');return}
-  if(a==='immconversationdocs158'){startConversation158('documents');return}
-  if(a==='immconversationcustoms158'){startConversation158('customs');return}
-  if(a==='immconvreveal158'){conversationQuestion158(true);return}
-  if(a==='immconvnext158'){nextConversation158();return}
-  if(a==='immconvspeak158'){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(b.dataset.text||'');u.lang='en-US';u.rate=.86;speechSynthesis.speak(u)}else toast('เบราว์เซอร์นี้ไม่มีเสียงอ่านระบบ');return}
-  if(a==='flightfile158'){const input=$('#flightfile');if(input)input.click();return}
-  if(a==='flightfileremove158'){const f=flightProfile158();if(f.fileId&&confirm('เอา Boarding Pass / PDF ออกจาก Flight Card และลบไฟล์จากเครื่อง?')){await dbCall('delete',f.fileId);delete f.fileId;delete f.fileName;S.docRevision=Date.now();save();render();toast('เอาไฟล์ออกแล้ว')}return}
- }catch(err){toast(err.message||'ทำรายการไม่สำเร็จ')}
-},true);
-
-document.addEventListener('submit',e=>{
- const f=e.target;if(f?.id!=='flightcardform158')return;e.preventDefault();e.stopImmediatePropagation();const v=Object.fromEntries(new FormData(f));
- try{
-  const a=arrivalState158(),fp=a.flight;
-  Object.assign(fp,{airline:String(v.airline||'').trim(),number:String(v.number||'').trim().toUpperCase(),bookingCode:String(v.bookingCode||'').trim(),seat:String(v.seat||'').trim(),departureAirport:String(v.departureAirport||'').trim().toUpperCase(),departureTerminal:String(v.departureTerminal||'').trim(),departureDate:v.departureDate||'',departureTime:v.departureTime||'',arrivalAirport:v.arrivalAirport||'NRT',arrivalTerminal:String(v.arrivalTerminal||'').trim(),arrivalDate:v.arrivalDate||'',arrivalTime:v.arrivalTime||'',baggage:String(v.baggage||'').trim(),boardingPassReady:!!f.elements.boardingPassReady?.checked,note:String(v.note||'').trim(),updatedAt:new Date().toISOString()});
-  T().flight={number:fp.number,date:fp.departureDate||T().start};const p=immigrationProfile157();if(fp.number)p.arrivalFlight=fp.number;if(['NRT','HND','KIX'].includes(fp.arrivalAirport))T().airport=fp.arrivalAirport.toLowerCase();
-  if(!save())throw Error('บันทึกลงเครื่องไม่ได้');$('#modal').close();render();toast('บันทึก Flight Card แล้ว');
- }catch(err){toast(err.message||'บันทึกไม่สำเร็จ')}
-},true);
-
-
-$('#flightfile')?.addEventListener('change',async e=>{
- const file=e.target.files?.[0];e.target.value='';if(!file)return;
- if(file.size>8*1024*1024){toast('ไฟล์ต้องไม่เกิน 8 MB');return}
- if(!/^(image\/(png|jpeg|webp|gif|heic|heif)|application\/pdf)$/.test(file.type)){toast('รองรับภาพหรือ PDF');return}
- try{const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(file)}),id=uid();await dbCall('put',{id,trip:T().id,name:file.name,type:file.type,data});const f=flightProfile158();if(f.fileId&&f.fileId!==id)await dbCall('delete',f.fileId).catch(()=>{});f.fileId=id;f.fileName=file.name;f.boardingPassReady=true;S.docRevision=Date.now();if(!save())throw Error('บันทึกลงเครื่องไม่ได้');render();toast('เก็บ Boarding Pass / PDF ไว้ในเครื่องแล้ว')}catch(err){toast(err.message||'เก็บไฟล์ไม่สำเร็จ')}
-});
 
 save();render();
