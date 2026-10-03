@@ -1,12 +1,12 @@
-import { createDiscover } from './discover.js?v=1563';
-import { phrasebook, routeGuides, railMaps, immigrationQA, etiquette } from './travel-data.js?v=1563';
+import { createDiscover } from './discover.js?v=1570';
+import { phrasebook, routeGuides, railMaps, immigrationQA, etiquette } from './travel-data.js?v=1570';
 const $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])), uid=()=>crypto.randomUUID(), today=()=>{const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).map(x=>[x.type,x.value]));return p.year+'-'+p.month+'-'+p.day};
 const icons={home:'M3 10 12 3l9 7M5 9v12h5v-6h4v6h5V9',plan:'M4 5h16v16H4zM8 3v4M16 3v4M4 10h16M8 14h2M14 14h2',travel:'M5 4h14v13H5zM5 11h14M8 20l-2 2M16 20l2 2M8 15h1M15 15h1',money:'M3 6h17v15H3zM3 6l14-3v3M15 11h6v5h-6z',trip:'M4 7h16v14H4zM8 7V3h8v4M9 7v14M15 7v14',plus:'M12 5v14M5 12h14',help:'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20M9 8a3 3 0 0 1 6 0c0 2-3 2-3 5M12 17h.01',download:'M12 3v12M7 10l5 5 5-5M4 15v6h16v-6',check:'M5 12l4 4L19 6',shop:'M4 7h16l-1 14H5zM8 8V5a4 4 0 0 1 8 0v3',settings:'M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2',plane:'m3 12 7-2V4c0-3 4-3 4 0v6l7 2v3l-7-1v5l3 2H7l3-2v-5l-7 1z',pin:'M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0M15 10a3 3 0 1 0-6 0 3 3 0 0 0 6 0',edit:'m4 16 12-12 4 4L8 20H4z',refresh:'M20 7a9 9 0 1 0 1 9M20 2v5h-5',chat:'M3 3h18v14H9l-6 4zM7 8h10M7 12h7',file:'M5 2h9l5 5v15H5zM14 2v6h5M8 12h8M8 16h6',trash:'M3 6h18M6 6l1 15h10l1-15M9 6V3h6v3'};
 const icon=n=>`<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="${icons[n]||icons.file}"/></svg>`;
 const btn=(text,action,cls='',extra='')=>`<button type="button" class="btn ${cls}" data-action="${action}" ${extra}>${text}</button>`;
 const link=(text,url)=>`<a class="btn" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${text}</a>`;
 const jpy=n=>'¥'+Number(n).toLocaleString('en-US',{maximumFractionDigits:2});const thb=n=>'฿'+Number(n).toLocaleString('en-US',{maximumFractionDigits:2});
-function initialTrip(){return {id:uid(),name:'ทริปของฉัน',setupComplete:false,city:'tokyo',start:today(),end:today(),people:['ฉัน'],budget:0,daily:0,cash:0,airport:'nrt',meeting:'',contact:'',backup:'',rate:.23,rateSource:'เรทตัวอย่าง • กรุณาตั้งเรทจริง',rateDate:'',checks:{},step:{nrt:0,hnd:0,kix:0},events:[],hotels:[],expenses:[],moves:[],trash:[],docs:[],favorites:[],lastBackup:''};}
+function initialTrip(){return {id:uid(),name:'ทริปของฉัน',setupComplete:false,city:'tokyo',start:today(),end:today(),people:['ฉัน'],budget:0,daily:0,cash:0,airport:'nrt',meeting:'',contact:'',backup:'',rate:.23,rateSource:'เรทตัวอย่าง • กรุณาตั้งเรทจริง',rateDate:'',checks:{},step:{nrt:0,hnd:0,kix:0},events:[],hotels:[],expenses:[],moves:[],trash:[],docs:[],favorites:[],immigrationProfile:{},lastBackup:''};}
 let S;try{S=JSON.parse(localStorage.getItem('tabi-v1'));if(!S||S.version!==1||!Array.isArray(S.trips))throw 0;}catch{const t=initialTrip();S={version:1,current:t.id,trips:[t]};}
 let page=location.hash.slice(1)||'home', day='',guideAirport='',moneyTab='ledger',savedTimer;const T=()=>S.trips.find(t=>t.id===S.current)||S.trips[0];
 function save(){try{localStorage.setItem('tabi-v1',JSON.stringify(S));return true}catch{toast('บันทึกไม่ได้ พื้นที่อาจเต็ม กรุณาส่งออกข้อมูลสำรอง');return false}}
@@ -66,7 +66,7 @@ document.addEventListener('submit',ev=>{ev.preventDefault();const f=ev.target,v=
 $('#docfile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(f.size>8*1024*1024){toast('ไฟล์ต้องไม่เกิน 8 MB');return}if(!/^(image\/(png|jpeg|webp|gif|heic|heif)|application\/pdf)$/.test(f.type)){toast('รองรับภาพ PNG, JPG, WEBP, GIF, HEIC และ PDF');return}const trip=T().id;try{const data=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});await dbCall('put',{id:uid(),trip,name:f.name,type:f.type,data});S.docRevision=Date.now();save();renderDocs();toast('เก็บไฟล์ไว้ในเครื่องแล้ว')}catch{toast('เก็บไฟล์ไม่ได้ พื้นที่อาจไม่เพียงพอ')}});
 $('#importfile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{if(f.size>100*1024*1024)throw Error('ไฟล์สำรองใหญ่เกิน 100 MB');const d=validateImport(JSON.parse(await f.text()));if(!confirm('นำเข้าจะรวมทริปใหม่ และแทนที่ทริปที่มีรหัสเดียวกัน ควรสำรองเครื่องนี้ก่อน ดำเนินการต่อไหม?'))return;for(const x of d.files)await dbCall('put',x);for(const t of d.state.trips){const i=S.trips.findIndex(x=>x.id===t.id);if(i>=0)S.trips[i]=t;else S.trips.push(t)}S.current=d.state.current;save();day='';guideAirport='';render();toast('นำเข้าสำเร็จ')}catch(err){toast(err.message||'นำเข้าไม่สำเร็จ')}});
 window.addEventListener('hashchange',()=>{page=location.hash.slice(1);render()});window.addEventListener('online',render);window.addEventListener('offline',render);
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=1563').then(r=>r.update()).catch(()=>{});
+if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js?v=1570').then(r=>r.update()).catch(()=>{});
 let swRefreshed=false;navigator.serviceWorker?.addEventListener('controllerchange',()=>{if(!swRefreshed){swRefreshed=true;toast('ICHI-JAPAN อัปเดตพร้อมแล้ว ปิดแล้วเปิดหน้าใหม่ได้เลย')}});
 if(document.modelContext?.registerTool){try{document.modelContext.registerTool({name:'read_trip_summary',description:'Read the selected trip dates and locally recorded financial totals. Does not modify data.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('No parameters accepted');const t=T();return {name:t.name,start:t.start,end:t.end,expenseCount:t.expenses.length,...totals(t)}}})}catch{}}
 let phraseLanguage='ja';
@@ -117,7 +117,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)r
 let offlineState=null,offlineError='',offlineProgress='',offlineBusy=false,offlineDownloadQueued=false;
 function offlinePanel(){const names={core:'หน้าแอป + ภาษา + ที่ควรไป',guide:'รูปและตัวอักษร',maps:'แผนที่รถไฟ',audio:'เสียงญี่ปุ่น',english:'เสียงอังกฤษ'},p=offlineState?.packs;return `<div class="offline-groups">${Object.entries(names).map(([k,n])=>`<div class="row"><span>${n}</span><strong>${p?`${p[k].ready}/${p[k].total} ${p[k].ready===p[k].total?'พร้อม':'ยังไม่ครบ'}`:'ยังไม่ได้ตรวจ'}</strong></div>`).join('')}</div><p class="note" role="status">${esc(offlineProgress||offlineError||'ตรวจจากไฟล์ที่เก็บในเบราว์เซอร์นี้')}</p><p class="note">${navigator.serviceWorker?.controller?'หน้าเว็บนี้อยู่ภายใต้ระบบออฟไลน์แล้ว':'ยังต้องรอระบบออฟไลน์ทำงาน แล้วปิด–เปิดหน้าใหม่'}</p><ol class="offline-steps"><li>เปิดลิงก์นี้ใน Safari / Chrome ขณะมีเน็ตและเข้าสู่ระบบให้เรียบร้อย</li><li>เพิ่มลงหน้าจอโฮม แล้วเปิดจากไอคอน ICHI-JAPAN ขณะออนไลน์อีกครั้ง</li><li>กดเตรียมใช้ออฟไลน์ในไอคอนนั้น รอทุกหมวดพร้อม</li><li>เปิดโหมดเครื่องบิน ปิดแล้วเปิดจากไอคอนเดิม ทดลองจดเงินและฟังเสียง</li></ol><p class="note">ครั้งแรกและการเข้าสู่ระบบต้องใช้เน็ต ลิงก์แปลภาษา เรทใหม่ และเส้นทางสดต้องใช้เน็ตด้วย การเพิ่มไอคอนอย่างเดียวไม่ได้ดาวน์โหลดข้อมูล</p>${btn('ฉันทดลองเปิดโหมดเครื่องบินสำเร็จแล้ว','offlineconfirmed','small soft')}<p class="note">${esc(S.offlineTest||'ยังไม่ได้ยืนยันผลทดลองบนเครื่องนี้')}<br>อย่าล้างข้อมูลเว็บก่อนส่งออกบัญชีและสำรอง</p>`}
 function paintOffline(){if($('#offlinePanel'))$('#offlinePanel').innerHTML=offlinePanel()}
-async function offlineRequest(download=false){if(offlineBusy){if(download)offlineDownloadQueued=true;return;}offlineBusy=true;offlineError='';offlineProgress=download?'กำลังเตรียมไฟล์…':'';paintOffline();try{if(!('serviceWorker'in navigator))throw Error('เบราว์เซอร์นี้ไม่รองรับ ให้เปิดใน Safari หรือ Chrome');const reg=navigator.onLine?await navigator.serviceWorker.register('./sw.js?v=1563'):await navigator.serviceWorker.getRegistration();if(!reg)throw Error('ยังไม่ได้เตรียมออฟไลน์ ต้องเปิดออนไลน์ก่อน');if(reg.installing)await new Promise((resolve,reject)=>{const sw=reg.installing,timer=setTimeout(()=>reject(Error('เตรียมหน้าแอปไม่สำเร็จ ลองเปิดลิงก์ตรงและเข้าสู่ระบบใหม่')),30000);const done=()=>{if(sw.state==='activated'){clearTimeout(timer);resolve()}if(sw.state==='redundant'){clearTimeout(timer);reject(Error('ดาวน์โหลดหน้าแอปไม่ผ่าน ตรวจอินเทอร์เน็ตแล้วลองใหม่'))}};sw.addEventListener('statechange',done);done()});const active=reg.active;if(!active)throw Error('ระบบออฟไลน์ยังไม่พร้อม ลองเปิดหน้าใหม่ขณะออนไลน์');const result=await new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();reject(Error('ตรวจไม่สำเร็จ อาจยังเป็นรุ่นเก่า ปิดแล้วเปิดหน้าใหม่ขณะออนไลน์'))},download?180000:10000);channel.port1.onmessage=e=>{if(e.data.type==='PROGRESS'){offlineProgress=`ดาวน์โหลด ${e.data.done}/${e.data.total} ไฟล์`;paintOffline();return}clearTimeout(timer);channel.port1.close();if(!e.data.ok||e.data.version!==6)reject(Error(e.data.error||'ต้องเปิดเวอร์ชันใหม่ขณะออนไลน์ก่อน'));else resolve(e.data)};active.postMessage({type:download?'CACHE_APP':'STATUS'},[channel.port2])});offlineState=result;offlineProgress=download?(result.failed.length?'ยังไม่ครบ กดดาวน์โหลดซ้ำเพื่อเก็บเฉพาะไฟล์ที่ขาด':'ดาวน์โหลดครบแล้ว ต่อไปทดลองเปิดในโหมดเครื่องบิน'):'';if(download&&navigator.storage?.persist)await navigator.storage.persist().catch(()=>false)}catch(e){offlineError=e.message;offlineProgress=''}finally{offlineBusy=false;paintOffline();if(offlineDownloadQueued){offlineDownloadQueued=false;await offlineRequest(true)}}}
+async function offlineRequest(download=false){if(offlineBusy){if(download)offlineDownloadQueued=true;return;}offlineBusy=true;offlineError='';offlineProgress=download?'กำลังเตรียมไฟล์…':'';paintOffline();try{if(!('serviceWorker'in navigator))throw Error('เบราว์เซอร์นี้ไม่รองรับ ให้เปิดใน Safari หรือ Chrome');const reg=navigator.onLine?await navigator.serviceWorker.register('./sw.js?v=1570'):await navigator.serviceWorker.getRegistration();if(!reg)throw Error('ยังไม่ได้เตรียมออฟไลน์ ต้องเปิดออนไลน์ก่อน');if(reg.installing)await new Promise((resolve,reject)=>{const sw=reg.installing,timer=setTimeout(()=>reject(Error('เตรียมหน้าแอปไม่สำเร็จ ลองเปิดลิงก์ตรงและเข้าสู่ระบบใหม่')),30000);const done=()=>{if(sw.state==='activated'){clearTimeout(timer);resolve()}if(sw.state==='redundant'){clearTimeout(timer);reject(Error('ดาวน์โหลดหน้าแอปไม่ผ่าน ตรวจอินเทอร์เน็ตแล้วลองใหม่'))}};sw.addEventListener('statechange',done);done()});const active=reg.active;if(!active)throw Error('ระบบออฟไลน์ยังไม่พร้อม ลองเปิดหน้าใหม่ขณะออนไลน์');const result=await new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>{channel.port1.close();reject(Error('ตรวจไม่สำเร็จ อาจยังเป็นรุ่นเก่า ปิดแล้วเปิดหน้าใหม่ขณะออนไลน์'))},download?180000:10000);channel.port1.onmessage=e=>{if(e.data.type==='PROGRESS'){offlineProgress=`ดาวน์โหลด ${e.data.done}/${e.data.total} ไฟล์`;paintOffline();return}clearTimeout(timer);channel.port1.close();if(!e.data.ok||e.data.version!==6)reject(Error(e.data.error||'ต้องเปิดเวอร์ชันใหม่ขณะออนไลน์ก่อน'));else resolve(e.data)};active.postMessage({type:download?'CACHE_APP':'STATUS'},[channel.port2])});offlineState=result;offlineProgress=download?(result.failed.length?'ยังไม่ครบ กดดาวน์โหลดซ้ำเพื่อเก็บเฉพาะไฟล์ที่ขาด':'ดาวน์โหลดครบแล้ว ต่อไปทดลองเปิดในโหมดเครื่องบิน'):'';if(download&&navigator.storage?.persist)await navigator.storage.persist().catch(()=>false)}catch(e){offlineError=e.message;offlineProgress=''}finally{offlineBusy=false;paintOffline();if(offlineDownloadQueued){offlineDownloadQueued=false;await offlineRequest(true)}}}
 function backupSignature(){const c=JSON.parse(JSON.stringify(S));delete c.backupSignature;delete c.offlineTest;for(const t of c.trips)delete t.lastBackup;const str=JSON.stringify(c);let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return (h>>>0).toString(16)}
 function backupStatus(){return !S.backupSignature?'ยังไม่ได้สร้างไฟล์สำรอง':S.backupSignature===backupSignature()?'ไม่มีข้อมูลใหม่หลังสร้างไฟล์สำรองล่าสุด':'มีข้อมูลเปลี่ยนหลังสำรองครั้งล่าสุด ควรส่งออกอีกครั้ง'}
 function nativeMoney(e){return e.currency==='THB'?thb(Math.abs(e.amount*e.rate)):jpy(Math.abs(e.amount))}
@@ -134,8 +134,8 @@ function translatorPanel(){return `<details class="translator-composer"><summary
 document.addEventListener('click',e=>{const b=e.target.closest('button');if(b?.dataset.action==='translatecompose'){const value=$('#translateText').value.trim();if(!value){toast('พิมพ์ข้อความที่ต้องการแปลก่อน');return}const [from,to]=$('[name=translatePair]').value.split('-');window.open(translateURL(value,from,to),'_blank','noopener,noreferrer')}});
 
 // ICHI-JAPAN 1.4.0: public trips, groups, travel tools and itinerary controls.
-const APP_VERSION='1.5.6';
-const APP_BUILD=1563;
+const APP_VERSION='1.5.7';
+const APP_BUILD=1570;
 const personOptions=(t=T())=>t.people.map((n,i)=>[String(i),n]);
 function payerIndex(e){return Number.isInteger(e.payerIndex)?e.payerIndex:e.payer==='other'?1:0}
 function sharesOf(e,t=T()){if(Array.isArray(e.shares))return t.people.map((_,i)=>e.shares[i]||0);return t.people.map((_,i)=>i===0?e.mine:i===1?e.amount-e.mine:0)}
@@ -661,7 +661,7 @@ issueActionAttrs150=function(issue,focus){const a=issue?.action||'healthhub',dat
 
 // Live Trip: tell the user where to go next and whether it is time to leave.
 liveTrip140=function(){
- const m=currentTripMoment140(),next=m.next,prev=m.prevForNext,route=m.route,hotel=hotelForDate140(m.focus),foods=discover.suggestFoodsForEvents(m.list,2),conf=eventConflictRows140(m.focus),target=next?mins140(eventTargetClock154(next)):null,minsToNext=next&&m.clock.date===m.focus&&target!=null?target-m.clock.minutes:null,travel=next&&prev?travelEstimate154(prev,next):{minutes:null,source:'unknown'},leaveIn=minsToNext!=null&&travel.minutes!=null?minsToNext-travel.minutes-10:null,book=next?bookingState130(next):null,nextClock=next?eventClock154(next):'';
+ const m=currentTripMoment140(),next=m.next,prev=m.prevForNext,route=m.route,hotel=hotelForDate140(m.focus),foods=discover.suggestFoodsForEvents(m.list,2),conf=eventConflictRows140(m.focus),target=next?mins140(eventTargetClock154(next)):null,minsToNext=next&&m.clock.date===m.focus&&target!=null?target-m.clock.minutes:null,travel=next&&prev?travelEstimate154(prev,next):{minutes:null,source:'unknown'},leaveIn=minsToNext!=null&&travel.minutes!=null?minsToNext-travel.minutes-Math.max(0,Number(next?.arrivalBufferMin)||10):null,book=next?bookingState130(next):null,nextClock=next?eventClock154(next):'';
  let leave='';if(leaveIn!=null){leave=leaveIn>15?`ควรเริ่มออกในประมาณ <b>${minText140(leaveIn)}</b>`:leaveIn>=0?`<b>ใกล้เวลาออกแล้ว</b> · เหลือประมาณ ${minText140(leaveIn)}`:`<b>ควรออกตอนนี้</b> · เวลาที่เผื่อไว้น้อยกว่าประมาณ ${minText140(Math.abs(leaveIn))}`}
  modal('Live Trip',`<div class="live150 live154"><header><div>${dualClockHTML154()}<small>${formatDate(m.focus)}</small></div><button class="linkbtn" data-action="livetrip">รีเฟรช</button></header><section class="live150-next"><span>${next?'NEXT STOP':'TODAY'}</span><h2>${next?esc(next.title):'แผนวันนี้ครบแล้ว 🎉'}</h2>${next?`<p><b>${esc(nextClock||'ไม่ล็อกเวลา')}</b>${next.entryTime?` · เวลาเข้า ${esc(next.entryTime)}`:''}${minsToNext!=null?` · ${minsToNext>=0?`อีก ${minText140(minsToNext)}`:'เลยเวลาตามแผนแล้ว'}`:''}</p>${leave?`<div class="live150-leave ${leaveIn<0?'urgent':''}">${leave}<small>${travel.source==='saved'?`อิงจาก Route ที่บันทึกไว้${travel.minutes?` · ${minText140(travel.minutes)}`:''}`:travel.source==='area'?`เวลาเดินทางประมาณจากระดับย่าน · ${minText140(travel.minutes)}`:'ยังไม่มีเวลาการเดินทางที่ใช้คำนวณ'}</small></div>`:''}<div class="live150-actions"><a class="btn primary" href="${prev?googleLeg(prev,next):'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(next.title)}" target="_blank" rel="noopener">นำทาง ↗</a>${next.ticketFileId?btn('🎟 เปิดตั๋ว','docopen','',`data-id="${esc(next.ticketFileId)}"`):btn('Ticket Wallet','ticketwallet')}${hotel?`<a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(hotel.address||hotel.name)}" target="_blank" rel="noopener">กลับโรงแรม ↗</a>`:btn('Hotel Hub','hotelhub')}</div>`:'<p>เปิดแผนหรือหาร้านใกล้ ๆ ต่อได้เลย</p>'}</section>${next?`<section class="live150-status"><span class="${route?'ok':'warn'}"><b>${route?'✓':'!'}</b> Route ${route?'บันทึกแล้ว':'ยังไม่บันทึก'}</span><span class="${next.ticketFileId?'ok':book==='booked'?'warn':''}"><b>${next.ticketFileId?'✓':book==='booked'?'!':'•'}</b> ${next.ticketFileId?'ตั๋วพร้อม':book==='booked'?'จองแล้วแต่ไม่มีไฟล์':bookingLabels[book]||'รายการทั่วไป'}</span><span class="${hotel?'ok':'warn'}"><b>${hotel?'✓':'!'}</b> ${hotel?'มีที่พักคืนนี้':'ยังไม่มีที่พัก'}</span></section>`:''}${!route&&next&&prev?`<div class="live150-alert">🚆 ยังไม่ได้บันทึกวิธีไป ${esc(prev.title)} → ${esc(next.title)} ${btn('บันทึก','routeedit','small',`data-id="${esc(prev.id)}" data-next="${esc(next.id)}"`)}</div>`:''}${conf.length?`<div class="live150-alert danger">⏱ วันนี้มี ${conf.length} จุดเวลา/การเดินทางเสี่ยง ${btn('ตรวจ','conflicthub','small',`data-date="${esc(m.focus)}"`)}</div>`:''}<section class="live150-flow"><h3>แผนวันนี้</h3>${dashboardTimeline150(m.focus)}</section>${foods.length?`<section class="live150-food"><div><h3>หิวระหว่างทาง?</h3><small>เลือกร้านจากย่านในแผนวันนี้</small></div>${foods.map(f=>`<button data-discover="detail" data-id="${esc(f.id)}"><b>${esc(f.name)}</b><span>${esc(f.areaName)} · ${esc(f.price)}</span></button>`).join('')}</section>`:''}</div>`);refreshDualClocks154();
 };
@@ -812,3 +812,219 @@ liveTrip140=function(){
 
 save();render();
 
+
+// === 1.5.7 · TICKET & BOOKING 2.0 + IMMIGRATION COACH ======================
+// Built on the frozen 1.5.6 Build 1563 base. Existing localStorage key and
+// IndexedDB files remain compatible; new fields are optional and local-only.
+
+const BOOKING_TYPES_157={attraction:'Attraction / Ticket',restaurant:'Restaurant',train:'Train / Transport',flight:'Flight',hotel:'Hotel',other:'Other'};
+const BOOKING_PAYMENTS_157={unknown:'ยังไม่ระบุ',pending:'ยังไม่ชำระ',paid:'ชำระแล้ว',onsite:'จ่ายหน้างาน'};
+const IMMIGRATION_FILTERS_157={immigration:'🛂 ตม.',customs:'🧳 ศุลกากร',help:'💬 ฟังไม่ทัน',all:'ทั้งหมด'};
+let immigrationFilter157='immigration',practiceTimer157=null,practiceKey157='',practiceMode157='immigration';
+
+function immigrationProfile157(t=T()){
+ if(!t.immigrationProfile||typeof t.immigrationProfile!=='object')t.immigrationProfile={};
+ if(!t.immigration||typeof t.immigration!=='object')t.immigration={};
+ return t.immigrationProfile;
+}
+function fullEnglishDate157(d){if(!d)return '';return new Intl.DateTimeFormat('en-US',{month:'long',day:'numeric',year:'numeric',timeZone:'Asia/Tokyo'}).format(new Date(d+'T12:00:00+09:00'))}
+function stayDays157(t=T()){return Math.max(1,isoDiffDays(t.end,t.start)+1)}
+function stayNights157(t=T()){return Math.max(0,isoDiffDays(t.end,t.start))}
+function firstHotel157(t=T()){const rows=(t.hotels||[]).slice().sort((a,b)=>String(a.from).localeCompare(String(b.from)));return rows.find(h=>h.from<=t.start&&h.to>t.start)||rows.find(h=>h.from===t.start)||null}
+function cityList157(t=T()){
+ const labels={tokyo:'Tokyo',osaka:'Osaka',fuji:'Fuji / Kawaguchiko'};const out=[];
+ for(const e of t.events||[]){const m=e.discoverId?discover.entrySummary(e.discoverId):null;if(m?.city&&labels[m.city]&&!out.includes(labels[m.city]))out.push(labels[m.city]);const blob=`${e.title||''} ${e.note||''}`;if(/fuji|ฟูจิ|kawaguchiko|河口湖|富士/i.test(blob)&&!out.includes(labels.fuji))out.push(labels.fuji)}
+ if(!out.length){if(t.city==='both')out.push('Tokyo','Osaka');else if(labels[t.city])out.push(labels[t.city])}
+ return out;
+}
+function companionText157(t=T(),p=immigrationProfile157(t)){
+ const people=(t.people||[]).filter(x=>String(x||'').trim());
+ if(people.length<=1)return {en:'I am traveling alone.',reading:'ไอ แอม แทรเวลลิง อะโลน',th:'เดินทางคนเดียว'};
+ const n=people.length,rel={friend:'friends',family:'my family',partner:'my partner',colleague:'my colleagues',other:'my travel companions'}[p.companionRelation]||'my travel companions';
+ return {en:`I am traveling with ${rel}. There are ${n} people in my group.`,reading:`ไอ แอม แทรเวลลิง วิธ ${rel} · แดร์ อาร์ ${n} พีเพิล อิน มาย กรุ๊ป`,th:`เดินทางทั้งหมด ${n} คน`};
+}
+function purposeText157(p){return {tourism:{en:'I am here for tourism.',reading:'ไอ แอม เฮียร์ ฟอร์ ทัวริซึม',th:'มาท่องเที่ยว'},business:{en:'I am here for business.',reading:'ไอ แอม เฮียร์ ฟอร์ บิซิเนส',th:'มาธุรกิจ'},visit:{en:'I am visiting family or friends.',reading:'ไอ แอม วิซิททิง แฟมิลี ออร์ เฟรนด์ส',th:'มาเยี่ยมครอบครัวหรือเพื่อน'},other:p.purposeOther?{en:p.purposeOther,reading:p.purposeOther,th:'คำตอบที่กรอกเอง'}:null}[p.purpose]||null}
+function fundingText157(p){return {self:{en:'I am paying for my own trip.',reading:'ไอ แอม เพย์อิง ฟอร์ มาย โอน ทริป',th:'ออกค่าใช้จ่ายเอง'},family:{en:'My family is paying for my trip.',reading:'มาย แฟมิลี อิซ เพย์อิง ฟอร์ มาย ทริป',th:'ครอบครัวออกค่าใช้จ่าย'},company:{en:'My company is paying for my trip.',reading:'มาย คัมพะนี อิซ เพย์อิง ฟอร์ มาย ทริป',th:'บริษัทออกค่าใช้จ่าย'}}[p.funding]||null}
+function autoImmigrationAnswer157(key,t=T()){
+ const p=immigrationProfile157(t),hotel=firstHotel157(t),purpose=purposeText157(p),comp=companionText157(t,p),cities=cityList157(t),days=stayDays157(t),nights=stayNights157(t),custom=t.immigration?.[key];
+ if(custom)return {ready:true,en:custom,reading:'คำตอบที่คุณบันทึกเอง',th:'คำตอบส่วนตัว',source:'custom'};
+ if(key==='purpose'&&purpose)return {ready:true,...purpose,source:'profile'};
+ if(key==='duration')return {ready:true,en:`I will stay for ${days} days.`,reading:`ไอ วิล สเตย์ ฟอร์ ${days} เดย์ส`,th:`อยู่ ${days} วัน`,source:'trip'};
+ if(key==='nights')return {ready:true,en:`I will stay for ${nights} nights.`,reading:`ไอ วิล สเตย์ ฟอร์ ${nights} ไนต์ส`,th:`พัก ${nights} คืน`,source:'trip'};
+ if((key==='hotel'||key==='firstHotel')&&hotel)return {ready:true,en:`I will stay at ${hotel.name}.`,reading:`ไอ วิล สเตย์ แอท ${hotel.name}`,th:hotel.address||hotel.name,source:'hotel'};
+ if(key==='japanAddress'&&hotel?.address)return {ready:true,en:`I am staying at ${hotel.name}. The address is ${hotel.address}.`,reading:`ไอ แอม สเตย์อิง แอท ${hotel.name}`,th:hotel.address,source:'hotel'};
+ if((key==='hotelReservation'||key==='showHotel')&&hotel&&p.hotelBookingReady)return {ready:true,en:'Yes. Here is my hotel reservation.',reading:'เยส เฮียร์ อิซ มาย โฮเทล เรเซอร์เวชัน',th:hotel.address||hotel.name,source:'hotel'};
+ if(key==='return')return {ready:true,en:`I will leave Japan on ${fullEnglishDate157(t.end)}.`,reading:`ไอ วิล ลีฟ เจอแพน ออน ${fullEnglishDate157(t.end)}`,th:`ออกจากญี่ปุ่น ${formatDate(t.end)}`,source:'trip'};
+ if(key==='companion'||key==='companionCount')return {ready:true,...comp,source:'trip'};
+ if(key==='work'&&p.occupation)return {ready:true,en:`I work as ${p.occupation}.`,reading:`ไอ เวิร์ก แอซ ${p.occupation}`,th:p.occupation,source:'profile'};
+ if((key==='places'||key==='cities')&&cities.length)return {ready:true,en:`I plan to visit ${cities.join(', ')}.`,reading:`ไอ แพลน ทู วิซิท ${cities.join(', ')}`,th:cities.join(' · '),source:'plan'};
+ if((key==='ticket'||key==='showReturn')&&p.returnTicketReady)return {ready:true,en:'Yes. Here is my return ticket.',reading:'เยส เฮียร์ อิซ มาย รีเทิร์น ทิคเก็ต',th:p.returnFlight?`ตั๋วพร้อม · เที่ยวบิน ${p.returnFlight}`:'ระบุว่าตั๋วขากลับพร้อม',source:'profile'};
+ if(key==='returnFlight'&&p.returnFlight)return {ready:true,en:`My return flight is ${p.returnFlight}.`,reading:`มาย รีเทิร์น ไฟลต์ อิซ ${p.returnFlight}`,th:p.returnFlight,source:'profile'};
+ if(key==='arrivalFlight'&&p.arrivalFlight)return {ready:true,en:`I arrived on flight ${p.arrivalFlight}.`,reading:`ไอ อะไรฟ์ด ออน ไฟลต์ ${p.arrivalFlight}`,th:p.arrivalFlight,source:'profile'};
+ if(key==='returnCountry'&&p.returnCountry)return {ready:true,en:`I will return to ${p.returnCountry}.`,reading:`ไอ วิล รีเทิร์น ทู ${p.returnCountry}`,th:p.returnCountry,source:'profile'};
+ if(key==='previous'&&p.firstVisit==='yes')return {ready:true,en:'No. This is my first visit to Japan.',reading:'โน ดิส อิซ มาย เฟิร์สต์ วิซิท ทู เจอแพน',th:'มาญี่ปุ่นครั้งแรก',source:'profile'};
+ if(key==='previous'&&p.firstVisit==='no')return {ready:true,en:'Yes. I have visited Japan before.',reading:'เยส ไอ แฮฟ วิซิทิด เจอแพน บีฟอร์',th:'เคยมาญี่ปุ่นแล้ว',source:'profile'};
+ if((key==='funds'||key==='sponsor')&&fundingText157(p))return {ready:true,...fundingText157(p),source:'profile'};
+ if(key==='fundAmount'&&Number(p.cashJPY)>=0&&String(p.cashJPY||'')!=='')return {ready:true,en:`I am carrying about ${Number(p.cashJPY).toLocaleString('en-US')} yen.`,reading:`ไอ แอม แคร์รีอิง อะเบาท์ ${Number(p.cashJPY).toLocaleString('en-US')} เยน`,th:`เงินสดประมาณ ¥${Number(p.cashJPY).toLocaleString('en-US')}`,source:'profile'};
+ if((key==='knowAnyone'||key==='visitSomeone')&&p.knowAnyone==='no')return {ready:true,en:'No, I do not.',reading:'โน ไอ ดู น็อต',th:'ไม่มี / ไม่ได้มาเยี่ยมใคร',source:'profile'};
+ if((key==='knowAnyone'||key==='visitSomeone')&&p.knowAnyone==='yes'&&p.japanContact)return {ready:true,en:`Yes. My contact in Japan is ${p.japanContact}.`,reading:`เยส มาย คอนแทค อิน เจอแพน อิซ ${p.japanContact}`,th:p.japanContact,source:'profile'};
+ if((key==='itinerary'||key==='showPlan')&&(t.events||[]).length)return {ready:true,en:'Yes. Here is my travel itinerary.',reading:'เยส เฮียร์ อิซ มาย แทรเวล ไอทิเนอรารี',th:`มีแผน ${t.events.length} รายการในแอป`,source:'plan'};
+ if(key==='vjw'&&p.vjwStatus==='qr-ready')return {ready:true,en:'Yes. I have my Visit Japan Web QR code ready.',reading:'เยส ไอ แฮฟ มาย วิซิท เจอแพน เว็บ คิวอาร์ โค้ด เรดี',th:'Visit Japan Web QR พร้อม',source:'profile'};
+ if(key==='declare'&&p.customsDeclare==='nothing'&&p.customsReviewed)return {ready:true,en:'No. I have nothing to declare.',reading:'โน ไอ แฮฟ นัธธิง ทู ดีแคลร์',th:'ตรวจของแล้วและระบุว่าไม่มีของต้องสำแดง',source:'profile'};
+ if(key==='declare'&&p.customsDeclare==='declare'&&p.customsReviewed)return {ready:true,en:'Yes. I have items to declare.',reading:'เยส ไอ แฮฟ ไอเท็มส์ ทู ดีแคลร์',th:'มีของที่ต้องสำแดง',source:'profile'};
+ return {ready:false,en:'',reading:'',th:'ยังไม่ได้กรอกข้อมูลสำหรับคำตอบนี้',source:'missing'};
+}
+function immigrationCategory157(q){if(q[7])return q[7];if(['language','repeat','simpleEnglish','writeDown'].includes(q[0]))return 'help';return 'immigration'}
+function immigrationReadiness157(t=T()){
+ const p=immigrationProfile157(t),hotel=firstHotel157(t),checks=[
+  ['passport',!!t.checks?.passport,'พาสปอร์ต'],['purpose',!!purposeText157(p),'จุดประสงค์'],['hotel',!!hotel,'ที่พักคืนแรก'],['return',!!(p.returnFlight||p.returnTicketReady),'ตั๋ว/เที่ยวบินขากลับ'],['work',!!p.occupation,'อาชีพ'],['vjw',p.vjwStatus==='qr-ready','Visit Japan Web QR'],['customs',!!p.customsReviewed,'ทบทวนของศุลกากร']
+ ];return {checks,ready:checks.filter(x=>x[1]).length,total:checks.length};
+}
+function immigrationProfileModal157(){
+ const p=immigrationProfile157(),t=T();formModal('Immigration Profile · ข้อมูลตอบ ตม.','immigrationprofile157',`
+ <p class="note">กรอกเฉพาะข้อมูลจริง ระบบจะเอาไปสร้าง “คำตอบสั้น” ให้ซ้อม ไม่มีการส่งข้อมูลขึ้นเซิร์ฟเวอร์</p>
+ ${select('จุดประสงค์การเดินทาง','purpose',[['','ยังไม่ระบุ'],['tourism','ท่องเที่ยว'],['business','ธุรกิจ'],['visit','เยี่ยมครอบครัว / เพื่อน'],['other','อื่น ๆ']],p.purpose||'')}
+ ${p.purpose==='other'||!p.purpose?field('คำตอบจุดประสงค์ภาษาอังกฤษ (ถ้าต้องการ)','purposeOther',p.purposeOther||''):field('รายละเอียดเพิ่มเติม (ไม่จำเป็น)','purposeOther',p.purposeOther||'')}
+ <div class="grid two formgrid">${field('อาชีพภาษาอังกฤษ','occupation',p.occupation||'','text','placeholder="เช่น IT Support"')}${select('เคยมาญี่ปุ่นหรือยัง','firstVisit',[['unknown','ยังไม่ระบุ'],['yes','ครั้งแรก'],['no','เคยมาแล้ว']],p.firstVisit||'unknown')}${field('เที่ยวบินขาเข้า','arrivalFlight',p.arrivalFlight||'','text','placeholder="เช่น VZ810"')}${field('เที่ยวบินขากลับ','returnFlight',p.returnFlight||'','text','placeholder="เช่น VZ811"')}${field('ประเทศที่จะเดินทางต่อ / กลับ','returnCountry',p.returnCountry||'','text','placeholder="เช่น Thailand"')}${select('ผู้ร่วมทริป','companionRelation',[['','ยังไม่ระบุความสัมพันธ์'],['friend','เพื่อน'],['family','ครอบครัว'],['partner','คู่เดินทาง / แฟน'],['colleague','เพื่อนร่วมงาน'],['other','ผู้ร่วมทริป']],p.companionRelation||'')}${select('ใครออกค่าเดินทาง','funding',[['','ยังไม่ระบุ'],['self','ออกเอง'],['family','ครอบครัว'],['company','บริษัท']],p.funding||'')}${field('เงินสดเยนโดยประมาณ','cashJPY',p.cashJPY??'','number','min="0" step="1"')}${select('รู้จัก / มาเยี่ยมใครในญี่ปุ่นไหม','knowAnyone',[['unknown','ยังไม่ระบุ'],['no','ไม่มี'],['yes','มี']],p.knowAnyone||'unknown')}${field('ชื่อ/ความสัมพันธ์ผู้ติดต่อในญี่ปุ่น','japanContact',p.japanContact||'')}</div>
+ ${select('Visit Japan Web','vjwStatus',[['not-started','ยังไม่ทำ'],['in-progress','กำลังกรอก'],['qr-ready','กรอกแล้ว · QR พร้อม']],p.vjwStatus||'not-started')}
+ <label class="checkboxlabel"><input type="checkbox" name="hotelBookingReady" ${p.hotelBookingReady?'checked':''}>ฉันตรวจใบจองที่พักแล้วและเปิดหลักฐานได้</label>
+ <label class="checkboxlabel"><input type="checkbox" name="returnTicketReady" ${p.returnTicketReady?'checked':''}>ฉันตรวจตั๋วขากลับแล้วและเปิดหลักฐานได้</label>
+ <label class="checkboxlabel"><input type="checkbox" name="customsReviewed" ${p.customsReviewed?'checked':''}>ฉันทบทวนของในกระเป๋าสำหรับศุลกากรแล้ว</label>
+ ${select('หลังทบทวนของแล้ว','customsDeclare',[['unknown','ยังไม่สรุป'],['nothing','ไม่มีของต้องสำแดงตามข้อมูลที่ตรวจ'],['declare','มีของที่ต้องสำแดง / ต้องถามเจ้าหน้าที่']],p.customsDeclare||'unknown')}
+ <p class="note">แอปไม่ตัดสินแทนว่าของใด “ต้องสำแดง” ให้ตรวจเว็บไซต์ทางการตามของที่พกจริง</p>`);
+}
+function quickImmigrationCard157(){
+ const keys=['purpose','duration','hotel','return','work','companion','arrivalFlight','returnFlight'],labels={purpose:'Purpose',duration:'Stay',hotel:'Hotel',return:'Leave Japan',work:'Occupation',companion:'Travel with',arrivalFlight:'Arrival flight',returnFlight:'Return flight'};
+ return `<div class="imm-quick157">${keys.map(k=>{const a=autoImmigrationAnswer157(k);return `<div class="${a.ready?'ready':'missing'}"><span>${esc(labels[k])}</span><b>${a.ready?esc(a.en):'ยังไม่ได้กรอก'}</b>${a.ready?`<small>${esc(a.th)}</small>`:'<small>แตะ “แก้ข้อมูลคำตอบ” เพื่อเติม</small>'}</div>`}).join('')}</div>`;
+}
+function immigrationQuestionRows157(){
+ const rows=immigrationQA.map((q,i)=>({q,i})).filter(({q})=>immigrationFilter157==='all'||immigrationCategory157(q)===immigrationFilter157);
+ return rows.map(({q,i})=>{const a=autoImmigrationAnswer157(q[0]),cat=immigrationCategory157(q);return `<details class="qa-card imm-qa157"><summary><span class="qa-number">${String(i+1).padStart(2,'0')}</span><span>${esc(q[1])}<small lang="en">${esc(q[2])}</small></span><i class="imm-cat157">${cat==='customs'?'ศุลกากร':cat==='help'?'ช่วยสื่อสาร':'ตม.'}</i></summary><div class="qa-body"><span class="language-label">คำอ่านคำถาม</span><p class="reading">${esc(q[3])}</p>${a.ready?`<div class="my-answer imm-personal157"><span class="language-label">คำตอบจากทริปของคุณ</span><p lang="en">${esc(a.en)}</p><p class="reading">${esc(a.reading)}</p><small>${esc(a.th)}</small></div>`:`<div class="imm-missing-answer157"><b>ยังไม่มีคำตอบส่วนตัว</b><span>${esc(q[6])}</span></div>`}<details class="imm-example157"><summary>ดูตัวอย่างกลาง</summary><div class="answer-box"><p lang="en">${esc(q[4])}</p><p class="reading">${esc(q[5])}</p><p class="note">${esc(q[6])}</p></div></details><div class="flex">${btn('ซ้อมข้อนี้','coachpracticeone157','small',`data-key="${esc(q[0])}"`)}${btn('เขียนคำตอบเอง','qaedit','small',`data-qa="${i}"`)}</div></div></details>`}).join('');
+}
+immigrationView=function(){
+ const t=T(),p=immigrationProfile157(t),r=immigrationReadiness157(t),nrt=t.airport==='nrt';
+ return `<section class="imm-hero157"><div><span class="eyebrow">IMMIGRATION COACH · v1.5.7</span><h2>ซ้อม ตม. ให้ตอบสั้น ตรง และตรงกับเอกสาร</h2><p>ระบบใช้วันเดินทาง โรงแรม แผนเที่ยว และข้อมูลที่คุณกรอก เพื่อช่วยเตรียมคำตอบ — ถ้าข้อมูลยังไม่มี จะไม่แต่งให้เอง</p></div><div class="imm-score157"><b>${r.ready}/${r.total}</b><span>ข้อมูลพร้อม</span></div></section>
+ <div class="notice">นี่คือเครื่องมือซ้อมภาษาและจัดข้อมูล ไม่ใช่รายการคำถามตายตัวหรือการรับรองผ่านเข้าเมือง เจ้าหน้าที่อาจถามต่างออกไป ให้ตอบตามจริงเสมอ</div>
+ <section class="imm-actions157">${btn('▶ ซ้อม ตม. 8 วินาที','practiceimmigration157','primary')}${btn('🧳 ซ้อมศุลกากร','practicecustoms157','soft')}${btn('🎲 สุ่มผสม','practicemixed157','soft')}${btn('✎ แก้ข้อมูลคำตอบ','immigrationprofile157')}</section>
+ <section class="card imm-ready157"><div class="cardhead"><div><span class="eyebrow">QUICK ANSWER CARD</span><h2>คำตอบที่ควรพูดได้ทันที</h2></div>${btn('คัดลอกไว้ท่อง','immigrationcopy157','small')}</div>${quickImmigrationCard157()}</section>
+ <div class="grid cols imm-layout157"><div><div class="cardhead"><h2>คลังคำถามฝึกตอบ</h2><span class="pill">${immigrationQA.length} หัวข้อ</span></div><div class="categoryrail imm-filter157">${Object.entries(IMMIGRATION_FILTERS_157).map(([v,l])=>`<button class="category ${immigrationFilter157===v?'selected':''}" data-action="immigrationfilter157" data-filter="${v}">${l}</button>`).join('')}</div>${immigrationQuestionRows157()}</div>
+ <div><section class="card gap imm-check157"><h2>ก่อนเข้าคิว</h2>${r.checks.map(([k,ok,label])=>`<div class="row"><span>${ok?'✅':'○'} ${esc(label)}</span><b>${ok?'พร้อม':'ยังขาด'}</b></div>`).join('')}${btn('แก้ข้อมูลคำตอบ','immigrationprofile157','full soft')}<button class="btn full" data-page="trip">เปิดเอกสาร / ที่พัก</button></section>
+ <section class="card gap"><span class="eyebrow">ARRIVAL FLOW</span><h2>ตม. ≠ ศุลกากร</h2><ol class="imm-flow157"><li><b>入国審査 · Immigration</b><span>พาสปอร์ต · ข้อมูลเข้าเมือง · อาจมีสัมภาษณ์ พร้อมเก็บลายนิ้วมือและภาพใบหน้าสำหรับผู้ที่ไม่เข้าข้อยกเว้น</span></li><li><b>Baggage Claim</b><span>รับกระเป๋าและตรวจสัมภาระ</span></li><li><b>税関 · Customs</b><span>สำแดงของตามจริง ใช้ Visit Japan Web / จุดบริการตามที่สนามบินกำหนด</span></li></ol>${nrt?'<p class="notice">Narita T1/T2 เริ่มใช้ Joint Kiosk สำหรับขั้นตอนเข้าเมือง/ศุลกากรบางส่วนใน ก.ย. 2026 — หน้างานให้ตามป้ายและเจ้าหน้าที่ของอาคารที่เดินทางถึง</p>':''}</section>
+ <section class="card gap"><h2>Visit Japan Web</h2><p>กรอกข้อมูลผู้เดินทาง → กำหนดการเข้า → ข้อมูล入国審査/税関 → เปิด QR ตอนถึงญี่ปุ่น</p><div class="flex"><a class="btn primary" href="https://www.vjw.digital.go.jp/" target="_blank" rel="noopener">เปิด Visit Japan Web ↗</a><a class="btn" href="https://services.digital.go.jp/visit-japan-web/guide/" target="_blank" rel="noopener">คู่มือทางการ ↗</a></div><p class="note">ตรวจข้อมูลทางการ 2 ต.ค. 2026 · เปิด QR ให้พร้อมก่อนถึงจุดตรวจ และทำตามหน้าจอ/เจ้าหน้าที่ ณ สนามบิน</p></section>
+ <section class="card gap"><h2>แหล่งข้อมูลทางการ</h2><p class="note"><a href="https://www.moj.go.jp/isa/immigration/procedures/zyouriku_00001.html" target="_blank" rel="noopener">Immigration Services Agency · Landing procedures</a><br><a href="https://www.customs.go.jp/kaigairyoko/pilot_kiosk.html" target="_blank" rel="noopener">Japan Customs · Joint Kiosk</a><br><a href="https://www.customs.go.jp/kaigairyoko/egate/egate_leaflet_e.pdf" target="_blank" rel="noopener">Japan Customs · Visit Japan Web / electronic declaration</a></p></section></div></div>`;
+};
+
+function practicePool157(mode){return immigrationQA.filter(q=>mode==='mixed'?immigrationCategory157(q)!=='help':immigrationCategory157(q)===mode)}
+function stopPracticeTimer157(){if(practiceTimer157){clearInterval(practiceTimer157);practiceTimer157=null}}
+function practiceQuestion157(key,reveal=false){
+ stopPracticeTimer157();const q=immigrationQA.find(x=>x[0]===key)||practicePool157(practiceMode157)[0];if(!q)return;practiceKey157=q[0];const a=autoImmigrationAnswer157(q[0]),cat=immigrationCategory157(q);
+ modal(cat==='customs'?'Customs Practice':'Immigration Practice',`<div class="practice157"><div class="practice157-top"><span>${cat==='customs'?'CUSTOMS':'IMMIGRATION'} · ตอบสั้นและตามจริง</span><b id="practiceTimer157">8</b></div><h2 lang="en">${esc(q[2])}</h2><p class="reading">${esc(q[3])}</p>${reveal?`<section class="practice-answer157 ${a.ready?'ready':'missing'}"><span>${a.ready?'คำตอบจากข้อมูลทริป':'ยังไม่มีคำตอบส่วนตัว'}</span><h3 lang="en">${esc(a.ready?a.en:q[4])}</h3><p class="reading">${esc(a.ready?a.reading:q[5])}</p><small>${esc(a.ready?a.th:q[6])}</small></section>`:'<div class="practice-wait157">ลองตอบออกเสียงก่อน แล้วค่อยเปิดคำตอบ</div>'}<div class="practice-actions157">${btn('🔊 ฟังคำถาม','speakcoach157','soft',`data-text="${esc(q[2])}"`)}${!reveal?btn('ดูคำตอบ','coachreveal157','primary'):btn('ข้อต่อไป →','coachnext157','primary')}${btn('เขียนคำตอบเอง','qaedit','soft',`data-qa="${immigrationQA.indexOf(q)}"`)}</div><p class="note">หมดเวลาไม่ได้แปลว่าตอบผิด เป้าหมายคือฝึกให้หยิบข้อมูลจริงขึ้นมาตอบได้เร็วขึ้น</p></div>`);
+ if(!reveal){let left=8;practiceTimer157=setInterval(()=>{left--;const el=$('#practiceTimer157');if(el)el.textContent=left>0?left:'0';if(left<=0)stopPracticeTimer157()},1000)}
+}
+function startPractice157(mode='immigration'){practiceMode157=mode;const pool=practicePool157(mode);if(!pool.length)return;const q=pool[Math.floor(Math.random()*pool.length)];practiceQuestion157(q[0],false)}
+function nextPractice157(){const pool=practicePool157(practiceMode157).filter(q=>q[0]!==practiceKey157),q=pool[Math.floor(Math.random()*pool.length)]||practicePool157(practiceMode157)[0];if(q)practiceQuestion157(q[0],false)}
+function immigrationCopyText157(){const keys=['purpose','duration','hotel','return','work','companion','arrivalFlight','returnFlight'];return keys.map(k=>autoImmigrationAnswer157(k)).filter(x=>x.ready).map(x=>x.en).join('\n')}
+
+function bookingURL157(e){const own=String(e.bookingURL||'').trim();if(/^https?:\/\//i.test(own))return own;const m=e.discoverId?discover.entrySummary(e.discoverId):null;return /^https?:\/\//i.test(String(m?.bookingURL||''))?m.bookingURL:''}
+function bookingTypeLabel157(e){return BOOKING_TYPES_157[e.bookingType]||BOOKING_TYPES_157.other}
+function cancellationStamp157(e){if(!e.cancellationDate)return '';return `${formatDate(e.cancellationDate)}${e.cancellationTime?' · '+e.cancellationTime:''}`}
+function bookingDetailsModal157(id){
+ const e=T().events.find(x=>x.id===id);if(!e){toast('ไม่พบรายการ');return}const url=bookingURL157(e);
+ formModal('Booking Details · '+e.title,'bookingdetailform157',`<input type="hidden" name="id" value="${esc(e.id)}"><div class="booking-detail-intro157"><span>${bookingLabels[bookingState130(e)]}</span><b>${esc(e.title)}</b><small>${formatDate(e.date)}${e.entryTime?' · เข้า '+esc(e.entryTime):''}</small></div>${select('ประเภทการจอง','bookingType',Object.entries(BOOKING_TYPES_157),e.bookingType||'other')}<div class="grid two formgrid">${field('ผู้ให้บริการ / ร้าน / Platform','bookingProvider',e.bookingProvider||'')}${field('Booking No. / Confirmation','bookingCode',e.bookingCode||'')}${field('จำนวนคน','partySize',e.partySize??T().people.length,'number','min="1" max="99" step="1"')}${field('ราคาประมาณ (เยน)','bookingPriceYen',e.bookingPriceYen??'','number','min="0" step="1"')}${select('การชำระเงิน','bookingPayment',Object.entries(BOOKING_PAYMENTS_157),e.bookingPayment||'unknown')}${field('ควรไปถึงก่อน (นาที)','arrivalBufferMin',e.arrivalBufferMin??10,'number','min="0" max="240" step="5"')}${field('ยกเลิก/แก้ไขได้ถึงวันที่ (ถ้ามี)','cancellationDate',e.cancellationDate||'','date')}${field('เวลา deadline ญี่ปุ่น','cancellationTime',e.cancellationTime||'','time')}</div>${field('ลิงก์การจอง / Official URL','bookingURL',url,'url','placeholder="https://..."')}${textarea('หมายเหตุการจอง / เงื่อนไขสำคัญ','bookingNotes',e.bookingNotes||'')}<p class="note">เวลา deadline และเงื่อนไขเป็นข้อมูลที่คุณบันทึกเอง แอปไม่ตรวจนโยบายคืนเงินกับผู้ให้บริการอัตโนมัติ</p><div class="flex">${btn('แก้สถานะ / เวลาเข้าชม','eventedit','soft',`data-id="${esc(e.id)}"`)}${e.ticketFileId?btn('เปิดตั๋ว','docopen','soft',`data-id="${esc(e.ticketFileId)}"`):btn('แนบตั๋วหลังบันทึก','ticketadd','soft',`data-id="${esc(e.id)}"`)}</div>`);
+}
+function bookingMeta157(e){const bits=[];if(e.bookingProvider)bits.push(e.bookingProvider);if(e.bookingCode)bits.push('No. '+e.bookingCode);if(Number(e.partySize)>0)bits.push(`${e.partySize} คน`);if(e.bookingPriceYen!==''&&e.bookingPriceYen!=null&&Number.isFinite(Number(e.bookingPriceYen)))bits.push(jpy(Number(e.bookingPriceYen)));if(e.bookingPayment&&e.bookingPayment!=='unknown')bits.push(BOOKING_PAYMENTS_157[e.bookingPayment]);return bits}
+function bookingHub157(){
+ const t=T(),s=bookingStats130(t),focus=focusTripDate130(t),rows=(t.events||[]).filter(e=>bookingState130(e)!=='wish').slice().sort((a,b)=>(a.date+(a.entryTime||a.time||'99:99')).localeCompare(b.date+(b.entryTime||b.time||'99:99'))),todayRows=rows.filter(e=>e.date===focus&&['need','booked'].includes(bookingState130(e))),deadlines=rows.filter(e=>e.cancellationDate&&e.cancellationDate>=today()).sort((a,b)=>(a.cancellationDate+(a.cancellationTime||'23:59')).localeCompare(b.cancellationDate+(b.cancellationTime||'23:59')));
+ const row=e=>{const meta=e.discoverId?discover.entrySummary(e.discoverId):null,url=bookingURL157(e),bits=bookingMeta157(e);return `<article class="booking-row157"><div><div class="booking-row-head157"><span class="booking-chip booking-${bookingState130(e)}">${bookingLabels[bookingState130(e)]}</span><small>${formatDate(e.date)}${e.entryTime?' · '+esc(e.entryTime):''}</small></div><h3>${esc(e.title)}</h3><p>${esc(bits.join(' · ')||meta?.reservationLabel||'ยังไม่มีรายละเอียดการจอง')}</p>${e.cancellationDate?`<small class="booking-deadline157">แก้/ยกเลิกตามที่บันทึก: ${esc(cancellationStamp157(e))}</small>`:''}</div><div class="hub-actions">${url?`<a class="btn small" href="${esc(url)}" target="_blank" rel="noopener">Booking ↗</a>`:''}${e.ticketFileId?btn('🎟 ตั๋ว','docopen','small',`data-id="${esc(e.ticketFileId)}"`):''}${btn('รายละเอียด','bookingdetails157','small',`data-id="${esc(e.id)}"`)}</div></article>`};
+ modal('Booking Hub 2.0',`<div class="hub-summary"><div><b>${s.groups.need.length}</b><span>ต้องจอง</span></div><div><b>${s.groups.booked.length}</b><span>จองแล้ว</span></div><div><b>${s.tickets.length}</b><span>มีตั๋ว</span></div></div>${todayRows.length?`<section class="booking-today157"><span class="eyebrow">FOCUS DAY · ${formatDate(focus)}</span><h3>วันนี้ต้องหยิบอะไรบ้าง</h3>${todayRows.map(row).join('')}</section>`:''}${s.groups.need.length?`<h3 class="subhead">ต้องจัดการ</h3>${s.groups.need.map(row).join('')}`:''}${s.suggested.length?`<h3 class="subhead">ข้อมูลสถานที่แนะนำให้เช็กการจอง</h3>${s.suggested.map(row).join('')}`:''}${s.groups.booked.length?`<h3 class="subhead">จองแล้ว</h3>${s.groups.booked.map(row).join('')}`:''}${deadlines.length?`<h3 class="subhead">Deadline ที่คุณบันทึกไว้</h3>${deadlines.slice(0,8).map(e=>`<div class="hub-row"><div><b>${esc(e.title)}</b><span>${esc(cancellationStamp157(e))}</span></div>${btn('เปิด','bookingdetails157','small',`data-id="${esc(e.id)}"`)}</div>`).join('')}`:''}<p class="note">สถานะและ deadline เป็นข้อมูลที่คุณบันทึกเอง แอปไม่ได้เช็กระบบจองหรือเงื่อนไขคืนเงินสดกับผู้ให้บริการ</p>`);
+}
+async function ticketWallet157(){
+ try{const files=await dbCall('getAll'),map=new Map(files.map(f=>[f.id,f])),focus=focusTripDate130(),all=(T().events||[]).filter(e=>bookingState130(e)==='booked'||e.ticketFileId).slice().sort((a,b)=>(a.date+(a.entryTime||a.time||'99:99')).localeCompare(b.date+(b.entryTime||b.time||'99:99'))),withTicket=all.filter(e=>e.ticketFileId),todayTickets=withTicket.filter(e=>e.date===focus),missing=all.filter(e=>bookingState130(e)==='booked'&&!e.ticketFileId&&e.date>=focus);
+ const card=e=>{const f=map.get(e.ticketFileId),image=f?.type?.startsWith('image/')&&f.data,bits=bookingMeta157(e);return `<article class="wallet-ticket wallet-ticket157">${image?`<button class="ticket-preview" data-action="docopen" data-id="${esc(e.ticketFileId)}"><img src="${esc(f.data)}" alt="ตั๋ว ${esc(e.title)}"></button>`:`<div class="ticket-pdf">${icon('file')}<span>PDF / FILE</span></div>`}<div class="wallet-ticket-body"><span>${esc(formatDate(e.date))}${e.entryTime?` · ${esc(e.entryTime)}`:''}</span><h3>${esc(e.title)}</h3><p>${esc(bits.join(' · ')||e.ticketName||f?.name||'ตั๋วที่แนบไว้')}</p>${e.bookingCode?`<div class="booking-code157"><small>BOOKING NO.</small><b>${esc(e.bookingCode)}</b>${btn('คัดลอก','copybooking157','small',`data-code="${esc(e.bookingCode)}"`)}</div>`:''}<div class="flex">${btn('เปิดตั๋ว','docopen','small primary',`data-id="${esc(e.ticketFileId)}"`)}${btn('รายละเอียด','bookingdetails157','small',`data-id="${esc(e.id)}"`)}</div></div></article>`};
+ modal('Ticket Wallet 2.0',`${todayTickets.length?`<section class="ticket-today157"><span class="eyebrow">TODAY / FOCUS DAY</span><h3>${formatDate(focus)} · ใช้ ${todayTickets.length} ใบ</h3><div class="ticket-wallet">${todayTickets.map(card).join('')}</div></section>`:''}${withTicket.length?`<h3 class="subhead">ตั๋วทั้งหมด</h3><div class="ticket-wallet">${withTicket.map(card).join('')}</div>`:`<div class="health-empty">🎟<h3>ยังไม่มีตั๋วใน Wallet</h3><p>จองรายการ → แนบภาพหรือ PDF แล้วตั๋วจะมาอยู่ที่นี่</p></div>`}${missing.length?`<h3 class="subhead">จองแล้ว แต่ยังไม่มีไฟล์</h3>${missing.map(e=>`<div class="hub-row"><div><b>${esc(e.title)}</b><span>${formatDate(e.date)}</span></div>${btn('จัดการ','bookingdetails157','small',`data-id="${esc(e.id)}"`)}</div>`).join('')}`:''}<p class="note">ไฟล์อยู่ในอุปกรณ์นี้ ไม่ซิงก์ขึ้นเซิร์ฟเวอร์อัตโนมัติ ควร Export Backup ก่อนเดินทาง</p>`)
+ }catch{toast('เปิด Ticket Wallet ไม่สำเร็จ')}
+}
+bookingHub130=bookingHub157;
+ticketWallet140=ticketWallet157;
+
+const smartIssuesBefore157=smartIssues140;
+smartIssues140=function(t=T()){
+ const s=smartIssuesBefore157(t),focus=focusTripDate130(t),r=immigrationReadiness157(t),daysTo=isoDiffDays(t.start,today()),p=immigrationProfile157(t);
+ if(today()<=t.start&&r.ready<r.total){s.issues.push({level:daysTo<=14?'warn':'info',priority:daysTo<=14?3:8,icon:'🛂',title:`เตรียม ตม. ${r.ready}/${r.total}`,text:'เติมคำตอบสั้น ที่พัก เที่ยวบินกลับ และ Visit Japan Web ให้พร้อม',action:'immigration157'})}
+ const deadlines=(t.events||[]).filter(e=>e.cancellationDate&&bookingState130(e)==='booked'&&e.cancellationDate>=today()).sort((a,b)=>a.cancellationDate.localeCompare(b.cancellationDate));
+ const soon=deadlines.find(e=>isoDiffDays(e.cancellationDate,today())<=2);if(soon)s.issues.push({level:'warn',priority:2,icon:'⏳',title:'มี Booking deadline ใกล้ถึง',text:`${soon.title} · ${cancellationStamp157(soon)}`,action:'bookingdetails157',eventId:soon.id,date:soon.date});
+ s.immigrationReadiness=r;s.immigrationProfile=p;return s;
+};
+
+// Smart Alert actions that target a specific booking/event need the event id.
+const issueActionAttrsBefore157=issueActionAttrs150;
+issueActionAttrs150=function(issue,focus){
+ if(issue?.eventId)return `data-id="${esc(issue.eventId)}"`;
+ return issueActionAttrsBefore157(issue,focus);
+};
+
+// Plan cards: expose Booking Details without changing the proven itinerary layout.
+const eventRowsBefore157=eventRows109;
+eventRows109=function(events){
+ const html=eventRowsBefore157(events),box=document.createElement('div');box.innerHTML=html;
+ box.querySelectorAll('article.event-card').forEach((card,i)=>{const list=events.slice().sort((a,b)=>{const ao=Number.isFinite(a.order)?a.order:1e9,bo=Number.isFinite(b.order)?b.order:1e9;if(ao!==bo)return ao-bo;return String(a.time||'99:99').localeCompare(String(b.time||'99:99'))}),e=list[i],actions=card.querySelector('.event-route-actions');if(!e||!actions)return;actions.insertAdjacentHTML('afterbegin',btn(e.bookingCode?'Booking '+esc(e.bookingCode):'Booking','bookingdetails157','small',`data-id="${esc(e.id)}"`))});
+ return box.innerHTML;
+};
+eventRows=eventRows109;
+
+// Live Trip: surface booking number and use user-defined arrival buffer in the
+// leave-time calculation (the calculation above now reads arrivalBufferMin).
+const liveTripBefore157=liveTrip140;
+liveTrip140=function(){
+ const m=currentTripMoment140(),next=m.next;liveTripBefore157();if(!next)return;const body=$('#modalbody .live150');if(!body)return;
+ const bits=bookingMeta157(next),url=bookingURL157(next);if(!bits.length&&!next.bookingNotes&&!next.bookingCode&&!url)return;
+ const card=`<section class="live-booking157"><div><span>BOOKING</span><b>${esc(next.bookingCode||bookingTypeLabel157(next))}</b></div>${bits.length?`<p>${esc(bits.join(' · '))}</p>`:''}${next.bookingNotes?`<small>${esc(next.bookingNotes)}</small>`:''}<div class="flex">${url?`<a class="btn small" href="${esc(url)}" target="_blank" rel="noopener">Booking ↗</a>`:''}${btn('รายละเอียด','bookingdetails157','small',`data-id="${esc(next.id)}"`)}</div></section>`;
+ body.querySelector('.live150-next')?.insertAdjacentHTML('afterend',card);
+};
+
+async function copyText157(text){
+ if(!text)return false;
+ try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);return true}}catch{}
+ try{const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();const ok=document.execCommand('copy');ta.remove();return !!ok}catch{return false}
+}
+
+// Actions for v1.5.7.
+document.addEventListener('click',async e=>{
+ const b=e.target.closest('button');if(!b)return;const a=b.dataset.action;
+ if(!['immigrationprofile157','immigrationfilter157','practiceimmigration157','practicecustoms157','practicemixed157','coachpracticeone157','coachreveal157','coachnext157','speakcoach157','immigrationcopy157','bookingdetails157','copybooking157','immigration157'].includes(a))return;
+ e.preventDefault();e.stopImmediatePropagation();
+ try{
+  if(a==='immigration157'){travelTab='immigration';go('travel');return}
+  if(a==='immigrationprofile157'){immigrationProfileModal157();return}
+  if(a==='immigrationfilter157'){immigrationFilter157=b.dataset.filter||'immigration';render();return}
+  if(a==='practiceimmigration157'){startPractice157('immigration');return}
+  if(a==='practicecustoms157'){startPractice157('customs');return}
+  if(a==='practicemixed157'){startPractice157('mixed');return}
+  if(a==='coachpracticeone157'){practiceMode157=immigrationCategory157(immigrationQA.find(q=>q[0]===b.dataset.key)||immigrationQA[0]);practiceQuestion157(b.dataset.key,false);return}
+  if(a==='coachreveal157'){practiceQuestion157(practiceKey157,true);return}
+  if(a==='coachnext157'){nextPractice157();return}
+  if(a==='speakcoach157'){if('speechSynthesis'in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(b.dataset.text||'');u.lang='en-US';u.rate=.88;speechSynthesis.speak(u)}else toast('เบราว์เซอร์นี้ไม่มีเสียงอ่านระบบ');return}
+  if(a==='immigrationcopy157'){const text=immigrationCopyText157();if(!text){toast('ยังไม่มีคำตอบพร้อมคัดลอก');return}toast(await copyText157(text)?'คัดลอก Quick Answer แล้ว':'เบราว์เซอร์นี้ไม่อนุญาตให้คัดลอกอัตโนมัติ');return}
+  if(a==='bookingdetails157'){bookingDetailsModal157(b.dataset.id);return}
+  if(a==='copybooking157'){toast(await copyText157(b.dataset.code||'')?'คัดลอก Booking No. แล้ว':'เบราว์เซอร์นี้ไม่อนุญาตให้คัดลอกอัตโนมัติ');return}
+ }catch(err){toast(err.message||'ทำรายการไม่สำเร็จ')}
+},true);
+
+document.addEventListener('submit',e=>{
+ const f=e.target;if(!['immigrationprofile157','bookingdetailform157'].includes(f?.id))return;e.preventDefault();e.stopImmediatePropagation();const v=Object.fromEntries(new FormData(f));
+ try{
+  if(f.id==='immigrationprofile157'){
+   const p=immigrationProfile157();Object.assign(p,{purpose:v.purpose||'',purposeOther:String(v.purposeOther||'').trim(),occupation:String(v.occupation||'').trim(),firstVisit:v.firstVisit||'unknown',arrivalFlight:String(v.arrivalFlight||'').trim(),returnFlight:String(v.returnFlight||'').trim(),returnCountry:String(v.returnCountry||'').trim(),companionRelation:v.companionRelation||'',funding:v.funding||'',cashJPY:v.cashJPY===''?'':Math.max(0,Number(v.cashJPY)||0),knowAnyone:v.knowAnyone||'unknown',japanContact:String(v.japanContact||'').trim(),vjwStatus:v.vjwStatus||'not-started',hotelBookingReady:!!f.elements.hotelBookingReady?.checked,returnTicketReady:!!f.elements.returnTicketReady?.checked,customsReviewed:!!f.elements.customsReviewed?.checked,customsDeclare:v.customsDeclare||'unknown',updatedAt:new Date().toISOString()});
+   if(!save())throw Error('บันทึกลงเครื่องไม่ได้');$('#modal').close();render();toast('บันทึกข้อมูลเตรียม ตม. แล้ว');return;
+  }
+  const ev=T().events.find(x=>x.id===v.id);if(!ev)throw Error('ไม่พบรายการในแผน');const party=Number(v.partySize),price=v.bookingPriceYen===''?null:Number(v.bookingPriceYen),buffer=Number(v.arrivalBufferMin);
+  if(!Number.isInteger(party)||party<1||party>99)throw Error('จำนวนคนต้องอยู่ระหว่าง 1–99');if(price!==null&&(!Number.isFinite(price)||price<0))throw Error('ราคาต้องไม่ติดลบ');if(!Number.isFinite(buffer)||buffer<0||buffer>240)throw Error('เวลาเผื่อต้องอยู่ระหว่าง 0–240 นาที');if(v.bookingURL&&!/^https?:\/\//i.test(v.bookingURL))throw Error('ลิงก์การจองต้องขึ้นต้นด้วย http:// หรือ https://');
+  Object.assign(ev,{bookingType:BOOKING_TYPES_157[v.bookingType]?v.bookingType:'other',bookingProvider:String(v.bookingProvider||'').trim(),bookingCode:String(v.bookingCode||'').trim(),partySize:party,bookingPriceYen:price,bookingPayment:BOOKING_PAYMENTS_157[v.bookingPayment]?v.bookingPayment:'unknown',arrivalBufferMin:buffer,cancellationDate:v.cancellationDate||'',cancellationTime:v.cancellationTime||'',bookingURL:String(v.bookingURL||'').trim(),bookingNotes:String(v.bookingNotes||'').trim(),bookingUpdatedAt:new Date().toISOString()});
+  if(!save())throw Error('บันทึกลงเครื่องไม่ได้');$('#modal').close();render();toast('บันทึก Booking Details แล้ว');
+ }catch(err){toast(err.message||'บันทึกไม่สำเร็จ')}
+},true);
+
+// Keep the practice timer tidy when the dialog is closed by Esc/backdrop.
+$('#modal')?.addEventListener('close',stopPracticeTimer157);
+
+save();render();
